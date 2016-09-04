@@ -2,537 +2,957 @@ module RPG
   
   class Skill
     attr_accessor :UK_name
+    attr_accessor :UK_description
     def UK_name
-      
-      case @id
-      
-#■Actor base skills
-when 2   #服を脱がす
-   return "Strip"
-when 4   #服を脱ぐ
-   return "Undress"
-when 5   #シェルマッチ
-   return "Scissors"
-when 6   #インサート
-   return "Insert"
-when 7   #オーラルインサート
-   return "Oral Insert"
-when 8   #バックインサート
-   return "Anal Insert"
-when 9   #トーク
-   return "Talk"
-when 10   #トークレジスト
-   return "Sweet Talk"
-when 13   #アクセプト
-   return "Accept"
-when 14   #オーラルアクセプト
-   return "Oral Accept"
-when 15   #バックアクセプト
-   return "Anal Accept"
-when 16   #ドロウネクター
-   return "Nectar Draw"
-when 17   #エンブレイス
-   return "Embrace"
-when 18   #エキサイトビュー
-   return "Facesit"
-when 20   #ディルドインサート
-   return "Dildo Insert"
-when 21   #ディルドインマウス
-   return "Oral Dildo Insert"
-when 22   #ディルドインバック
-   return "Anal Dildo Insert"
-when 25   #デモンズアブソーブ
-   return "Feeler Suck-in"
-when 26   #デモンズドロウ
-   return "Feeler Insert"
-when 28   #インタラプト
-   return "Interrupt"
-when 29   #リリース
-   return "Release"
-when 30   #ストラグル
-   return "Struggle"
-   
-   #■♂techniques
-when 32   #スウィング
-   return "Thrust"
-when 33   #ヘヴィスウィング
-   return "Piston"
-when 34   #ディルドスウィング
-   return "Strapon Thrust"
-when 35   #ラビングピストン
-   return "Chest Frottage"
-when 37   #オーラルピストン
-   return "Oral Piston"
-when 38   #オーラルディルド
-   return "Oral Dildo"
-when 41   #バックピストン
-   return "Anal Thrust"
-when 42   #バックディルド
-   return "Anal Dildo"
-
-   #■♀techniques
-when 47   #グラインド
-   return "Grind"
-when 48   #ハードグラインド
-   return "Wild Grind"
-when 50   #タイトクロッチ
-   return "Tighten"
-when 52   #スクラッチ
-   return "Tribadism"
-when 53   #ハードスクラッチ
-   return "Rubdown"
-when 55   #ライディング
-   return "Facerub"
-when 56   #プッシング
-   return "Facepress"
-   
-   #■Oral techniques
-
-when 58   #スロート
-   return "Blowjob"
-when 59   #ディープスロート
-   return "Deepthroat"
-when 60   #ドロウスロート
-   return "Throat Draw"
-when 61   #サック
-   return "Lick"
-   
-   #■Anal techniques
-   
-when 64   #スクイーズ
-   return "Squeeze"
-when 67   #タイトホール
-   return "Tighten"
-   
-   #■Hold counters
-      
-when 71   #リック
-   return "Lick Offering"
-when 72   #リック
-   return "Clean Offering"
-when 73   #ミスチーフ
-   return "Tickle"
-when 74   #リアカレス
-   return "Caress"
-when 79   #レックレス
-   return "Squirm"
-   
-   #■Actor attacks
-
-when 81   #キッス
-   return "Kiss"
-when 82   #バスト
-   return "Chest"
-when 83   #ヒップ
-   return "Hips"
-when 84   #クロッチ
-   return "Crotch"
-when 85   #カレス
-   return "Caress"
-   
-   #■Partner attacks
-
-when 87   #キッス
-   return "Kiss"
-when 91   #ツーパフ
-   return "Chest Press"
-when 101   #ティーズ
-   return "Tease"
-when 102   #ミスチーフ（没）
-   return "Tease Out"
-when 103   #ファストレイド
-   return "Quick Raid"
-when 104   #トリックレイド
-   return "Trick Raid"
-when 106   #ディバウアー
-   return "Devour"
-when 111   #プレジャー
-   return "Self-Pleasure"
-   
-   #■Actor support techniques
-
-when 121   #ブレス
-   return "Breath"
-when 122   #カームブレス
-   return "Calm Breath"
-when 123   #ウェイト
-   return "Wait"
-when 124   #イントラスト
-   return "Entrust"
-when 125   #リフレッシュ
-   return "Refresh"
-when 126   #チェック
-   return "Check"
-when 127   #アナライズ
-   return "Analyze"
-when 135   #ストリップ
-   return "Team Strip"
-when 140   #テンプテーション
-   return "Temptation"
-when 145   #ガード
-   return "Guard"
-when 146   #インデュア
-   return "Endure"
-when 148   #アピール
-   return "Appeal"
-when 149   #プロヴォーク
-   return "Provoke"
-
-   #■Succubi common magic
-
-when 161   #イリスシード
-   return "Iris Seed"
-when 162   #イリスペタル
-   return "Iris Petal"
-when 163   #イリスフラウ
-   return "Iris Aura "
-when 164   #イリスコロナ
-   return "Iris Corona"
-when 165   #イリスシード・アルダ
-   return "Iris Seed - All "
-when 166   #イリスペタル・アルダ
-   return "Iris Petal - All"
-when 167   #イリスフラウ・アルダ
-   return "Iris Aura - All "
-when 171   #ラナンブルム
-   return "Lanan Bloom"
-when 172   #ラナンブルム・アルダ
-   return "Lanan Bloom - All"
-when 173   #ラナンイーザ
-   return "Lananize"
-when 174   #ラナンイーザ・アルダ
-   return "Lananize - All"
-when 175   #ネリネブルム
-   return "Neline Bloom"
-when 176   #ネリネブルム・アルダ
-   return "Neline Bloom - All"
-when 177   #ネリネイーザ
-   return "Nelinaze"
-when 178   #ネリネイーザ・アルダ
-   return "Nelinaze - All"
-when 179   #エルダブルム
-   return "Elder Bloom"
-when 180   #エルダブルム・アルダ
-   return "Elder Bloom - All"
-when 181   #エルダイーザ
-   return "Elderize"
-when 182   #エルダイーザ・アルダ
-   return "Elderize - All"
-when 183   #サフラブルム
-   return "Saffron Bloom"
-when 184   #サフラブルム・アルダ
-   return "Saffron Bloom - All"
-when 185   #サフライーザ
-   return "Saffrize"
-when 186   #サフライーザ・アルダ
-   return "Saffrize - All"
-when 187   #コリオブルム
-   return "Kurio Bloom"
-when 188   #コリオブルム・アルダ
-   return "Kurio Bloom - All"
-when 189   #コリオイーザ
-   return "Kuriolize "
-when 190   #コリオイーザ・アルダ
-   return "Kuriolize - All "
-when 191   #アスタブルム
-   return "Aster Bloom"
-when 192   #アスタブルム・アルダ
-   return "Aster Bloom - All "
-when 193   #アスタイーザ
-   return "Asterize"
-when 194   #アスタイーザ・アルダ
-   return "Asterize - All"
-when 195   #ストレリブルム
-   return "Storm Bloom "
-when 196   #ストレリブルム・アルダ
-   return "Storm Bloom - All "
-when 197   #ストレリイーザ
-   return "Storm Wither"
-when 198   #ストレリイーザ・アルダ
-   return "Storm Wither - All"
-when 200   #チャーム
-   return "Charm"
-when 201   #ペイド・チャーム
-   return "Mass Charm"
-when 202   #ラスト
-   return "Lust"
-when 203   #ペイド・ラスト
-   return "Mass Lust "
-when 204   #フィルス
-   return "Flirt "
-when 205   #ペイド・フィルス
-   return "Mass Flirt"
-when 206   #レザラジィ
-   return "Lethargy"
-when 207   #ペイド・レザラジィ
-   return "Mass Lethargy "
-when 208   #テラー
-   return "Terror"
-when 209   #ペイド・テラー
-   return "Mass Terror "
-when 210   #パラライズ
-   return "Paralyze"
-when 211   #ペイド・パラライズ
-   return "Mass Paralyze "
-when 212   #ルーズ
-   return "Trance"
-when 213   #ペイド・ルーズ
-   return "Mass Trance "
-when 215   #トリムルート
-   return "Treme Root"
-when 216   #トリムストーク
-   return "Treme Stalk "
-when 217   #トリムヴァイン
-   return "Treme Stem"
-when 219   #ブルムカール
-   return "Bloom Call"
-when 220   #ブルムカール・アルダ
-   return "Bloom Call - All"
-when 221   #イーザカール
-   return "Lyzing Call "
-when 222   #イーザカール・アルダ
-   return "Lyzing Call - All "
-when 224   #ウォッシュフルード
-   return "Cleansing Waters"
-when 239   #シャイニングレイジ
-   return "Shining Rage"
-
-   #■■Map skills■■
-   
-when 241   #クッキング
-   return "Cook"
-when 248   #サーヴァントコール
-   return "Call Servant"
-when 249   #ランクアップ
-   return "Rank Up"
-   
-   #■Enemy basic techniques
-
-when 251   #服を脱ぐ
-   return "Undress"
-when 252   #ストリップ
-   return "Strip"
-when 253   #ショウダウン
-   return "Showdown"
-when 257   #服を脱がす
-   return "Expose"
-when 260   #品定め
-   return "Check Out"
-when 261   #手ほどき   
-   return "Foreplay"   #sounds much cleaere than "setup"
-when 262   #甘やかし
-   return "Indulge"
-when 263   #スパンク
-   return "Spank"
-when 275   #やけくそ三連撃
-   return "Desperation 3-Ways"
-when 276   #ヒーローキリング
-   return "Hero Killer"
-when 277   #メテオエクリプス
-   return "Meteo Rain"
-when 278   #ワールドブレイカー
-   return "World Breaker"
-when 279   #スキル決め直し
-   return "Pick Again"
-   
-   #■Random basic attacks■
-
-when 281   #【RD】キッス
-   return "Kiss"
-when 282   #【RD】手攻め
-   return "Attack w/ hand"
-when 283   #【RD】口攻め
-   return "Attack w/ mouth"
-when 284   #【RD】胸攻め
-   return "Attack w/ chest"
-when 285   #【RD】アソコ攻め
-   return "Attack w/ pussy"
-when 286   #【RD】足攻め
-   return "Attack w/ feet"
-when 287   #【RD】愛撫
-   return "Caress"
-when 288   #【RD】尻尾攻め
-   return "Tail attack"
-when 289   #【RD】道具攻め
-   return "Tool attack"
-when 290   #【RD】特殊身体攻め
-   return "Special anatomy attack"
-when 292   #【RD】ホールド技
-   return "Hold attack"
-when 293   #【RD】自分ホールド中の攻め
-   return "Attack while held"
-when 294   #【RD】味方ホールド中の援護
-   return "Defend held friend"
-when 296   #【RD】コンフューズ
-   return "Confused"
-when 297   #フィアー
-   return "Fear"
-when 298   #フリーアクション
-   return "Free Action"
-when 299   #エモーション
-   return "Emotion"
-
-###   
-# note: from here onwards, only including skills with element 14 (name shows in battle)
-###
-   #◇Special Handiworks◇
-   
-when 359   #セットサークル
-   return "Set Circle"
-when 360   #コールドタッチ
-   return "Cold Touch"
-when 361   #サディストカレス
-   return "Touch of Sadism"
-when 362   #プライスオブハレム
-   return "Please Harem"    #sounds more logical
-when 363   #プライスオブシナー
-   return "Bushin Pleasure"
-when 364   #ペルソナブレイク
-   return "Persona Break"
-when 365   #キャストエントリー
-   return "Caster Gate"
-   
-   #◇Special mouthworks◇
-   
-when 415   #ハウリング
-   return "Howling"
-when 416   #魔性の口付け
-   return "Devil's Kiss"
-when 417   #祝福の口付け
-   return "Blessing Kiss"
-when 418   #スイートウィスパー
-   return "Sweet Whisper"
-when 419   #アンラッキーロア
-   return "Dejected Love"
-when 420   #アンラッキーロア
-   return "Dejected Love"
-when 421   #懺悔なさい
-   return "Confess"
-   
-   #◆special physicals◆
-   
-when 586   #レストレーション
-   return "Restoration"
-when 587   #スライミーリキッド
-   return "Slimy Fluids"
-when 588   #激励
-   return "Cheer"
-when 589   #バッドスポア
-   return "Noxious Spores"
-when 590   #スポアクラウド
-   return "Spore Cloud"
-when 591   #アイヴィクローズ
-   return "Entangle"
-when 592   #デモンズクローズ
-   return "Demon Wrap"
-when 599   #焦燥   #Gives STR+30%, AGI+30%, DEX-30%. It's about getting somewhat angry, no?
-   return "Haste"
-when 600   #専心
-   return "Concentrate"
-when 601   #本能の呼び覚まし
-   return "Primal Instincts"
-when 602   #自信過剰
-   return "Overconfidence"
-   
-   #◆incenses◆
-   
-when 611   #リラックスタイム
-   return "Relaxation Time"
-when 612   #スイートアロマ
-   return "Sweet Aroma"
-when 613   #パッションビート
-   return "Passion Beats"
-when 614   #マイルドパフューム
-   return "Mild Perfume"
-when 615   #レッドカーペット
-   return "Red Carpet"
-when 618   #ストレンジスポア
-   return "Strange Spores"
-when 619   #ウィークスポア
-   return "Weakening Spores"
-when 620   #威迫
-   return "Intimidate"
-when 621   #心掴み
-   return "Heart Grasp"
-when 622   #全ては現
-   return "One with the Flow"
-when 625   #ラブフレグランス
-   return "Love Fragrance"
-when 626   #スライムフィールド
-   return "Slime Field"
-   
-   #◆Defensive skills◆
-   
-when 631   #激励を受ける
-   return "Cheer up"
-   
-   #●Holding skills - base●
-   
-when 682   #アクセプト
-   return "Accept"
-when 683   #シェルマッチ
-   return "Scissors"
-when 684   #エキサイトビュー
-   return "Facesit"
-when 687   #オーラルアクセプト I'll try and stick with Accept / Insert when applicable
-   return "Oral Accept"  #@target_battlers[0].hold.penis.battler == nil and @target_battlers[0].insertable_nude?
-when 688   #ドロウネクター
-   return "Oral Pin"
-when 689   #フラッタナイズ
-   return "Lock Lips"
-when 691   #バックアクセプト #maybe it's just me but I find pitch/catch very vulgar and belittling... 
-   return "Anal Accept"      #Just my own understanding, though, I'm not US.
-when 692   #インモラルビュー
-   return "Dark Side"    #cool :) 
-when 695   #エンブレイス
-   return "Embrace"
-when 696   #エキシビジョン / hold legs in place
-   return "Spread and Open" #"Exhibition" should be a good, accurate compromise
-when 697   #ペリスコープ / Paizuri bearhold
-   return "Paizuri Lock" #yellow submarine
-when 698   #ヘブンリーフィール / Puff-puff headhold
-   return "Heaven's Feel"
-when 700   #インサート
-   return "Insert"
-when 701   #オーラルインサート
-   return "Oral Insert"
-when 702   #バックインサート
-   return "Backdoor Insert"
-when 705   #インサートテイル
-   return "Tail Insert"
-when 706   #マウスインテイル
-   return "Oral Tail Insert"
-when 707   #バックインテイル
-   return "Anal Tail Insert"
-when 710   #ディルドインサート
-   return "Dildo Insert"
-when 711   #ディルドインマウス
-   return "Oral Dildo Insert"
-when 712   #ディルドインバック
-   return "Anal Dildo Insert"
-when 715   #アイヴィクローズ
-   return "Entangle"
-when 716   #デモンズクローズ
-   return "Demon Wrap"
-when 717   #デモンズアブソーブ
-   return "Feeler Suck-in"
-when 718   #デモンズドロウ
-   return "Feeler Insert"
-when 719   #インサルトツリー
-   return "Tentacle Wrap"
-when 772   #エナジードレイン
-   return "Energy Drain"
-when 773   #レベルドレイン
-   return "Level Drain"
-when 971   #もがく
-   return "Struggle"
-   
-      end
-
-      text = @name.split(/\//)[0] rescue text = "error: no valid skill name"
-#      text += " *TODO*" if text != nil
+      text = skill_engbase(@id)[0]
       return text
     end
+    def UK_description
+      text = skill_engbase(@id)[1]
+      return text
+    end
+
   end
 end
 
+
+def skill_engbase(id)
+    result = ["skill #{id}","none yet"]
+  case id
+  
+  #actor base skills
+  
+when 2   #服を脱がす
+    #[レジスト] 相手の服を脱がせる。
+   result[0] = "Strip"
+   result[1] = "『レジスト』 相手の服を脱がせる。"
+when 4   #服を脱ぐ
+    #自分の服を脱ぐ。
+   result[0] = "Undress"
+   result[1] = "自分の服を脱ぐ。"
+when 5   #シェルマッチ
+    #[レジスト][♀→♀] ♀同士を密着させる。[条件：双方裸]
+   result[0] = "Scissors"
+   result[1] = "『レジスト』『♀→♀』 ♀同士を密着させる。『条件：双方裸』"
+when 6   #インサート
+    #[レジスト] [♂→♀] 挿入する。[条件：双方裸]
+   result[0] = "Insert"
+   result[1] = "『レジスト』 『♂→♀』 挿入する。『条件：双方裸』"
+when 7   #オーラルインサート
+    #[レジスト] [♂→口] 咥えさせる。[条件：自分裸]
+   result[0] = "Oral Insert"
+   result[1] = "『レジスト』 『♂→口』 咥えさせる。『条件：自分裸』"
+when 8   #バックインサート
+    #[レジスト] [♂→尻] 菊座に挿入する。[条件：双方裸]
+   result[0] = "Anal Insert"
+   result[1] = "『レジスト』 『♂→尻』 菊座に挿入する。『条件：双方裸』"
+when 9   #トーク
+    #相手に話しかける。
+   result[0] = "Talk"
+   result[1] = "相手に話しかける。"
+when 10   #トークレジスト
+    #アクターから仕掛けるレジスト。成功すると肯定。
+   result[0] = "Sweet Talk"
+   result[1] = "アクターから仕掛けるレジスト。成功すると肯定。"
+when 13   #アクセプト
+    #[レジスト] [♀→♂] 挿入する。[条件：双方裸]
+   result[0] = "Accept"
+   result[1] = "『レジスト』 『♀→♂』 挿入する。『条件：双方裸』"
+when 14   #オーラルアクセプト
+    #[レジスト] [口→♂] 咥える。[条件：相手裸]
+   result[0] = "Oral Accept"
+   result[1] = "『レジスト』 『口→♂』 咥える。『条件：相手裸』"
+when 15   #バックアクセプト
+    #[レジスト] [尻→♂] 菊座に挿入する。[条件：双方裸]
+   result[0] = "Anal Accept"
+   result[1] = "『レジスト』 『尻→♂』 菊座に挿入する。『条件：双方裸』"
+when 16   #ドロウネクター
+    #[レジスト] [口→♀] アソコを吸う。[条件：相手裸]
+   result[0] = "Nectar Draw"
+   result[1] = "『レジスト』 『口→♀』 アソコを吸う。『条件：相手裸』"
+when 17   #エンブレイス
+    #[レジスト] [→体] 密着する。
+   result[0] = "Embrace"
+   result[1] = "『レジスト』 『→体』 密着する。"
+when 18   #エキサイトビュー
+    #[レジスト] [♀→口] 相手の顔に騎乗する。
+   result[0] = "Facesit"
+   result[1] = "『レジスト』 『♀→口』 相手の顔に騎乗する。"
+when 20   #ディルドインサート
+    #[レジスト] [張子→♀] ディルドを挿入する。[条件：双方裸]
+   result[0] = "Dildo Insert"
+   result[1] = "『レジスト』 『張子→♀』 ディルドを挿入する。『条件：双方裸』"
+when 21   #ディルドインマウス
+    #[レジスト] [張子→口] ディルドを口に挿入する。[条件：自分裸]
+   result[0] = "Oral Dildo Insert"
+   result[1] = "『レジスト』 『張子→口』 ディルドを口に挿入する。『条件：自分裸』"
+when 22   #ディルドインバック
+    #[レジスト] [張子→尻] ディルドを菊座に挿入する。[条件：双方裸]
+   result[0] = "Anal Dildo Insert"
+   result[1] = "『レジスト』 『張子→尻』 ディルドを菊座に挿入する。『条件：双方裸』"
+when 25   #デモンズアブソーブ
+    #[レジスト] [触手→♂] 触手で♂を吸う。
+   result[0] = "Feeler Suck-in"
+   result[1] = "『レジスト』 『触手→♂』 触手で♂を吸う。"
+when 26   #デモンズドロウ
+    #[レジスト] [触手→♀] 触手で♀を吸う。
+   result[0] = "Feeler Insert"
+   result[1] = "『レジスト』 『触手→♀』 触手で♀を吸う。"
+when 28   #インタラプト
+    #[レジスト] 対象のホールド妨害を試みる [最遅行動]
+   result[0] = "Interrupt"
+   result[1] = "『レジスト』 対象のホールド妨害を試みる 『最遅行動』"
+when 29   #リリース
+    #[レジスト] 対象とのホールドを解除を試みる [最遅行動]
+   result[0] = "Release"
+   result[1] = "『レジスト』 対象とのホールドを解除を試みる 『最遅行動』"
+when 30   #ストラグル
+    #[レジスト] [ホールド解除] 一度に全員とのホールド解除を試みる
+   result[0] = "Struggle"
+   result[1] = "『レジスト』 『ホールド解除』 一度に全員とのホールド解除を試みる"
+when 32   #スウィング
+    #[×××] 腰を振る。
+   result[0] = "Thrust"
+   result[1] = "『×××』 腰を振る。"
+when 33   #ヘヴィスウィング
+    #[×××] 強く腰を振る。[条件：インサート(LvMAX)][ターン中ガード]
+   result[0] = "Piston"
+   result[1] = "『×××』 強く腰を振る。『条件：インサート(LvMAX)』『ターン中ガード』"
+when 34   #ディルドスウィング
+    #[×××] 腰を振る。
+   result[0] = "Strapon Thrust"
+   result[1] = "『×××』 腰を振る。"
+when 35   #ラビングピストン
+    #[♂→胸] 擦り付ける。[追加：スタン・欲情]
+   result[0] = "Chest Frottage"
+   result[1] = "『♂→胸』 擦り付ける。『追加：スタン・欲情』"
+when 37   #オーラルピストン
+    #[♂→口] 口を犯す。
+   result[0] = "Oral Piston"
+   result[1] = "『♂→口』 口を犯す。"
+when 38   #オーラルディルド
+    #[♂→口] 口を犯す。
+   result[0] = "Oral Dildo"
+   result[1] = "『♂→口』 口を犯す。"
+when 41   #バックピストン
+    #[×××] 菊座を犯す。相手の行動を阻害しやすいが・・・
+   result[0] = "Anal Thrust"
+   result[1] = "『×××』 菊座を犯す。相手の行動を阻害しやすいが・・・"
+when 42   #バックディルド
+    #[×××] 菊座を犯す。相手の行動を阻害しやすいが・・・
+   result[0] = "Anal Dildo"
+   result[1] = "『×××』 菊座を犯す。相手の行動を阻害しやすいが・・・"
+when 47   #グラインド
+    #[×××] 腰を振る。挿入していないと使用できない。
+   result[0] = "Grind"
+   result[1] = "『×××』 腰を振る。挿入していないと使用できない。"
+when 48   #ハードグラインド
+    #[×××] 激しく腰を振る。挿入していないと使用できない。
+   result[0] = "Wild Grind"
+   result[1] = "『×××』 激しく腰を振る。挿入していないと使用できない。"
+when 50   #タイトクロッチ
+    #[×××] 脚を閉めて動きを緩める。挿入していないと使用できない。
+   result[0] = "Tighten"
+   result[1] = "『×××』 脚を閉めて動きを緩める。挿入していないと使用できない。"
+when 52   #スクラッチ
+    #[♀→♀] 局部を擦り合わせる。
+   result[0] = "Tribadism"
+   result[1] = "『♀→♀』 局部を擦り合わせる。"
+when 53   #ハードスクラッチ
+    #[×××] 局部を強く擦り合わせる。[条件：シェルマッチ(LvMAX)]
+   result[0] = "Rubdown"
+   result[1] = "『×××』 局部を強く擦り合わせる。『条件：シェルマッチ(LvMAX)』"
+when 55   #ライディング
+    #[♀→口] 腰を振る。[追加：欲情]
+   result[0] = "Facerub"
+   result[1] = "『♀→口』 腰を振る。『追加：欲情』"
+when 56   #プッシング
+    #[♀→口] 押し付ける。[追加：欲情]
+   result[0] = "Facepress"
+   result[1] = "『♀→口』 押し付ける。『追加：欲情』"
+when 58   #スロート
+    #[口→♂] しゃぶる。
+   result[0] = "Blowjob"
+   result[1] = "『口→♂』 しゃぶる。"
+when 59   #ディープスロート
+    #[口→♂] 大胆にしゃぶる。[条件：オーラルインサート]
+   result[0] = "Deepthroat"
+   result[1] = "『口→♂』 大胆にしゃぶる。『条件：オーラルインサート』"
+when 60   #ドロウスロート
+    #[口→♂] 控えめにしゃぶる。[条件：オーラルインサート]
+   result[0] = "Throat Draw"
+   result[1] = "『口→♂』 控えめにしゃぶる。『条件：オーラルインサート』"
+when 61   #サック
+    #[口→♀] ♀を吸う。
+   result[0] = "Lick"
+   result[1] = "『口→♀』 ♀を吸う。"
+when 64   #スクイーズ
+    #[×××] 締める。[条件：バックインサート]
+   result[0] = "Squeeze"
+   result[1] = "『×××』 締める。『条件：バックインサート』"
+when 67   #タイトホール
+    #[×××] 締める。[条件：バックインサート]
+   result[0] = "Tighten"
+   result[1] = "『×××』 締める。『条件：バックインサート』"
+when 71   #リック
+    #[口→♀] 騎乗している相手のアソコを攻める。[追加：潤滑アップ]
+   result[0] = "Lick Offering"
+   result[1] = "『口→♀』 騎乗している相手のアソコを攻める。『追加：潤滑アップ』"
+when 72   #リック
+    #[口→尻] 騎乗している相手の菊座を攻める。[追加：潤滑アップ]
+   result[0] = "Clean Offering"
+   result[1] = "『口→尻』 騎乗している相手の菊座を攻める。『追加：潤滑アップ』"
+when 73   #ミスチーフ
+    #[→全身] 密着した相手を愛撫する。[SSしやすい]
+   result[0] = "Tickle"
+   result[1] = "『→全身』 密着した相手を愛撫する。『SSしやすい』"
+when 74   #リアカレス
+    #[→全身] 密着した相手を愛撫する。
+   result[0] = "Caress"
+   result[1] = "『→全身』 密着した相手を愛撫する。"
+when 79   #レックレス
+    #抵抗し、ホールドレベルを下げる。[追加：スタン][先制]
+   result[0] = "Squirm"
+   result[1] = "抵抗し、ホールドレベルを下げる。『追加：スタン』『先制』"
+when 81   #キッス
+    #[口→口] キスで攻める。[追加：ムードアップ]
+   result[0] = "Kiss"
+   result[1] = "『口→口』 キスで攻める。『追加：ムードアップ』"
+when 82   #バスト
+    #[手/口→胸] 胸を攻める。
+   result[0] = "Chest"
+   result[1] = "『手/口→胸』 胸を攻める。"
+when 83   #ヒップ
+    #[手/口→尻] お尻を攻める。[追加：ディレイ]
+   result[0] = "Hips"
+   result[1] = "『手/口→尻』 お尻を攻める。『追加：ディレイ』"
+when 84   #クロッチ
+    #[手/口→♀] アソコを攻める。[相手着衣↓][追加：潤滑アップ]
+   result[0] = "Crotch"
+   result[1] = "『手/口→♀』 アソコを攻める。『相手着衣↓』『追加：潤滑アップ』"
+when 85   #カレス
+    #[→全身] 全身を優しく愛撫する。[追加：感度アップ]
+   result[0] = "Caress"
+   result[1] = "『→全身』 全身を優しく愛撫する。『追加：感度アップ』"
+when 87   #キッス
+    #[口→口] キスで攻める。[追加：ムードアップ]
+   result[0] = "Kiss"
+   result[1] = "『口→口』 キスで攻める。『追加：ムードアップ』"
+when 91   #ツーパフ
+    #[胸→口] 胸で相手の顔を挟み込む。[自分着衣↓][追加：恍惚]
+   result[0] = "Chest Press"
+   result[1] = "『胸→口』 胸で相手の顔を挟み込む。『自分着衣↓』『追加：恍惚』"
+when 101   #ティーズ
+    #[手/口→体] 相手を焦らす。[追加：感度アップ][焦らし]
+   result[0] = "Tease"
+   result[1] = "『手/口→体』 相手を焦らす。『追加：感度アップ』『焦らし』"
+when 102   #ミスチーフ（没）
+    #[手/口→体] ホールド状態の相手を効果的に焦らす。[焦らし]
+   result[0] = "Tease Out"
+   result[1] = "『手/口→体』 ホールド状態の相手を効果的に焦らす。『焦らし』"
+when 103   #ファストレイド
+    #[手/口→体] 素早く攻める。[先制行動]
+   result[0] = "Quick Raid"
+   result[1] = "『手/口→体』 素早く攻める。『先制行動』"
+when 104   #トリックレイド
+    #[手/口→体] 不意打ちする。チェック済みの相手へのSS率が高い。
+   result[0] = "Trick Raid"
+   result[1] = "『手/口→体』 不意打ちする。チェック済みの相手へのSS率が高い。"
+when 106   #ディバウアー
+    #[手/口→体] 激しく攻める。[条件：ムード30]
+   result[0] = "Devour"
+   result[1] = "『手/口→体』 激しく攻める。『条件：ムード30』"
+when 111   #プレジャー
+    #[手→]自分を慰め、高揚させる。
+   result[0] = "Self-Pleasure"
+   result[1] = "『手→』自分を慰め、高揚させる。"
+when 121   #ブレス
+    #ＥＰを小回復する。
+   result[0] = "Breath"
+   result[1] = "ＥＰを小回復する。"
+when 122   #カームブレス
+    #ＥＰを中回復する。
+   result[0] = "Calm Breath"
+   result[1] = "ＥＰを中回復する。"
+when 123   #ウェイト
+    #ＥＰを微量回復する。
+   result[0] = "Wait"
+   result[1] = "ＥＰを微量回復する。"
+when 124   #イントラスト
+    #暫くの間無抵抗になり、夢魔たちに好きに任せる。
+   result[0] = "Entrust"
+   result[1] = "暫くの間無抵抗になり、夢魔たちに好きに任せる。"
+when 125   #リフレッシュ
+    #自身に影響のある効果を全て解除する。
+   result[0] = "Refresh"
+   result[1] = "自身に影響のある効果を全て解除する。"
+when 126   #チェック
+    #夢魔の性格、性感帯を調べる。
+   result[0] = "Check"
+   result[1] = "夢魔の性格、性感帯を調べる。"
+when 127   #アナライズ
+    #夢魔の性格、性感帯、ＥＰとＶＰの最大値を調べる。
+   result[0] = "Analyze"
+   result[1] = "夢魔の性格、性感帯、ＥＰとＶＰの最大値を調べる。"
+when 135   #ストリップ
+    #パートナーの服を脱がせる。
+   result[0] = "Team Strip"
+   result[1] = "パートナーの服を脱がせる。"
+when 140   #テンプテーション
+    #相手を中確率で恍惚させる。
+   result[0] = "Temptation"
+   result[1] = "相手を中確率で恍惚させる。"
+when 145   #ガード
+    #このターン、攻撃から身を守る。[快感減衰][耐性アップ]
+   result[0] = "Guard"
+   result[1] = "このターン、攻撃から身を守る。『快感減衰』『耐性アップ』"
+when 146   #インデュア
+    #このターン、攻撃から堅固に身を守る。[快感激減][耐性アップ]
+   result[0] = "Endure"
+   result[1] = "このターン、攻撃から堅固に身を守る。『快感激減』『耐性アップ』"
+when 148   #アピール
+    #このターン、自分が状態異常でなければ自分を狙わせる。
+   result[0] = "Appeal"
+   result[1] = "このターン、自分が状態異常でなければ自分を狙わせる。"
+when 149   #プロヴォーク
+    #４ターンの間、自分が状態異常でなければ自分を狙わせる。
+   result[0] = "Provoke"
+   result[1] = "４ターンの間、自分が状態異常でなければ自分を狙わせる。"
+when 161   #イリスシード
+    #[魔法] 味方１人のＥＰを小回復させる。
+   result[0] = "Iris Seed"
+   result[1] = "『魔法』 味方１人のＥＰを小回復させる。"
+when 162   #イリスペタル
+    #[魔法] 味方１人のＥＰを中回復させる。
+   result[0] = "Iris Petal"
+   result[1] = "『魔法』 味方１人のＥＰを中回復させる。"
+when 163   #イリスフラウ
+    #[魔法] 味方１人のＥＰを大回復させる。
+   result[0] = "Iris Aura "
+   result[1] = "『魔法』 味方１人のＥＰを大回復させる。"
+when 164   #イリスコロナ
+    #[魔法] 味方１人のＥＰを超回復させる。
+   result[0] = "Iris Corona"
+   result[1] = "『魔法』 味方１人のＥＰを超回復させる。"
+when 165   #イリスシード・アルダ
+    #[魔法] 味方全体のＥＰを小回復させる。
+   result[0] = "Iris Seed - All "
+   result[1] = "『魔法』 味方全体のＥＰを小回復させる。"
+when 166   #イリスペタル・アルダ
+    #[魔法] 味方全体のＥＰを中回復させる。
+   result[0] = "Iris Petal - All"
+   result[1] = "『魔法』 味方全体のＥＰを中回復させる。"
+when 167   #イリスフラウ・アルダ
+    #[魔法] 味方全体のＥＰを大回復させる。
+   result[0] = "Iris Aura - All "
+   result[1] = "『魔法』 味方全体のＥＰを大回復させる。"
+when 171   #ラナンブルム
+    #[魔法] 味方１人の魅力を強める。
+   result[0] = "Lanan Bloom"
+   result[1] = "『魔法』 味方１人の魅力を強める。"
+when 172   #ラナンブルム・アルダ
+    #[魔法] 味方全員の魅力を強める。
+   result[0] = "Lanan Bloom - All"
+   result[1] = "『魔法』 味方全員の魅力を強める。"
+when 173   #ラナンイーザ
+    #[魔法] 敵１人の魅力を弱める。
+   result[0] = "Lananize"
+   result[1] = "『魔法』 敵１人の魅力を弱める。"
+when 174   #ラナンイーザ・アルダ
+    #[魔法] 敵全員の魅力を弱める。
+   result[0] = "Lananize - All"
+   result[1] = "『魔法』 敵全員の魅力を弱める。"
+when 175   #ネリネブルム
+    #[魔法] 味方１人の忍耐を強める。
+   result[0] = "Neline Bloom"
+   result[1] = "『魔法』 味方１人の忍耐を強める。"
+when 176   #ネリネブルム・アルダ
+    #[魔法] 味方全員の忍耐を強める。
+   result[0] = "Neline Bloom - All"
+   result[1] = "『魔法』 味方全員の忍耐を強める。"
+when 177   #ネリネイーザ
+    #[魔法] 敵１人の忍耐を弱める。
+   result[0] = "Nelinaze"
+   result[1] = "『魔法』 敵１人の忍耐を弱める。"
+when 178   #ネリネイーザ・アルダ
+    #[魔法] 敵全員の忍耐を弱める。
+   result[0] = "Nelinaze - All"
+   result[1] = "『魔法』 敵全員の忍耐を弱める。"
+when 179   #エルダブルム
+    #[魔法] 味方１人の精力を強める。
+   result[0] = "Elder Bloom"
+   result[1] = "『魔法』 味方１人の精力を強める。"
+when 180   #エルダブルム・アルダ
+    #[魔法] 味方全員の精力を強める。
+   result[0] = "Elder Bloom - All"
+   result[1] = "『魔法』 味方全員の精力を強める。"
+when 181   #エルダイーザ
+    #[魔法] 敵１人の精力を弱める。
+   result[0] = "Elderize"
+   result[1] = "『魔法』 敵１人の精力を弱める。"
+when 182   #エルダイーザ・アルダ
+    #[魔法] 敵全員の精力を弱める。
+   result[0] = "Elderize - All"
+   result[1] = "『魔法』 敵全員の精力を弱める。"
+when 183   #サフラブルム
+    #[魔法] 味方１人の器用さを強める。
+   result[0] = "Saffron Bloom"
+   result[1] = "『魔法』 味方１人の器用さを強める。"
+when 184   #サフラブルム・アルダ
+    #[魔法] 味方全員の器用さを強める。
+   result[0] = "Saffron Bloom - All"
+   result[1] = "『魔法』 味方全員の器用さを強める。"
+when 185   #サフライーザ
+    #[魔法] 敵１人の器用さを弱める。
+   result[0] = "Saffrize"
+   result[1] = "『魔法』 敵１人の器用さを弱める。"
+when 186   #サフライーザ・アルダ
+    #[魔法] 敵全員の器用さを弱める。
+   result[0] = "Saffrize - All"
+   result[1] = "『魔法』 敵全員の器用さを弱める。"
+when 187   #コリオブルム
+    #[魔法] 味方１人の素早さを強める。
+   result[0] = "Kurio Bloom"
+   result[1] = "『魔法』 味方１人の素早さを強める。"
+when 188   #コリオブルム・アルダ
+    #[魔法] 味方全員の素早さを強める。
+   result[0] = "Kurio Bloom - All"
+   result[1] = "『魔法』 味方全員の素早さを強める。"
+when 189   #コリオイーザ
+    #[魔法] 敵１人の素早さを弱める。
+   result[0] = "Kuriolize "
+   result[1] = "『魔法』 敵１人の素早さを弱める。"
+when 190   #コリオイーザ・アルダ
+    #[魔法] 敵全員の素早さを弱める。
+   result[0] = "Kuriolize - All "
+   result[1] = "『魔法』 敵全員の素早さを弱める。"
+when 191   #アスタブルム
+    #[魔法] 味方１人の精神力を強める。
+   result[0] = "Aster Bloom"
+   result[1] = "『魔法』 味方１人の精神力を強める。"
+when 192   #アスタブルム・アルダ
+    #[魔法] 味方全員の精神力を強める。
+   result[0] = "Aster Bloom - All "
+   result[1] = "『魔法』 味方全員の精神力を強める。"
+when 193   #アスタイーザ
+    #[魔法] 敵１人の精神力を弱める。
+   result[0] = "Asterize"
+   result[1] = "『魔法』 敵１人の精神力を弱める。"
+when 194   #アスタイーザ・アルダ
+    #[魔法] 敵全員の精神力を弱める。
+   result[0] = "Asterize - All"
+   result[1] = "『魔法』 敵全員の精神力を弱める。"
+when 195   #ストレリブルム
+    #[魔法] 味方１人の全ての能力を強める。
+   result[0] = "Storm Bloom "
+   result[1] = "『魔法』 味方１人の全ての能力を強める。"
+when 196   #ストレリブルム・アルダ
+    #[魔法] 味方全員の全ての能力を強める。
+   result[0] = "Storm Bloom - All "
+   result[1] = "『魔法』 味方全員の全ての能力を強める。"
+when 197   #ストレリイーザ
+    #[魔法] 敵１人の全ての能力を弱める。
+   result[0] = "Storm Wither"
+   result[1] = "『魔法』 敵１人の全ての能力を弱める。"
+when 198   #ストレリイーザ・アルダ
+    #[魔法] 敵全員の全ての能力を弱める。
+   result[0] = "Storm Wither - All"
+   result[1] = "『魔法』 敵全員の全ての能力を弱める。"
+when 200   #チャーム
+    #[魔法] 敵１人を中確率で恍惚させる。
+   result[0] = "Charm"
+   result[1] = "『魔法』 敵１人を中確率で恍惚させる。"
+when 201   #ペイド・チャーム
+    #[魔法] 敵全員を中確率で恍惚させる。
+   result[0] = "Mass Charm"
+   result[1] = "『魔法』 敵全員を中確率で恍惚させる。"
+when 202   #ラスト
+    #[魔法] 敵１人を中確率で欲情させる。
+   result[0] = "Lust"
+   result[1] = "『魔法』 敵１人を中確率で欲情させる。"
+when 203   #ペイド・ラスト
+    #[魔法] 敵全員を中確率で欲情させる。
+   result[0] = "Mass Lust "
+   result[1] = "『魔法』 敵全員を中確率で欲情させる。"
+when 204   #フィルス
+    #[魔法] 敵１人を中確率で暴走させる。
+   result[0] = "Flirt "
+   result[1] = "『魔法』 敵１人を中確率で暴走させる。"
+when 205   #ペイド・フィルス
+    #[魔法] 敵全員を中確率で暴走させる。
+   result[0] = "Mass Flirt"
+   result[1] = "『魔法』 敵全員を中確率で暴走させる。"
+when 206   #レザラジィ
+    #[魔法] 敵１人を中確率で虚脱させる。
+   result[0] = "Lethargy"
+   result[1] = "『魔法』 敵１人を中確率で虚脱させる。"
+when 207   #ペイド・レザラジィ
+    #[魔法] 敵全員を中確率で虚脱させる。
+   result[0] = "Mass Lethargy "
+   result[1] = "『魔法』 敵全員を中確率で虚脱させる。"
+when 208   #テラー
+    #[魔法] 敵１人を中確率で畏怖させる。
+   result[0] = "Terror"
+   result[1] = "『魔法』 敵１人を中確率で畏怖させる。"
+when 209   #ペイド・テラー
+    #[魔法] 敵全員を中確率で畏怖させる。
+   result[0] = "Mass Terror "
+   result[1] = "『魔法』 敵全員を中確率で畏怖させる。"
+when 210   #パラライズ
+    #[魔法] 敵１人を中確率で麻痺させる。
+   result[0] = "Paralyze"
+   result[1] = "『魔法』 敵１人を中確率で麻痺させる。"
+when 211   #ペイド・パラライズ
+    #[魔法] 敵全員を中確率で麻痺させる。
+   result[0] = "Mass Paralyze "
+   result[1] = "『魔法』 敵全員を中確率で麻痺させる。"
+when 212   #ルーズ
+    #[魔法] 敵１人を中確率で意識散漫にさせる。
+   result[0] = "Trance"
+   result[1] = "『魔法』 敵１人を中確率で意識散漫にさせる。"
+when 213   #ペイド・ルーズ
+    #[魔法] 敵全員を中確率で意識散漫にさせる。
+   result[0] = "Mass Trance "
+   result[1] = "『魔法』 敵全員を中確率で意識散漫にさせる。"
+when 215   #トリムルート
+    #[魔法] 味方１人の恍惚・欲情・暴走を解除する。
+   result[0] = "Treme Root"
+   result[1] = "『魔法』 味方１人の恍惚・欲情・暴走を解除する。"
+when 216   #トリムストーク
+    #[魔法] 味方１人の虚脱・畏怖・麻痺・散漫を解除する。
+   result[0] = "Treme Stalk "
+   result[1] = "『魔法』 味方１人の虚脱・畏怖・麻痺・散漫を解除する。"
+when 217   #トリムヴァイン
+    #[魔法] 味方１人の張型・触手・呪詛を解除する。
+   result[0] = "Treme Stem"
+   result[1] = "『魔法』 味方１人の張型・触手・呪詛を解除する。"
+when 219   #ブルムカール
+    #[魔法] 敵１人の強化効果全てを解除する。
+   result[0] = "Bloom Call"
+   result[1] = "『魔法』 敵１人の強化効果全てを解除する。"
+when 220   #ブルムカール・アルダ
+    #[魔法] 敵全員の強化効果全てを解除する。
+   result[0] = "Bloom Call - All"
+   result[1] = "『魔法』 敵全員の強化効果全てを解除する。"
+when 221   #イーザカール
+    #[魔法] 味方１人の弱化効果全てを解除する。
+   result[0] = "Lyzing Call "
+   result[1] = "『魔法』 味方１人の弱化効果全てを解除する。"
+when 222   #イーザカール・アルダ
+    #[魔法] 味方全員の弱化効果全てを解除する。
+   result[0] = "Lyzing Call - All "
+   result[1] = "『魔法』 味方全員の弱化効果全てを解除する。"
+when 224   #ウォッシュフルード
+    #[魔法] 場に掛かっている効果を全て無くす。
+   result[0] = "Cleansing Waters"
+   result[1] = "『魔法』 場に掛かっている効果を全て無くす。"
+when 239   #シャイニングレイジ
+    #[魔法] 憤怒の雷撃を撃ち落とす、光属性最上位魔法。
+   result[0] = "Shining Rage"
+   result[1] = "『魔法』 憤怒の雷撃を撃ち落とす、光属性最上位魔法。"
+when 241   #クッキング
+    #調理する。
+   result[0] = "Cook"
+   result[1] = "調理する。"
+when 248   #サーヴァントコール
+    #使用人を呼びつけ、様々な手配をしてもらう。
+   result[0] = "Call Servant"
+   result[1] = "使用人を呼びつけ、様々な手配をしてもらう。"
+when 249   #ランクアップ
+    #ランクアップする。
+   result[0] = "Rank Up"
+   result[1] = "ランクアップする。"
+when 251   #服を脱ぐ
+    #自分の服を脱ぐ。
+   result[0] = "Undress"
+   result[1] = "自分の服を脱ぐ。"
+when 252   #ストリップ
+    #自分の服を脱ぐ。
+   result[0] = "Strip"
+   result[1] = "自分の服を脱ぐ。"
+when 253   #ショウダウン
+    #自分の服を脱ぐ。
+   result[0] = "Showdown"
+   result[1] = "自分の服を脱ぐ。"
+when 257   #服を脱がす
+    #[レジスト] 相手の服を脱がせる。
+   result[0] = "Expose"
+   result[1] = "『レジスト』 相手の服を脱がせる。"
+when 260   #品定め
+    #[→体] 相手を品定めする。
+   result[0] = "Check Out"
+   result[1] = "『→体』 相手を品定めする。"
+when 261   #手ほどき
+    #[→体] 相手を手ほどきする。
+   result[0] = "Foreplay"
+   result[1] = "『→体』 相手を手ほどきする。"
+when 262   #甘やかし
+    #[→体] 相手を甘やかす。
+   result[0] = "Indulge"
+   result[1] = "『→体』 相手を甘やかす。"
+when 263   #スパンク
+    #[手→尻] 相手を尻を叩く。[S]
+   result[0] = "Spank"
+   result[1] = "『手→尻』 相手を尻を叩く。『S』"
+when 275   #やけくそ三連撃
+    #憤怒の雷撃を撃ち落とす、光属性最上位魔法。
+   result[0] = "Desperation 3-Ways"
+   result[1] = "憤怒の雷撃を撃ち落とす、光属性最上位魔法。"
+when 276   #ヒーローキリング
+    #憤怒の雷撃を撃ち落とす、光属性最上位魔法。
+   result[0] = "Hero Killer"
+   result[1] = "憤怒の雷撃を撃ち落とす、光属性最上位魔法。"
+when 277   #メテオエクリプス
+    #憤怒の雷撃を撃ち落とす、光属性最上位魔法。
+   result[0] = "Meteo Rain"
+   result[1] = "憤怒の雷撃を撃ち落とす、光属性最上位魔法。"
+when 278   #ワールドブレイカー
+    #憤怒の雷撃を撃ち落とす、光属性最上位魔法。
+   result[0] = "World Breaker"
+   result[1] = "憤怒の雷撃を撃ち落とす、光属性最上位魔法。"
+when 279   #スキル決め直し
+    #ランダムスキル用。これが選ばれるとスキルを決め直しさせる。
+   result[0] = "Pick Again"
+   result[1] = "ランダムスキル用。これが選ばれるとスキルを決め直しさせる。"
+when 281   #【RD】キッス
+    #[ランダム] キッス攻撃を行う
+   result[0] = "Kiss"
+   result[1] = "『ランダム』 キッス攻撃を行う"
+when 282   #【RD】手攻め
+    #[ランダム] 手で攻める
+   result[0] = "Attack w/ hand"
+   result[1] = "『ランダム』 手で攻める"
+when 283   #【RD】口攻め
+    #[ランダム] 口で攻める
+   result[0] = "Attack w/ mouth"
+   result[1] = "『ランダム』 口で攻める"
+when 284   #【RD】胸攻め
+    #[ランダム] 胸で攻める
+   result[0] = "Attack w/ chest"
+   result[1] = "『ランダム』 胸で攻める"
+when 285   #【RD】アソコ攻め
+    #[ランダム] アソコで攻める.
+   result[0] = "Attack w/ pussy"
+   result[1] = "『ランダム』 アソコで攻める."
+when 286   #【RD】足攻め
+    #[ランダム] 足で攻める
+   result[0] = "Attack w/ feet"
+   result[1] = "『ランダム』 足で攻める"
+when 287   #【RD】愛撫
+    #[ランダム] 愛撫を行う
+   result[0] = "Caress"
+   result[1] = "『ランダム』 愛撫を行う"
+when 288   #【RD】尻尾攻め
+    #[ランダム] 尻尾で攻撃を行う
+   result[0] = "Tail attack"
+   result[1] = "『ランダム』 尻尾で攻撃を行う"
+when 289   #【RD】道具攻め
+    #[ランダム] 道具で攻撃を行う
+   result[0] = "Tool attack"
+   result[1] = "『ランダム』 道具で攻撃を行う"
+when 290   #【RD】特殊身体攻め
+    #[ランダム] 特殊な身体能力で攻撃を行う
+   result[0] = "Special anatomy attack"
+   result[1] = "『ランダム』 特殊な身体能力で攻撃を行う"
+when 292   #【RD】ホールド技
+    #[ランダム] 自分がホールド状態の時の攻め
+   result[0] = "Hold attack"
+   result[1] = "『ランダム』 自分がホールド状態の時の攻め"
+when 293   #【RD】自分ホールド中の攻め
+    #[ランダム] 自分がホールド状態の時の攻め
+   result[0] = "Attack while held"
+   result[1] = "『ランダム』 自分がホールド状態の時の攻め"
+when 294   #【RD】味方ホールド中の援護
+    #[ランダム] 味方が相手にホールドされ中に行う援護
+   result[0] = "Defend held friend"
+   result[1] = "『ランダム』 味方が相手にホールドされ中に行う援護"
+when 296   #【RD】コンフューズ
+    #混乱暴走して何をするか判らない状態
+   result[0] = "Confused"
+   result[1] = "混乱暴走して何をするか判らない状態"
+when 297   #フィアー
+    #畏怖して動けない状態
+   result[0] = "Fear"
+   result[1] = "畏怖して動けない状態"
+when 298   #フリーアクション
+    #夢魔ごとに特徴のある行動を行う（行動放棄）
+   result[0] = "Free Action"
+   result[1] = "夢魔ごとに特徴のある行動を行う（行動放棄）"
+when 299   #エモーション
+    #夢魔の性格ごとに様々な表情を見せる（行動放棄）
+   result[0] = "Emotion"
+   result[1] = "夢魔の性格ごとに様々な表情を見せる（行動放棄）"
+when 359   #セットサークル
+    #[手→] ３ターンの間、自分が使用する魔法の消費ＶＰが０になる。
+   result[0] = "Set Circle"
+   result[1] = "『手→』 ３ターンの間、自分が使用する魔法の消費ＶＰが０になる。"
+when 360   #コールドタッチ
+    #[手→体] 冷たい手で愛撫する。[追加：ディレイ]
+   result[0] = "Cold Touch"
+   result[1] = "『手→体』 冷たい手で愛撫する。『追加：ディレイ』"
+when 361   #サディストカレス
+    #[手→体] 意地悪に愛撫する。[追加：スタン][特効：畏怖の相手]
+   result[0] = "Touch of Sadism"
+   result[1] = "『手→体』 意地悪に愛撫する。『追加：スタン』『特効：畏怖の相手』"
+when 362   #プライスオブハレム
+    #[手→体] 敵全員を攻める。[条件：ムード30]
+   result[0] = "Please Harem"
+   result[1] = "『手→体』 敵全員を攻める。『条件：ムード30』"
+when 363   #プライスオブシナー
+    #[手→体] 敵全員を攻める。[条件：ムード30]
+   result[0] = "Bushin Pleasure"
+   result[1] = "『手→体』 敵全員を攻める。『条件：ムード30』"
+when 364   #ペルソナブレイク
+    #[手→] 相手１人を破面状態にする。
+   result[0] = "Persona Break"
+   result[1] = "『手→』 相手１人を破面状態にする。"
+when 365   #キャストエントリー
+    #夢世界がキャストを作り出す。
+   result[0] = "Caster Gate"
+   result[1] = "夢世界がキャストを作り出す。"
+when 415   #ハウリング
+    #[口→] 自身の精力を強める。
+   result[0] = "Howling"
+   result[1] = "『口→』 自身の精力を強める。"
+when 416   #魔性の口付け
+    #[口→口] 味方に口付けをする。[追加：魅力↑]
+   result[0] = "Devil's Kiss"
+   result[1] = "『口→口』 味方に口付けをする。『追加：魅力↑』"
+when 417   #祝福の口付け
+    #[口→口] 味方に口付けをする。[追加：状態異常耐性↑]
+   result[0] = "Blessing Kiss"
+   result[1] = "『口→口』 味方に口付けをする。『追加：状態異常耐性↑』"
+when 418   #スイートウィスパー
+    #[口→耳] 相手1人の感度を上げ、ムードアップさせる。
+   result[0] = "Sweet Whisper"
+   result[1] = "『口→耳』 相手1人の感度を上げ、ムードアップさせる。"
+when 419   #アンラッキーロア
+    #[口→耳] 相手全員を不幸状態にする。（敵用）
+   result[0] = "Dejected Love"
+   result[1] = "『口→耳』 相手全員を不幸状態にする。（敵用）"
+when 420   #アンラッキーロア
+    #一定歩数の間、不幸状態になる。不幸の時は経験値量が増加。
+   result[0] = "Dejected Love"
+   result[1] = "一定歩数の間、不幸状態になる。不幸の時は経験値量が増加。"
+when 421   #懺悔なさい
+    #[口→耳] 相手1人を低確率で虚脱にする。
+   result[0] = "Confess"
+   result[1] = "『口→耳』 相手1人を低確率で虚脱にする。"
+when 586   #レストレーション
+    #身体を覆う粘液を復元する。
+   result[0] = "Restoration"
+   result[1] = "身体を覆う粘液を復元する。"
+when 587   #スライミーリキッド
+    #粘液を相手に塗り、裸になる。
+   result[0] = "Slimy Fluids"
+   result[1] = "粘液を相手に塗り、裸になる。"
+when 588   #激励
+    #自分以外の味方を高揚させる。戦闘に参加せずとも使用可。
+   result[0] = "Cheer"
+   result[1] = "自分以外の味方を高揚させる。戦闘に参加せずとも使用可。"
+when 589   #バッドスポア
+    #[胞子] 敵１人をそれぞれ低確率で虚脱、麻痺、散漫にする。
+   result[0] = "Noxious Spores"
+   result[1] = "『胞子』 敵１人をそれぞれ低確率で虚脱、麻痺、散漫にする。"
+when 590   #スポアクラウド
+    #[胞子] 敵全員をディレイにする。
+   result[0] = "Spore Cloud"
+   result[1] = "『胞子』 敵全員をディレイにする。"
+when 591   #アイヴィクローズ
+    #[触手→体] 敵1人を低確率で拘束状態にする。
+   result[0] = "Entangle"
+   result[1] = "『触手→体』 敵1人を低確率で拘束状態にする。"
+when 592   #デモンズクローズ
+    #[触手→体] 敵1人を低確率で畏怖・拘束状態にする。
+   result[0] = "Demon Wrap"
+   result[1] = "『触手→体』 敵1人を低確率で畏怖・拘束状態にする。"
+when 599   #焦燥
+    #自分を焦燥状態にする。（精力素早さ↑器用さ精神力↓）
+   result[0] = "Haste"
+   result[1] = "自分を焦燥状態にする。（精力素早さ↑器用さ精神力↓）"
+when 600   #専心
+    #自分を専心状態にする。（器用さ精神力↑精力素早さ↓）
+   result[0] = "Concentrate"
+   result[1] = "自分を専心状態にする。（器用さ精神力↑精力素早さ↓）"
+when 601   #本能の呼び覚まし
+    #自分を暴走状態にする。
+   result[0] = "Primal Instincts"
+   result[1] = "自分を暴走状態にする。"
+when 602   #自信過剰
+    #自分の魅力を上げ、高揚状態にし、ムードを上げる。
+   result[0] = "Overconfidence"
+   result[1] = "自分の魅力を上げ、高揚状態にし、ムードを上げる。"
+when 611   #リラックスタイム
+    #[場：自] ５ターンの間、味方全員を回復する。
+   result[0] = "Relaxation Time"
+   result[1] = "『場：自』 ５ターンの間、味方全員を回復する。"
+when 612   #スイートアロマ
+    #[場：自] ５ターンの間、味方全員の魅力が上がる。
+   result[0] = "Sweet Aroma"
+   result[1] = "『場：自』 ５ターンの間、味方全員の魅力が上がる。"
+when 613   #パッションビート
+    #[場：自] ５ターンの間、味方全員の精力と素早さが上がる。
+   result[0] = "Passion Beats"
+   result[1] = "『場：自』 ５ターンの間、味方全員の精力と素早さが上がる。"
+when 614   #マイルドパフューム
+    #[場：自] ５ターンの間、味方全員の状態異常耐性を上げる。
+   result[0] = "Mild Perfume"
+   result[1] = "『場：自』 ５ターンの間、味方全員の状態異常耐性を上げる。"
+when 615   #レッドカーペット
+    #[場：自] ５ターンの間、交代後の仲間の魅力と素早さを強化する。
+   result[0] = "Red Carpet"
+   result[1] = "『場：自』 ５ターンの間、交代後の仲間の魅力と素早さを強化する。"
+when 618   #ストレンジスポア
+    #[胞子 場：敵] ５ターンの間、敵全員の状態異常耐性を下げる。
+   result[0] = "Strange Spores"
+   result[1] = "『胞子 場：敵』 ５ターンの間、敵全員の状態異常耐性を下げる。"
+when 619   #ウィークスポア
+    #[胞子 場：敵] ５ターンの間、状態異常の敵の被SS率が上がる。
+   result[0] = "Weakening Spores"
+   result[1] = "『胞子 場：敵』 ５ターンの間、状態異常の敵の被SS率が上がる。"
+when 620   #威迫
+    #[場：敵] ５ターンの間、敵全員のレジストを弱化させる。
+   result[0] = "Intimidate"
+   result[1] = "『場：敵』 ５ターンの間、敵全員のレジストを弱化させる。"
+when 621   #心掴み
+    #[魔法 場：敵] ５ターンの間、敵全員は逃げられない。
+   result[0] = "Heart Grasp"
+   result[1] = "『魔法 場：敵』 ５ターンの間、敵全員は逃げられない。"
+when 622   #全ては現
+    #[魔法 場：敵] ５ターンの間、敵全員の被SS率が上がる。
+   result[0] = "One with the Flow"
+   result[1] = "『魔法 場：敵』 ５ターンの間、敵全員の被SS率が上がる。"
+when 625   #ラブフレグランス
+    #[場：全] ５ターンの間、ムードが上昇する。
+   result[0] = "Love Fragrance"
+   result[1] = "『場：全』 ５ターンの間、ムードが上昇する。"
+when 626   #スライムフィールド
+    #[場：全] ５ターンの間、全員の潤滑度が上がりやすくなる。
+   result[0] = "Slime Field"
+   result[1] = "『場：全』 ５ターンの間、全員の潤滑度が上がりやすくなる。"
+when 631   #激励を受ける
+    #自分を高揚させる。
+   result[0] = "Cheer up"
+   result[1] = "自分を高揚させる。"
+when 682   #アクセプト
+    #[レジスト] 自分のアソコに相手のペニスを挿入する
+   result[0] = "Accept"
+   result[1] = "『レジスト』 自分のアソコに相手のペニスを挿入する"
+when 683   #シェルマッチ
+    #[レジスト] 自分のアソコと相手のアソコを密着させる
+   result[0] = "Scissors"
+   result[1] = "『レジスト』 自分のアソコと相手のアソコを密着させる"
+when 684   #エキサイトビュー
+    #[レジスト] 自分のアソコを相手の口に押し付ける
+   result[0] = "Facesit"
+   result[1] = "『レジスト』 自分のアソコを相手の口に押し付ける"
+when 687   #オーラルアクセプト
+    #[レジスト] 自分の口で相手のペニスを咥える
+   result[0] = "Oral Accept"
+   result[1] = "『レジスト』 自分の口で相手のペニスを咥える"
+when 688   #ドロウネクター
+    #[レジスト] 自分の口で相手のアソコに吸い付く
+   result[0] = "Oral Pin"
+   result[1] = "『レジスト』 自分の口で相手のアソコに吸い付く"
+when 689   #フラッタナイズ
+    #[レジスト] 互いに唇を貪りあう
+   result[0] = "Lock Lips"
+   result[1] = "『レジスト』 互いに唇を貪りあう"
+when 691   #バックアクセプト
+    #[レジスト] 自分のアナルに相手のペニスを挿入する
+   result[0] = "Anal Accept"
+   result[1] = "『レジスト』 自分のアナルに相手のペニスを挿入する"
+when 692   #インモラルビュー
+    #[レジスト] 自分のアナルを相手の口に押し付ける
+   result[0] = "Dark Side"
+   result[1] = "『レジスト』 自分のアナルを相手の口に押し付ける"
+when 695   #エンブレイス
+    #[レジスト] 相手に強く密着する
+   result[0] = "Embrace"
+   result[1] = "『レジスト』 相手に強く密着する"
+when 696   #エキシビジョン
+    #[レジスト] 自分が拘束中の相手の両足を開かせる
+   result[0] = "Spread and Open"
+   result[1] = "『レジスト』 自分が拘束中の相手の両足を開かせる"
+when 697   #ペリスコープ
+    #[レジスト] 自分の胸で相手のペニスを挟みしごく
+   result[0] = "Paizuri Lock"
+   result[1] = "『レジスト』 自分の胸で相手のペニスを挟みしごく"
+when 698   #ヘブンリーフィール
+    #[レジスト] 自分の胸で相手の顔を抱きしめる
+   result[0] = "Heaven's Feel"
+   result[1] = "『レジスト』 自分の胸で相手の顔を抱きしめる"
+when 700   #インサート
+    #[レジスト] 自分のペニスを相手のアソコに挿入する
+   result[0] = "Insert"
+   result[1] = "『レジスト』 自分のペニスを相手のアソコに挿入する"
+when 701   #オーラルインサート
+    #[レジスト] 自分のペニスを相手の口に挿入する
+   result[0] = "Oral Insert"
+   result[1] = "『レジスト』 自分のペニスを相手の口に挿入する"
+when 702   #バックインサート
+    #[レジスト] 自分のペニスを相手のアナルに挿入する
+   result[0] = "Backdoor Insert"
+   result[1] = "『レジスト』 自分のペニスを相手のアナルに挿入する"
+when 705   #インサートテイル
+    #[レジスト] 自分の尻尾を相手のアソコに挿入する
+   result[0] = "Tail Insert"
+   result[1] = "『レジスト』 自分の尻尾を相手のアソコに挿入する"
+when 706   #マウスインテイル
+    #[レジスト] 自分の尻尾を相手の口に挿入する
+   result[0] = "Oral Tail Insert"
+   result[1] = "『レジスト』 自分の尻尾を相手の口に挿入する"
+when 707   #バックインテイル
+    #[レジスト] 自分の尻尾を相手のアナルに挿入する
+   result[0] = "Anal Tail Insert"
+   result[1] = "『レジスト』 自分の尻尾を相手のアナルに挿入する"
+when 710   #ディルドインサート
+    #[レジスト] 自分に装着したディルドを相手のアソコに挿入する
+   result[0] = "Dildo Insert"
+   result[1] = "『レジスト』 自分に装着したディルドを相手のアソコに挿入する"
+when 711   #ディルドインマウス
+    #[レジスト] 自分に装着したディルドを相手の口に挿入する
+   result[0] = "Oral Dildo Insert"
+   result[1] = "『レジスト』 自分に装着したディルドを相手の口に挿入する"
+when 712   #ディルドインバック
+    #[レジスト] 自分に装着したディルドを相手のアナルに挿入する
+   result[0] = "Anal Dildo Insert"
+   result[1] = "『レジスト』 自分に装着したディルドを相手のアナルに挿入する"
+when 715   #アイヴィクローズ
+    #[レジスト] 触手で拘束する。
+   result[0] = "Entangle"
+   result[1] = "『レジスト』 触手で拘束する。"
+when 716   #デモンズクローズ
+    #[レジスト] 触手で拘束する。
+   result[0] = "Demon Wrap"
+   result[1] = "『レジスト』 触手で拘束する。"
+when 717   #デモンズアブソーブ
+    #[レジスト] 触手で♂を吸う
+   result[0] = "Feeler Suck-in"
+   result[1] = "『レジスト』 触手で♂を吸う"
+when 718   #デモンズドロウ
+    #[レジスト] 触手で♀を吸う。
+   result[0] = "Feeler Insert"
+   result[1] = "『レジスト』 触手で♀を吸う。"
+when 719   #インサルトツリー
+    #[レジスト] 触手で拘束した相手を開脚させる
+   result[0] = "Tentacle Wrap"
+   result[1] = "『レジスト』 触手で拘束した相手を開脚させる"
+when 772   #エナジードレイン
+    #[×××] 腰を振る。[インサート(LvMAX)][VPドレイン]
+   result[0] = "Energy Drain"
+   result[1] = "『×××』 腰を振る。『インサート(LvMAX)』『VPドレイン』"
+when 773   #レベルドレイン
+    #[×××] 腰を振る。[インサート(LvMAX)][レベルドレイン]
+   result[0] = "Level Drain"
+   result[1] = "『×××』 腰を振る。『インサート(LvMAX)』『レベルドレイン』"
+when 971   #もがく
+    #もがいて抵抗する。
+   result[0] = "Struggle"
+   result[1] = "もがいて抵抗する。"
+   
+   end
+
+      return result
+
+end
