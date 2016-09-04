@@ -16,35 +16,35 @@ when 5   #シェルマッチ
 when 6   #インサート
    return "Insert"
 when 7   #オーラルインサート
-   return "Oral insert"
+   return "Oral Insert"
 when 8   #バックインサート
-   return "Backdoor insert"
+   return "Anal Insert"
 when 9   #トーク
    return "Talk"
 when 10   #トークレジスト
-   return "Sweet talk"
+   return "Sweet Talk"
 when 13   #アクセプト
-   return "Invite"
+   return "Accept"
 when 14   #オーラルアクセプト
-   return "Oral invite"
+   return "Oral Accept"
 when 15   #バックアクセプト
-   return "Backdoor invite"
+   return "Anal Accept"
 when 16   #ドロウネクター
-   return "Tongue insert"
+   return "Nectar Draw"
 when 17   #エンブレイス
    return "Embrace"
 when 18   #エキサイトビュー
-   return "Straddle"
+   return "Facesit"
 when 20   #ディルドインサート
-   return "Dildo insert"
+   return "Dildo Insert"
 when 21   #ディルドインマウス
-   return "Dildo gag"
+   return "Oral Dildo Insert"
 when 22   #ディルドインバック
-   return "Anal plug-in"
+   return "Anal Dildo Insert"
 when 25   #デモンズアブソーブ
-   return "Feeler suck-in"
+   return "Feeler Suck-in"
 when 26   #デモンズドロウ
-   return "Feeler insert"
+   return "Feeler Insert"
 when 28   #インタラプト
    return "Interrupt"
 when 29   #リリース
@@ -58,23 +58,23 @@ when 32   #スウィング
 when 33   #ヘヴィスウィング
    return "Piston"
 when 34   #ディルドスウィング
-   return "Strapon thrust"
+   return "Strapon Thrust"
 when 35   #ラビングピストン
-   return "Chest frottage"
+   return "Chest Frottage"
 when 37   #オーラルピストン
-   return "Throat piston"
+   return "Oral Piston"
 when 38   #オーラルディルド
-   return "Throat dildo"
+   return "Oral Dildo"
 when 41   #バックピストン
-   return "Anal thrust"
+   return "Anal Thrust"
 when 42   #バックディルド
-   return "Dildo ram"
+   return "Anal Dildo"
 
    #■♀techniques
 when 47   #グラインド
    return "Grind"
 when 48   #ハードグラインド
-   return "Wild ride"
+   return "Wild Grind"
 when 50   #タイトクロッチ
    return "Tighten"
 when 52   #スクラッチ
@@ -93,7 +93,7 @@ when 58   #スロート
 when 59   #ディープスロート
    return "Deepthroat"
 when 60   #ドロウスロート
-   return "Suck on"
+   return "Throat Draw"
 when 61   #サック
    return "Lick"
    
@@ -107,9 +107,9 @@ when 67   #タイトホール
    #■Hold counters
       
 when 71   #リック
-   return "Lick pussy"
+   return "Lick Offering"
 when 72   #リック
-   return "Lick ass"
+   return "Clean Offering"
 when 73   #ミスチーフ
    return "Tickle"
 when 74   #リアカレス
@@ -135,26 +135,26 @@ when 85   #カレス
 when 87   #キッス
    return "Kiss"
 when 91   #ツーパフ
-   return "Chest press"
+   return "Chest Press"
 when 101   #ティーズ
    return "Tease"
 when 102   #ミスチーフ（没）
-   return "Tease out"
+   return "Tease Out"
 when 103   #ファストレイド
-   return "Quick raid"
+   return "Quick Raid"
 when 104   #トリックレイド
-   return "Trick raid"
+   return "Trick Raid"
 when 106   #ディバウアー
    return "Devour"
 when 111   #プレジャー
-   return "Self-pleasure"
+   return "Self-Pleasure"
    
    #■Actor support techniques
 
 when 121   #ブレス
    return "Breath"
 when 122   #カームブレス
-   return "Calm breath"
+   return "Calm Breath"
 when 123   #ウェイト
    return "Wait"
 when 124   #イントラスト
@@ -166,7 +166,7 @@ when 126   #チェック
 when 127   #アナライズ
    return "Analyze"
 when 135   #ストリップ
-   return "Striptease"
+   return "Team Strip"
 when 140   #テンプテーション
    return "Temptation"
 when 145   #ガード
@@ -181,130 +181,130 @@ when 149   #プロヴォーク
    #■Succubi common magic
 
 when 161   #イリスシード
-   return "Heal seed"
+   return "Iris Seed"
 when 162   #イリスペタル
-   return "Heal petal"
+   return "Iris Petal"
 when 163   #イリスフラウ
-   return "Heal aura"
+   return "Iris Aura "
 when 164   #イリスコロナ
-   return "Heal halo"
+   return "Iris Corona"
 when 165   #イリスシード・アルダ
-   return "Mass Heal seed"
+   return "Iris Seed - All "
 when 166   #イリスペタル・アルダ
-   return "Mass Heal petal"
+   return "Iris Petal - All"
 when 167   #イリスフラウ・アルダ
-   return "Mass Heal aura"
+   return "Iris Aura - All "
 when 171   #ラナンブルム
-   return "Charisma"
+   return "Lanan Bloom"
 when 172   #ラナンブルム・アルダ
-   return "Mass Charisma"
+   return "Lanan Bloom - All"
 when 173   #ラナンイーザ
-   return "Disgrace"
+   return "Lananize"
 when 174   #ラナンイーザ・アルダ
-   return "Mass Disgrace"
+   return "Lananize - All"
 when 175   #ネリネブルム
-   return "Resistance"
+   return "Neline Bloom"
 when 176   #ネリネブルム・アルダ
-   return "Mass Resistance"
+   return "Neline Bloom - All"
 when 177   #ネリネイーザ
-   return "Vulnerability"
+   return "Nelinaze"
 when 178   #ネリネイーザ・アルダ
-   return "Mass Vulnerability"
+   return "Nelinaze - All"
 when 179   #エルダブルム
-   return "Energy"
+   return "Elder Bloom"
 when 180   #エルダブルム・アルダ
-   return "Mass Energy"
+   return "Elder Bloom - All"
 when 181   #エルダイーザ
-   return "Debility"
+   return "Elderize"
 when 182   #エルダイーザ・アルダ
-   return "Mass Debility"
+   return "Elderize - All"
 when 183   #サフラブルム
-   return "Deftness"
+   return "Saffron Bloom"
 when 184   #サフラブルム・アルダ
-   return "Mass Deftness"
+   return "Saffron Bloom - All"
 when 185   #サフライーザ
-   return "Klutz"
+   return "Saffrize"
 when 186   #サフライーザ・アルダ
-   return "Mass Klutz"
+   return "Saffrize - All"
 when 187   #コリオブルム
-   return "Haste"
+   return "Kurio Bloom"
 when 188   #コリオブルム・アルダ
-   return "Mass Haste"
+   return "Kurio Bloom - All"
 when 189   #コリオイーザ
-   return "Slow"
+   return "Kuriolize "
 when 190   #コリオイーザ・アルダ
-   return "Mass Slow"
+   return "Kuriolize - All "
 when 191   #アスタブルム
-   return "Mana surge"
+   return "Aster Bloom"
 when 192   #アスタブルム・アルダ
-   return "Mass Mana surge"
+   return "Aster Bloom - All "
 when 193   #アスタイーザ
-   return "Mana drain"
+   return "Asterize"
 when 194   #アスタイーザ・アルダ
-   return "Mass Mana drain"
+   return "Asterize - All"
 when 195   #ストレリブルム
-   return "Efflorescence"
+   return "Storm Bloom "
 when 196   #ストレリブルム・アルダ
-   return "Mass Efflorescence"
+   return "Storm Bloom - All "
 when 197   #ストレリイーザ
-   return "Storm of Decay"
+   return "Storm Wither"
 when 198   #ストレリイーザ・アルダ
-   return "Mass Storm of Decay"
+   return "Storm Wither - All"
 when 200   #チャーム
    return "Charm"
 when 201   #ペイド・チャーム
-   return "Mass charm"
+   return "Mass Charm"
 when 202   #ラスト
    return "Lust"
 when 203   #ペイド・ラスト
-   return "Mass lust"
+   return "Mass Lust "
 when 204   #フィルス
-   return "Flirt"
+   return "Flirt "
 when 205   #ペイド・フィルス
-   return "Mass flirt"
+   return "Mass Flirt"
 when 206   #レザラジィ
-   return "Collapse"
+   return "Lethargy"
 when 207   #ペイド・レザラジィ
-   return "Mass Collapse"
+   return "Mass Lethargy "
 when 208   #テラー
-   return "Soften"
+   return "Terror"
 when 209   #ペイド・テラー
-   return "Mass soften"
+   return "Mass Terror "
 when 210   #パラライズ
    return "Paralyze"
 when 211   #ペイド・パラライズ
-   return "Mass paralyze"
+   return "Mass Paralyze "
 when 212   #ルーズ
-   return "Sleep"
+   return "Trance"
 when 213   #ペイド・ルーズ
-   return "Mass sleep"
+   return "Mass Trance "
 when 215   #トリムルート
-   return "Body cleanse"
+   return "Treme Root"
 when 216   #トリムストーク
-   return "Mind cleanse"
+   return "Treme Stalk "
 when 217   #トリムヴァイン
-   return "Removal"
+   return "Treme Stem"
 when 219   #ブルムカール
-   return "Dispel"
+   return "Bloom Call"
 when 220   #ブルムカール・アルダ
-   return "Mass Dispel"
+   return "Bloom Call - All"
 when 221   #イーザカール
-   return "Uncurse"
+   return "Lyzing Call "
 when 222   #イーザカール・アルダ
-   return "Mass uncurse"
+   return "Lyzing Call - All "
 when 224   #ウォッシュフルード
-   return "Cleansing waters"
+   return "Cleansing Waters"
 when 239   #シャイニングレイジ
-   return "Shining rage"
+   return "Shining Rage"
 
-   #■■ＭＡＰ skills■■
+   #■■Map skills■■
    
 when 241   #クッキング
    return "Cook"
 when 248   #サーヴァントコール
-   return "Servant talk"
+   return "Call Servant"
 when 249   #ランクアップ
-   return "Rank up"
+   return "Rank Up"
    
    #■Enemy basic techniques
 
@@ -317,23 +317,23 @@ when 253   #ショウダウン
 when 257   #服を脱がす
    return "Expose"
 when 260   #品定め
-   return "Check out"
-when 261   #手ほどき
-   return "Foreplay"
+   return "Check Out"
+when 261   #手ほどき   
+   return "Foreplay"   #sounds much cleaere than "setup"
 when 262   #甘やかし
    return "Indulge"
 when 263   #スパンク
    return "Spank"
 when 275   #やけくそ三連撃
-   return "Desperation 3-ways"
+   return "Desperation 3-Ways"
 when 276   #ヒーローキリング
-   return "Hero killer"
+   return "Hero Killer"
 when 277   #メテオエクリプス
-   return "Meteo rain"
+   return "Meteo Rain"
 when 278   #ワールドブレイカー
-   return "World breaker"
+   return "World Breaker"
 when 279   #スキル決め直し
-   return "Pick again"
+   return "Pick Again"
    
    #■Random basic attacks■
 
@@ -368,7 +368,7 @@ when 296   #【RD】コンフューズ
 when 297   #フィアー
    return "Fear"
 when 298   #フリーアクション
-   return "Free action"
+   return "Free Action"
 when 299   #エモーション
    return "Emotion"
 
@@ -378,34 +378,34 @@ when 299   #エモーション
    #◇Special Handiworks◇
    
 when 359   #セットサークル
-   return "Set circle"
+   return "Set Circle"
 when 360   #コールドタッチ
-   return "Cold touch"
+   return "Cold Touch"
 when 361   #サディストカレス
-   return "Hand of sadist"
+   return "Touch of Sadism"
 when 362   #プライスオブハレム
-   return "Harem Master"
+   return "Please Harem"    #sounds more logical
 when 363   #プライスオブシナー
-   return "Bushin pleasure"
+   return "Bushin Pleasure"
 when 364   #ペルソナブレイク
-   return "Persona break"
+   return "Persona Break"
 when 365   #キャストエントリー
-   return "Caster gate"
+   return "Caster Gate"
    
    #◇Special mouthworks◇
    
 when 415   #ハウリング
    return "Howling"
 when 416   #魔性の口付け
-   return "Evil kiss"
+   return "Devil's Kiss"
 when 417   #祝福の口付け
-   return "Blessing kiss"
+   return "Blessing Kiss"
 when 418   #スイートウィスパー
-   return "Sweet whisper"
+   return "Sweet Whisper"
 when 419   #アンラッキーロア
-   return "Dejected love"
+   return "Dejected Love"
 when 420   #アンラッキーロア
-   return "Dejected love"
+   return "Dejected Love"
 when 421   #懺悔なさい
    return "Confess"
    
@@ -414,116 +414,116 @@ when 421   #懺悔なさい
 when 586   #レストレーション
    return "Restoration"
 when 587   #スライミーリキッド
-   return "Slimy fluids"
+   return "Slimy Fluids"
 when 588   #激励
    return "Cheer"
 when 589   #バッドスポア
-   return "Noxious spores"
+   return "Noxious Spores"
 when 590   #スポアクラウド
-   return "Spore cloud"
+   return "Spore Cloud"
 when 591   #アイヴィクローズ
    return "Entangle"
 when 592   #デモンズクローズ
-   return "Demon wrap"
-when 599   #焦燥
-   return "Aggravate"
+   return "Demon Wrap"
+when 599   #焦燥   #Gives STR+30%, AGI+30%, DEX-30%. It's about getting somewhat angry, no?
+   return "Haste"
 when 600   #専心
-   return "Concentration"
+   return "Concentrate"
 when 601   #本能の呼び覚まし
-   return "Primal instincts"
+   return "Primal Instincts"
 when 602   #自信過剰
    return "Overconfidence"
    
    #◆incenses◆
    
 when 611   #リラックスタイム
-   return "Relaxation time"
+   return "Relaxation Time"
 when 612   #スイートアロマ
-   return "Sweet aroma"
+   return "Sweet Aroma"
 when 613   #パッションビート
-   return "Passion beats"
+   return "Passion Beats"
 when 614   #マイルドパフューム
-   return "Mild prefume"
+   return "Mild Perfume"
 when 615   #レッドカーペット
-   return "Red carpet"
+   return "Red Carpet"
 when 618   #ストレンジスポア
-   return "Strange spores"
+   return "Strange Spores"
 when 619   #ウィークスポア
-   return "Weakening spores"
+   return "Weakening Spores"
 when 620   #威迫
    return "Intimidate"
 when 621   #心掴み
-   return "Heart grasp"
+   return "Heart Grasp"
 when 622   #全ては現
-   return "One with the flow"
+   return "One with the Flow"
 when 625   #ラブフレグランス
-   return "Love fragrance"
+   return "Love Fragrance"
 when 626   #スライムフィールド
-   return "Slime field"
+   return "Slime Field"
    
    #◆Defensive skills◆
    
 when 631   #激励を受ける
-   return "Encourage"
+   return "Cheer up"
    
    #●Holding skills - base●
    
 when 682   #アクセプト
-   return "Cowgirl invite"
+   return "Accept"
 when 683   #シェルマッチ
    return "Scissors"
 when 684   #エキサイトビュー
-   return "Straddle"
-when 687   #オーラルアクセプト
-   return "Oral insert"
+   return "Facesit"
+when 687   #オーラルアクセプト I'll try and stick with Accept / Insert when applicable
+   return "Oral Accept"  #@target_battlers[0].hold.penis.battler == nil and @target_battlers[0].insertable_nude?
 when 688   #ドロウネクター
-   return "Tongue insert"
+   return "Oral Pin"
 when 689   #フラッタナイズ
-   return "Lock lips"
-when 691   #バックアクセプト
-   return "Anal invite"
+   return "Lock Lips"
+when 691   #バックアクセプト #maybe it's just me but I find pitch/catch very vulgar and belittling... 
+   return "Anal Accept"      #Just my own understanding, though, I'm not US.
 when 692   #インモラルビュー
-   return "Reverse straddle"
+   return "Dark Side"    #cool :) 
 when 695   #エンブレイス
    return "Embrace"
 when 696   #エキシビジョン / hold legs in place
-   return "Shameful display" #"Exhibition"
+   return "Spread and Open" #"Exhibition" should be a good, accurate compromise
 when 697   #ペリスコープ / Paizuri bearhold
-   return "Oppai invite"#"Periscope"
+   return "Paizuri Lock" #yellow submarine
 when 698   #ヘブンリーフィール / Puff-puff headhold
-   return "Heaven's feel"
+   return "Heaven's Feel"
 when 700   #インサート
    return "Insert"
 when 701   #オーラルインサート
-   return "Oral insert"
+   return "Oral Insert"
 when 702   #バックインサート
-   return "Backdoor insert"
+   return "Backdoor Insert"
 when 705   #インサートテイル
-   return "Tail insert"
+   return "Tail Insert"
 when 706   #マウスインテイル
-   return "Tail mouth insert"
+   return "Oral Tail Insert"
 when 707   #バックインテイル
-   return "Tail anal insert"
+   return "Anal Tail Insert"
 when 710   #ディルドインサート
-   return "Dildo insert"
+   return "Dildo Insert"
 when 711   #ディルドインマウス
-   return "Dildo gag"
+   return "Oral Dildo Insert"
 when 712   #ディルドインバック
-   return "Anal plug-in"
+   return "Anal Dildo Insert"
 when 715   #アイヴィクローズ
    return "Entangle"
 when 716   #デモンズクローズ
-   return "Demon wrap"
+   return "Demon Wrap"
 when 717   #デモンズアブソーブ
-   return "Feeler suck-in"
+   return "Feeler Suck-in"
 when 718   #デモンズドロウ
-   return "Feeler insert"
+   return "Feeler Insert"
 when 719   #インサルトツリー
-   return "Tentacle wrap"
+   return "Tentacle Wrap"
 when 772   #エナジードレイン
-   return "Energy drain"
+   return "Energy Drain"
 when 773   #レベルドレイン
-   return "Level drain"
+   return "Level Drain"
 when 971   #もがく
    return "Struggle"
    
