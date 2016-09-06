@@ -2,12 +2,95 @@ module RPG
   class Class
     attr_accessor :UK_name
     def UK_name
+      case @id
+when 1   #none
+  return "none"
+when 2,3,271   #人間
+  return "Human"
+when 5,6   #レッサーサキュバス
+  return "Lesser Succubus"
+when 10,11   #サキュバス
+  return "Succubus"
+when 15,16   #サキュバスロード
+  return "Succubus Lord"
+when 21,22   #インプ
+  return "Imp"
+when 26,27   #デビル
+  return "Devil"
+when 31,32   #デーモン
+  return "Demon"
+when 37,38   #プチウィッチ
+  return "Little Witch"
+when 42,43   #ウィッチ
+  return "Witch"
+when 47   #ヘカテー
+  return "Hecate"
+when 53,54   #キャスト
+  return "Caster"
+when 58   #ハイキャスト
+  return "High Caster"
+when 63   #スレイヴ
+  return "Slave"
+when 69   #スリーピィ
+  return "Sleepy"
+when 74,75   #ナイトメア
+  return "Nightmare"
+when 80   #スライム
+  return "Slime"
+when 85   #クイーンスライム
+  return "Queen Slime"
+when 90   #ゴールドスライム
+  return "Gold Slime"
+when 96,97   #ファミリア
+  return "Familiar"
+when 100,101   #ワーウルフ
+  return "Werewolf"
+when 104,105   #ワーキャット
+  return "Werecat"
+when 108   #ゴブリン
+  return "Goblin"
+when 111   #ギャングコマンダー
+  return "Gang Leader"
+when 114   #ギャングチーフ
+  return "Goblin Chieftain"
+when 118   #プリーステス
+  return "Priestess"
+when 122   #カースメイガス
+  return "Cursed Magus"
+when 126,127   #アルラウネ
+  return "Alraune"
+when 129   #マンイーター
+  return "Maneater"
+when 133   #マタンゴ
+  return "Matango"
+when 137   #ダークエンジェル
+  return "Dark Angel"
+when 141   #ガーゴイル
+  return "Gargoyle"
+when 145,146   #ミミック
+  return "Mimic"
+when 148   #パンドラボックス
+  return "Pandora Box"
+when 152   #タマモ
+  return "Tamano"
+when 156   #リリム
+  return "Lilim"
+when 251,252,253,255,256,258   #ユニークサキュバス
+  return "Unique Succubus"
+when 254   #ユニークタイクーン
+  return "Unique Tycoon"
+when 257   #ユニークウィッチ
+  return "Unique Witch"
+when 272   #【data】夢魔
+  return "Dream Demon"
+      end
       n = @name.split(/\//)[0]
-      return n.translation_check
+      #return n.translation_check
+      return "Class " + @id.to_s + " unnamed"
     end
   end
 
-  class Game_Battler
+  class Game_Battler #no good
    attr_accessor :UK_name
    attr_accessor :UK_personality
     def UK_name
@@ -20,7 +103,7 @@ module RPG
     end
   end
   
-  class Game_Actor < Game_Battler
+  class Game_Actor < Game_Battler #no good
    attr_accessor :UK_name
     def UK_name
       n = self.name.split(/\//)[0]
