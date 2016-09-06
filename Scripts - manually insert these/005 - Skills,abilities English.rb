@@ -33,19 +33,19 @@ when 4,251   #服を脱ぐ
 when 5,683   #シェルマッチ
     #[レジスト][♀→♀] ♀同士を密着させる。[条件：双方裸]
    result[0] = "Scissors"
-   result[1] = "『Resist』『♀→♀』Attempt to initiate tribadism.『Req.both Nude』"
+   result[1] = "『Resist』『♀→♀』Attempt to initiate tribadism.『Req. both Nude』"
 when 6,700   #インサート
     #[レジスト] [♂→♀] 挿入する。[条件：双方裸]
    result[0] = "Insert"
-   result[1] = "『Resist』『♂→♀』Put it in ♀.『Req.both Nude』"
+   result[1] = "『Resist』『♂→♀』Put it in ♀.『Req. both Nude』"
 when 7,701   #オーラルインサート
     #[レジスト] [♂→口] 咥えさせる。[条件：自分裸]
    result[0] = "Oral Insert"
-   result[1] = "『Resist』『♂→Mouth』Put it in her mouth.『Req.self Nude』"
+   result[1] = "『Resist』『♂→Mouth』Put it in her mouth.『Req. self Nude』"
 when 8,702   #バックインサート
     #[レジスト] [♂→尻] 菊座に挿入する。[条件：双方裸]
    result[0] = "Anal Insert"
-   result[1] = "『Resist』『♂→Ass』Put it in her ass.『Req.both Nude』"
+   result[1] = "『Resist』『♂→Ass』Put it in her ass.『Req. both Nude』"
 when 9   #トーク
     #相手に話しかける。
    result[0] = "Talk"
@@ -57,19 +57,19 @@ when 10   #トークレジスト
 when 13,682   #アクセプト
     #[レジスト] [♀→♂] 挿入する。[条件：双方裸]
    result[0] = "Accept"
-   result[1] = "『Resist』『♀→♂』Take it in ♀.『Req.both Nude』"
+   result[1] = "『Resist』『♀→♂』Take it in ♀.『Req. both Nude』"
 when 14,687   #オーラルアクセプト
     #[レジスト] [口→♂] 咥える。[条件：相手裸]
    result[0] = "Oral Accept"
-   result[1] = "『Resist』『Mouth→♂』Initiate blowjob.『Req.target Nude』"
+   result[1] = "『Resist』『Mouth→♂』Initiate blowjob.『Req. target Nude』"
 when 15,691   #バックアクセプト
     #[レジスト] [尻→♂] 菊座に挿入する。[条件：双方裸]
    result[0] = "Anal Accept"
-   result[1] = "『Resist』『Ass→♂』Take it in the ass.『Req.both Nude』"
+   result[1] = "『Resist』『Ass→♂』Take it in the ass.『Req. both Nude』"
 when 16,688   #ドロウネクター
     #[レジスト] [口→♀] アソコを吸う。[条件：相手裸]
    result[0] = "Nectar Draw"
-   result[1] = "『Resist』『Mouth→♀』Initiate cunnilingus.『Req.target Nude』"
+   result[1] = "『Resist』『Mouth→♀』Initiate cunnilingus.『Req. target Nude』"
 when 17,695   #エンブレイス
     #[レジスト] [→体] 密着する。
    result[0] = "Embrace"
@@ -81,15 +81,15 @@ when 18,684   #エキサイトビュー
 when 20   #ディルドインサート
     #[レジスト] [張子→♀] ディルドを挿入する。[条件：双方裸]
    result[0] = "Dildo Insert"
-   result[1] = "『Resist』『Strapon→♀』Put it in ♀.『Req.both Nude』"
+   result[1] = "『Resist』『Strapon→♀』Put it in ♀.『Req. both Nude』"
 when 21   #ディルドインマウス
     #[レジスト] [張子→口] ディルドを口に挿入する。[条件：自分裸]
    result[0] = "Oral Dildo Insert"
-   result[1] = "『Resist』『Strapon→Mouth』Put it in her mouth.『Req.self Nude』"
+   result[1] = "『Resist』『Strapon→Mouth』Put it in her mouth.『Req. self Nude』"
 when 22   #ディルドインバック
     #[レジスト] [張子→尻] ディルドを菊座に挿入する。[条件：双方裸]
    result[0] = "Anal Dildo Insert"
-   result[1] = "『Resist』『Strapon→Ass』Put it in her ass.『Req.both Nude』"
+   result[1] = "『Resist』『Strapon→Ass』Put it in her ass.『Req. both Nude』"
 when 25,717   #デモンズアブソーブ
     #[レジスト] [触手→♂] 触手で♂を吸う。
    result[0] = "Feeler Suck-in"
@@ -161,7 +161,7 @@ when 52   #スクラッチ
 when 53   #ハードスクラッチ
     #[×××] 局部を強く擦り合わせる。[条件：シェルマッチ(LvMAX)]
    result[0] = "Rubdown"
-   result[1] = "『×××』Strongly rub hers with your own.『Req.Tribadism(LvMAX)』"
+   result[1] = "『×××』Strongly rub hers with your own.『Req. Tribadism(LvMAX)』"
 when 55   #ライディング
     #[♀→口] 腰を振る。[追加：欲情]
    result[0] = "Facerub"
@@ -177,11 +177,11 @@ when 58   #スロート
 when 59   #ディープスロート
     #[口→♂] 大胆にしゃぶる。[条件：オーラルインサート]
    result[0] = "Deepthroat"
-   result[1] = "『Mouth→♂』Suck it.『Req.Oral Insert』"
+   result[1] = "『Mouth→♂』Suck it.『Req. Oral Insert』"
 when 60   #ドロウスロート
     #[口→♂] 控えめにしゃぶる。[条件：オーラルインサート]
    result[0] = "Throat Draw"
-   result[1] = "『Mouth→♂』Suck it hard.『Req.Oral Insert』"
+   result[1] = "『Mouth→♂』Suck it hard.『Req. Oral Insert』"
 when 61   #サック
     #[口→♀] ♀を吸う。
    result[0] = "Lick"
@@ -189,11 +189,11 @@ when 61   #サック
 when 64   #スクイーズ
     #[×××] 締める。[条件：バックインサート]
    result[0] = "Squeeze"
-   result[1] = "『×××』Tighten your walls.『Req.Anal Insert』"
+   result[1] = "『×××』Tighten your walls.『Req. Anal Insert』"
 when 67   #タイトホール
     #[×××] 締める。[条件：バックインサート]
    result[0] = "Tighten"
-   result[1] = "『×××』Tighten your walls.『Req.Anal Insert』"
+   result[1] = "『×××』Tighten your walls.『Req. Anal Insert』"
 when 71   #リック
     #[口→♀] 騎乗している相手のアソコを攻める。[追加：潤滑アップ] / Keeping 'Lube' since it's a multiple-states business
    result[0] = "Lick Offering"
@@ -257,7 +257,7 @@ when 104   #トリックレイド
 when 106   #ディバウアー
     #[手/口→体] 激しく攻める。[条件：ムード30]
    result[0] = "Devour"
-   result[1] = "『Hand/Mouth→Body』Strong attack.『Req.Mood 30+』"
+   result[1] = "『Hand/Mouth→Body』Strong attack.『Req. Mood 30+』"
 when 111   #プレジャー
     #[手→]自分を慰め、高揚させる。   TODO: will probably change 高揚 state to 'horny' (merry, currently)
    result[0] = "Self-Pleasure"
@@ -324,7 +324,7 @@ when 162   #イリスペタル
    result[1] = "『Magic』Target recovers some EP."
 when 163   #イリスフラウ
     #[魔法] 味方１人のＥＰを大回復させる。
-   result[0] = "Iris Aura "
+   result[0] = "Iris Aura"
    result[1] = "『Magic』Target recovers more EP."
 when 164   #イリスコロナ
     #[魔法] 味方１人のＥＰを超回復させる。
@@ -332,7 +332,7 @@ when 164   #イリスコロナ
    result[1] = "『Magic』Target recovers much EP."
 when 165   #イリスシード・アルダ
     #[魔法] 味方全体のＥＰを小回復させる。
-   result[0] = "Iris Seed - All "
+   result[0] = "Iris Seed - All"
    result[1] = "『Magic』Party recovers a little EP."
 when 166   #イリスペタル・アルダ
     #[魔法] 味方全体のＥＰを中回復させる。
@@ -340,7 +340,7 @@ when 166   #イリスペタル・アルダ
    result[1] = "『Magic』Target recovers some EP."
 when 167   #イリスフラウ・アルダ
     #[魔法] 味方全体のＥＰを大回復させる。
-   result[0] = "Iris Aura - All "
+   result[0] = "Iris Aura - All"
    result[1] = "『Magic』Target recovers more EP."
 when 171   #ラナンブルム
     #[魔法] 味方１人の魅力を強める。   *TODO* check base stats consistency for ↓↑
@@ -416,11 +416,11 @@ when 188   #コリオブルム・アルダ
    result[1] = "『Magic』Speed↑ for party."
 when 189   #コリオイーザ
     #[魔法] 敵１人の素早さを弱める。
-   result[0] = "Kuriolize "
+   result[0] = "Kuriolize"
    result[1] = "『Magic』Speed↓ for 1 enemy."
 when 190   #コリオイーザ・アルダ
     #[魔法] 敵全員の素早さを弱める。
-   result[0] = "Kuriolize - All "
+   result[0] = "Kuriolize - All"
    result[1] = "『Magic』Speed↓ for all enemies."
 when 191   #アスタブルム
     #[魔法] 味方１人の精神力を強める。
@@ -428,7 +428,7 @@ when 191   #アスタブルム
    result[1] = "『Magic』Magic↑ for 1 ally."
 when 192   #アスタブルム・アルダ
     #[魔法] 味方全員の精神力を強める。
-   result[0] = "Aster Bloom - All "
+   result[0] = "Aster Bloom - All"
    result[1] = "『Magic』Magic↑ for party."
 when 193   #アスタイーザ
     #[魔法] 敵１人の精神力を弱める。
@@ -440,11 +440,11 @@ when 194   #アスタイーザ・アルダ
    result[1] = "『Magic』Magic↓ for all enemies."
 when 195   #ストレリブルム
     #[魔法] 味方１人の全ての能力を強める。
-   result[0] = "Storm Bloom "
+   result[0] = "Storm Bloom"
    result[1] = "『Magic』Endurance↑ for 1 ally."
 when 196   #ストレリブルム・アルダ
     #[魔法] 味方全員の全ての能力を強める。
-   result[0] = "Storm Bloom - All "
+   result[0] = "Storm Bloom - All"
    result[1] = "『Magic』All Stats↑ for party."
 when 197   #ストレリイーザ
     #[魔法] 敵１人の全ての能力を弱める。
@@ -468,11 +468,11 @@ when 202   #ラスト
    result[1] = "『Magic』#{$data_states[35].UK_name} chance on 1 enemy."
 when 203   #ペイド・ラスト
     #[魔法] 敵全員を中確率で欲情させる。
-   result[0] = "Mass Lust "
+   result[0] = "Mass Lust"
    result[1] = "『Magic』#{$data_states[35].UK_name} chance on all enemies."
 when 204   #フィルス
     #[魔法] 敵１人を中確率で暴走させる。
-   result[0] = "Flirt "
+   result[0] = "Flirt"
    result[1] = "『Magic』#{$data_states[36].UK_name} chance on 1 enemy."
 when 205   #ペイド・フィルス
     #[魔法] 敵全員を中確率で暴走させる。
@@ -484,7 +484,7 @@ when 206   #レザラジィ
    result[1] = "『Magic』#{$data_states[37].UK_name} chance on 1 enemy."
 when 207   #ペイド・レザラジィ
     #[魔法] 敵全員を中確率で虚脱させる。
-   result[0] = "Mass Lethargy "
+   result[0] = "Mass Lethargy"
    result[1] = "『Magic』#{$data_states[37].UK_name} chance on all enemies."
 when 208   #テラー
     #[魔法] 敵１人を中確率で畏怖させる。 / *TODO* Change 'soft' to 'Stricken'...
@@ -492,7 +492,7 @@ when 208   #テラー
    result[1] = "『Magic』#{$data_states[38].UK_name} chance on 1 enemy."
 when 209   #ペイド・テラー
     #[魔法] 敵全員を中確率で畏怖させる。
-   result[0] = "Mass Terror "
+   result[0] = "Mass Terror"
    result[1] = "『Magic』#{$data_states[38].UK_name} chance on all enemies."
 when 210   #パラライズ
     #[魔法] 敵１人を中確率で麻痺させる。
@@ -500,7 +500,7 @@ when 210   #パラライズ
    result[1] = "『Magic』#{$data_states[39].UK_name} chance on 1 enemy."
 when 211   #ペイド・パラライズ
     #[魔法] 敵全員を中確率で麻痺させる。
-   result[0] = "Mass Paralyze "
+   result[0] = "Mass Paralyze"
    result[1] = "『Magic』#{$data_states[39].UK_name} chance on all enemies."
 when 212   #ルーズ
     #[魔法] 敵１人を中確率で意識散漫にさせる。/ *TODO* Change 'tipsy' to 'Bewitched' or 'Entranced'...
@@ -508,7 +508,7 @@ when 212   #ルーズ
    result[1] = "『Magic』#{$data_states[40].UK_name} chance on 1 enemy."
 when 213   #ペイド・ルーズ
     #[魔法] 敵全員を中確率で意識散漫にさせる。
-   result[0] = "Mass Trance "
+   result[0] = "Mass Trance"
    result[1] = "『Magic』#{$data_states[40].UK_name} chance on all enemies."
 when 215   #トリムルート
     #[魔法] 味方１人の恍惚・欲情・暴走を解除する。
@@ -516,7 +516,7 @@ when 215   #トリムルート
    result[1] = "『Magic』Heals #{$data_states[34].UK_name},#{$data_states[35].UK_name},#{$data_states[36].UK_name}."
 when 216   #トリムストーク
     #[魔法] 味方１人の虚脱・畏怖・麻痺・散漫を解除する。
-   result[0] = "Treme Stalk "
+   result[0] = "Treme Stalk"
    result[1] = "『Magic』Heals #{$data_states[37].UK_name},#{$data_states[38].UK_name},#{$data_states[39].UK_name},#{$data_states[40].UK_name}."
 when 217   #トリムヴァイン
     #[魔法] 味方１人の張型・触手・呪詛を解除する。
@@ -532,11 +532,11 @@ when 220   #ブルムカール・アルダ
    result[1] = "『Magic』Dispel magical buffs on all enemies."
 when 221   #イーザカール
     #[魔法] 味方１人の弱化効果全てを解除する。
-   result[0] = "Lyzing Call "
+   result[0] = "Lyzing Call"
    result[1] = "『Magic』Dispel magical debuffs on 1 ally."
 when 222   #イーザカール・アルダ
     #[魔法] 味方全員の弱化効果全てを解除する。
-   result[0] = "Lyzing Call - All "
+   result[0] = "Lyzing Call - All"
    result[1] = "『Magic』Dispel magical debuffs on party."
 when 224   #ウォッシュフルード
     #[魔法] 場に掛かっている効果を全て無くす。
@@ -689,11 +689,11 @@ when 361   #サディストカレス
 when 362   #プライスオブハレム
     #[手→体] 敵全員を攻める。[条件：ムード30]
    result[0] = "Please Harem"
-   result[1] = "『Hand→Body』Attack all enemies.『Req.Mood 30+』"
+   result[1] = "『Hand→Body』Attack all enemies.『Req. Mood 30+』"
 when 363   #プライスオブシナー
     #[手→体] 敵全員を攻める。[条件：ムード30]
    result[0] = "Bushin Pleasure"
-   result[1] = "『Hand→Body』Attack all enemies.『Req.Mood 30+』"
+   result[1] = "『Hand→Body』Attack all enemies.『Req. Mood 30+』"
 when 364   #ペルソナブレイク
     #[手→] 相手１人を破面状態にする。 TODO: check wtf that does
    result[0] = "Persona Break"
