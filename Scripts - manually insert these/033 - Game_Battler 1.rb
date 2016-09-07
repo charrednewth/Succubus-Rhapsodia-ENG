@@ -1,77 +1,78 @@
 #==============================================================================
-# ¡ Game_Battler (•ªŠ„’è‹` 1)
+# â–  Game_Battler (åˆ†å‰²å®šç¾© 1)
 #------------------------------------------------------------------------------
-# @ƒoƒgƒ‰[‚ğˆµ‚¤ƒNƒ‰ƒX‚Å‚·B‚±‚ÌƒNƒ‰ƒX‚Í Game_Actor ƒNƒ‰ƒX‚Æ Game_Enemy ƒNƒ‰
-# ƒX‚ÌƒX[ƒp[ƒNƒ‰ƒX‚Æ‚µ‚Äg—p‚³‚ê‚Ü‚·B
+# ã€€ãƒãƒˆãƒ©ãƒ¼ã‚’æ‰±ã†ã‚¯ãƒ©ã‚¹ã§ã™ã€‚ã“ã®ã‚¯ãƒ©ã‚¹ã¯ Game_Actor ã‚¯ãƒ©ã‚¹ã¨ Game_Enemy ã‚¯ãƒ©
+# ã‚¹ã®ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã¨ã—ã¦ä½¿ç”¨ã•ã‚Œã¾ã™ã€‚
 #==============================================================================
 
 class Game_Battler
   #--------------------------------------------------------------------------
-  # œ ŒöŠJƒCƒ“ƒXƒ^ƒ“ƒX•Ï”
+  # â— å…¬é–‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°
   #--------------------------------------------------------------------------
-  attr_accessor :battler_name             # ƒoƒgƒ‰[ ƒtƒ@ƒCƒ‹–¼
-  attr_reader   :battler_hue              # ƒoƒgƒ‰[ F‘Š
+  attr_accessor :battler_name             # ãƒãƒˆãƒ©ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«å
+  attr_reader   :battler_hue              # ãƒãƒˆãƒ©ãƒ¼ è‰²ç›¸
   attr_reader   :hp                       # HP
   attr_reader   :sp                       # SP
-  attr_accessor   :states                   # ƒXƒe[ƒg
-  attr_accessor :level                    # ƒŒƒxƒ‹
-  attr_accessor :hidden                   # ‰B‚êƒtƒ‰ƒO
-  attr_accessor :immortal                 # •s€gƒtƒ‰ƒO
-  attr_accessor :damage_pop               # ƒ_ƒ[ƒW•\¦ƒtƒ‰ƒO
-  attr_accessor :damage                   # ƒ_ƒ[ƒW’l
-  attr_accessor :critical                 # ƒNƒŠƒeƒBƒJƒ‹ƒtƒ‰ƒO
-  attr_accessor :animation_id             # ƒAƒjƒ[ƒVƒ‡ƒ“ ID
-  attr_accessor :animation_hit            # ƒAƒjƒ[ƒVƒ‡ƒ“ ƒqƒbƒgƒtƒ‰ƒO
-  attr_accessor :white_flash              # ”’ƒtƒ‰ƒbƒVƒ…ƒtƒ‰ƒO
-  attr_accessor :white_flash_long         # ’·‚¢”’ƒtƒ‰ƒbƒVƒ…ƒtƒ‰ƒO
-  attr_accessor :blink                    # –¾–Åƒtƒ‰ƒO
-  attr_accessor :change                   # šŒğ‘ã€”õ—p
-  attr_accessor :add_states_log           # •t‰Á‚³‚ê‚½ƒXƒe[ƒg‚ÌƒƒO
-  attr_accessor :remove_states_log        # ‰ğœ‚³‚ê‚½ƒXƒe[ƒg‚ÌƒƒO
-  attr_accessor :lub_male                 # ‰ŠŠ“x
-  attr_accessor :lub_female               # ŠŠŠ“x
-  attr_accessor :lub_anal                 # KŒŠŠŠ“x
-  attr_accessor :personality              # «Ši
-  attr_accessor :ability                  # ‘f¿
-  attr_accessor :state_runk               # ‘f¿
-  attr_accessor :change_index             # Œğ‘ã‚·‚éêŠ
-  attr_accessor :before_target            # ©•ª‚ª’¼‘O‚É’ÇŒ‚‚ğ”­¶‚³‚¹‚½‘ÎÛ
-  attr_accessor :crisis_flag              # ƒNƒ‰ƒCƒVƒX‰ï˜b”­¶ƒtƒ‰ƒO
-  attr_accessor :love                     # DŠ´“x
-  attr_accessor :resist_count             # ƒŒƒWƒXƒg‚µ‚½‰ñ”ƒ`ƒFƒbƒN
-  attr_accessor :ecstasy_count            # â’¸‚³‚¹‚½‘Šè‚Ìî•ñ
-  attr_accessor :ecstasy_turn             # â’¸ƒ^[ƒ“
-  attr_accessor :ecstasy_emotion          # â’¸‚Ìs“®ƒGƒ‚[ƒVƒ‡ƒ“
-  attr_accessor :sp_down_flag             # VPŒ¸­‚É‚æ‚é¸_ƒtƒ‰ƒO
-  attr_accessor :graphic_change           # ‰æ‘œ•ÏXƒtƒ‰ƒO
-  attr_accessor :checking                 # ƒ`ƒFƒbƒNŠ®—¹ƒtƒ‰ƒO
-  #ŒûãŠg’£—pŠeíƒtƒ‰ƒO
-  attr_accessor :bedin_count              # ƒxƒbƒhƒCƒ“‰ñ”
-  attr_accessor :rankup_flag              # ƒ‰ƒ“ƒNƒAƒbƒvŒoŒ±ƒtƒ‰ƒO
-  attr_accessor :hold                     # ƒz[ƒ‹ƒhƒtƒ‰ƒO
-  attr_accessor :label                    # ŒÅ—Lƒ‰ƒxƒ‹İ’è—p
-  attr_accessor :defaultname_hero         # ƒƒEŒN‚ÌŠî–{ŒÄÌ
-  attr_accessor :nickname_master          # ƒƒEŒN‚Ì“ÁêŒÄÌ
-  attr_accessor :defaultname_self         # ©•ª‚ÌŠî–{ŒÄÌ
-  attr_accessor :nickname_self            # ©•ª‚Ì“ÁêŒÄÌ
-  attr_accessor :used_mouth               # Œûo‰õŠ´ó—e
-  attr_accessor :used_anal                # ãè–å‰õŠ´ó—e
-  attr_accessor :used_sadism              # ”í‹s‰õŠ´ó—e
-  attr_accessor :another_action           # ‘½dƒAƒNƒVƒ‡ƒ“—pƒtƒ‰ƒO
-  attr_accessor :marking_battler          # ƒ}[ƒLƒ“ƒO‘Šè
-  attr_accessor :berserk                  # –\‘–ƒtƒ‰ƒO
-  attr_accessor :pillowtalk               # ‰ï˜bƒtƒ‰ƒO(Œ_–ñ”­“®—U”­)
-  attr_accessor :talk_weak_check          # ‰ï˜bã“_“Ë‚«ƒtƒ‰ƒO
-  attr_accessor :lub_flag_male            # ‰ŠŠisƒtƒ‰ƒO
-  attr_accessor :lub_flag_female          # ŠŠŠisƒtƒ‰ƒO
-  attr_accessor :lub_flag_anal            # KŒŠŠŠisƒtƒ‰ƒO
-  attr_accessor :earnest                  # –{‹Cƒtƒ‰ƒO
+  attr_accessor   :states                   # ã‚¹ãƒ†ãƒ¼ãƒˆ
+  attr_accessor :level                    # ãƒ¬ãƒ™ãƒ«
+  attr_accessor :hidden                   # éš ã‚Œãƒ•ãƒ©ã‚°
+  attr_accessor :immortal                 # ä¸æ­»èº«ãƒ•ãƒ©ã‚°
+  attr_accessor :damage_pop               # ãƒ€ãƒ¡ãƒ¼ã‚¸è¡¨ç¤ºãƒ•ãƒ©ã‚°
+  attr_accessor :damage                   # ãƒ€ãƒ¡ãƒ¼ã‚¸å€¤
+  attr_accessor :critical                 # ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ãƒ•ãƒ©ã‚°
+  attr_accessor :animation_id             # ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ ID
+  attr_accessor :animation_hit            # ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ’ãƒƒãƒˆãƒ•ãƒ©ã‚°
+  attr_accessor :white_flash              # ç™½ãƒ•ãƒ©ãƒƒã‚·ãƒ¥ãƒ•ãƒ©ã‚°
+  attr_accessor :white_flash_long         # é•·ã„ç™½ãƒ•ãƒ©ãƒƒã‚·ãƒ¥ãƒ•ãƒ©ã‚°
+  attr_accessor :blink                    # æ˜æ»…ãƒ•ãƒ©ã‚°
+  attr_accessor :change                   # â˜…äº¤ä»£æº–å‚™ç”¨
+  attr_accessor :add_states_log           # ä»˜åŠ ã•ã‚ŒãŸã‚¹ãƒ†ãƒ¼ãƒˆã®ãƒ­ã‚°
+  attr_accessor :remove_states_log        # è§£é™¤ã•ã‚ŒãŸã‚¹ãƒ†ãƒ¼ãƒˆã®ãƒ­ã‚°
+  attr_accessor :lub_male                 # â™‚æ½¤æ»‘åº¦
+  attr_accessor :lub_female               # â™€æ½¤æ»‘åº¦
+  attr_accessor :lub_anal                 # å°»ç©´æ½¤æ»‘åº¦
+  attr_accessor :personality              # æ€§æ ¼
+  attr_accessor :ability                  # ç´ è³ª
+  attr_accessor :state_runk               # ç´ è³ª
+  attr_accessor :change_index             # äº¤ä»£ã™ã‚‹å ´æ‰€
+  attr_accessor :before_target            # è‡ªåˆ†ãŒç›´å‰ã«è¿½æ’ƒã‚’ç™ºç”Ÿã•ã›ãŸå¯¾è±¡
+  attr_accessor :crisis_flag              # ã‚¯ãƒ©ã‚¤ã‚·ã‚¹ä¼šè©±ç™ºç”Ÿãƒ•ãƒ©ã‚°
+  attr_accessor :love                     # å¥½æ„Ÿåº¦
+  attr_accessor :resist_count             # ãƒ¬ã‚¸ã‚¹ãƒˆã—ãŸå›æ•°ãƒã‚§ãƒƒã‚¯
+  attr_accessor :ecstasy_count            # çµ¶é ‚ã•ã›ãŸç›¸æ‰‹ã®æƒ…å ±
+  attr_accessor :ecstasy_turn             # çµ¶é ‚ã‚¿ãƒ¼ãƒ³
+  attr_accessor :ecstasy_emotion          # çµ¶é ‚æ™‚ã®è¡Œå‹•ã‚¨ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³
+  attr_accessor :sp_down_flag             # VPæ¸›å°‘ã«ã‚ˆã‚‹å¤±ç¥ãƒ•ãƒ©ã‚°
+  attr_accessor :graphic_change           # ç”»åƒå¤‰æ›´ãƒ•ãƒ©ã‚°
+  attr_accessor :checking                 # ãƒã‚§ãƒƒã‚¯å®Œäº†ãƒ•ãƒ©ã‚°
+  #å£ä¸Šæ‹¡å¼µç”¨å„ç¨®ãƒ•ãƒ©ã‚°
+  attr_accessor :bedin_count              # ãƒ™ãƒƒãƒ‰ã‚¤ãƒ³å›æ•°
+  attr_accessor :rankup_flag              # ãƒ©ãƒ³ã‚¯ã‚¢ãƒƒãƒ—çµŒé¨“ãƒ•ãƒ©ã‚°
+  attr_accessor :hold                     # ãƒ›ãƒ¼ãƒ«ãƒ‰ãƒ•ãƒ©ã‚°
+  attr_accessor :label                    # å›ºæœ‰ãƒ©ãƒ™ãƒ«è¨­å®šç”¨
+  attr_accessor :defaultname_hero         # ãƒ­ã‚¦å›ã®åŸºæœ¬å‘¼ç§°
+  attr_accessor :nickname_master          # ãƒ­ã‚¦å›ã®ç‰¹æ®Šå‘¼ç§°
+  attr_accessor :defaultname_self         # è‡ªåˆ†ã®åŸºæœ¬å‘¼ç§°
+  attr_accessor :nickname_self            # è‡ªåˆ†ã®ç‰¹æ®Šå‘¼ç§°
+  attr_accessor :used_mouth               # å£è…”å¿«æ„Ÿå—å®¹
+  attr_accessor :used_anal                # è‚›é–€å¿«æ„Ÿå—å®¹
+  attr_accessor :used_sadism              # è¢«è™å¿«æ„Ÿå—å®¹
+  attr_accessor :another_action           # å¤šé‡ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ç”¨ãƒ•ãƒ©ã‚°
+  attr_accessor :marking_battler          # ãƒãƒ¼ã‚­ãƒ³ã‚°ç›¸æ‰‹
+  attr_accessor :berserk                  # æš´èµ°ãƒ•ãƒ©ã‚°
+  attr_accessor :pillowtalk               # ä¼šè©±ãƒ•ãƒ©ã‚°(å¥‘ç´„ç™ºå‹•èª˜ç™º)
+  attr_accessor :talk_weak_check          # ä¼šè©±å¼±ç‚¹çªããƒ•ãƒ©ã‚°
+  attr_accessor :lub_flag_male            # â™‚æ½¤æ»‘é€²è¡Œãƒ•ãƒ©ã‚°
+  attr_accessor :lub_flag_female          # â™€æ½¤æ»‘é€²è¡Œãƒ•ãƒ©ã‚°
+  attr_accessor :lub_flag_anal            # å°»ç©´æ½¤æ»‘é€²è¡Œãƒ•ãƒ©ã‚°
+  attr_accessor :earnest                  # æœ¬æ°—ãƒ•ãƒ©ã‚°
   attr_accessor :UK_name                  # $UKmode go!
   
   #--------------------------------------------------------------------------
-  # œ ƒIƒuƒWƒFƒNƒg‰Šú‰»
+  # â— ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆåˆæœŸåŒ–
   #--------------------------------------------------------------------------
   def initialize
+    @UK_name = "Error:GamBatt1TODO"
     @battler_name = ""
     @battler_hue = 0
     @hp = 0
@@ -115,14 +116,14 @@ class Game_Battler
     @sp_down_flag = false
     @graphic_change = false
     @checking = 0
-    #ŒûãŠg’£—pŠeíƒtƒ‰ƒO
+    #å£ä¸Šæ‹¡å¼µç”¨å„ç¨®ãƒ•ãƒ©ã‚°
     @bedin_count = 0
     @rankup_flag = false
     @hold = Game_BattlerHold.new
     @label = []
     @nickname_master = nil
     @nickname_self = nil
-    #‚»‚ê‚¼‚ê150‚ğ‰z‚¦‚é‚ÆŠm—¦‚Å‰õŠ´‚ğó‚¯n‚ß‚éB
+    #ãã‚Œãã‚Œ150ã‚’è¶Šãˆã‚‹ã¨ç¢ºç‡ã§å¿«æ„Ÿã‚’å—ã‘å§‹ã‚ã‚‹ã€‚
     @used_mouth = 0
     @used_anal = 0
     @used_sadism = 0
@@ -136,7 +137,7 @@ class Game_Battler
     @earnest = false
   end
   #--------------------------------------------------------------------------
-  # œ MaxHP ‚Ìæ“¾
+  # â— MaxHP ã®å–å¾—
   #--------------------------------------------------------------------------
   def maxhp
     n = [[base_maxhp + @maxhp_plus, 1].max, 999999].min
@@ -147,96 +148,96 @@ class Game_Battler
     return n
   end
   #--------------------------------------------------------------------------
-  # œ MaxSP ‚Ìæ“¾
+  # â— MaxSP ã®å–å¾—
   #--------------------------------------------------------------------------
   def maxsp
     n = [[base_maxsp + @maxsp_plus, 0].max, 9999].min
     for i in @states
       n *= $data_states[i].maxsp_rate / 100.0
     end
-    # ˆê•C˜T‚Ìær
+    # ä¸€åŒ¹ç‹¼ã®èª¡
     n += 2000 if self.is_a?(Game_Actor) and lonely_wolf?
-    # “Æè—~
+    # ç‹¬å æ¬²
     n += 300 if self.is_a?(Game_Actor) and monopolize?
-    n += 1000 if self.is_a?(Game_Actor) and self.equip?("ˆú–ä‚Ìƒ‹[ƒ“")
+    n += 1000 if self.is_a?(Game_Actor) and self.equip?("æ·«ç´‹ã®ãƒ«ãƒ¼ãƒ³")
     n = [[Integer(n), 0].max, 9999].min
     return n
   end
   #--------------------------------------------------------------------------
-  # œ ˜r—Í‚Ìæ“¾
+  # â— è…•åŠ›ã®å–å¾—
   #--------------------------------------------------------------------------
   def str
     n = [[base_str + @str_plus, 1].max, 999].min
     for i in @states
       n *= $data_states[i].str_rate / 100.0
     end
-    # í“¬’†•â³
+    # æˆ¦é—˜ä¸­è£œæ­£
     if $game_temp.in_battle
-      # ƒCƒ“ƒZƒ“ƒX•â³
+      # ã‚¤ãƒ³ã‚»ãƒ³ã‚¹è£œæ­£
       n = n * $incense.inc_adjusted_value(self, 2) / 100
-      # y–³‰ä–²’†z‚¿‚ÍƒNƒ‰ƒCƒVƒX‚É¸—Í‚ğ‚PD‚T”{
-      n = (n * 1.5).truncate if self.have_ability?("–³‰ä–²’†") and self.crisis?
-      # y’´–\‘–z‚¿‚Í–\‘–‚É¸—Í‚ğ‚PD‚T”{
-      n = n * 2 if self.have_ability?("’´–\‘–") and self.state?(36)
+      # ã€ç„¡æˆ‘å¤¢ä¸­ã€‘æŒã¡ã¯ã‚¯ãƒ©ã‚¤ã‚·ã‚¹æ™‚ã«ç²¾åŠ›ã‚’ï¼‘ï¼ï¼•å€
+      n = (n * 1.5).truncate if self.have_ability?("ç„¡æˆ‘å¤¢ä¸­") and self.crisis?
+      # ã€è¶…æš´èµ°ã€‘æŒã¡ã¯æš´èµ°æ™‚ã«ç²¾åŠ›ã‚’ï¼‘ï¼ï¼•å€
+      n = n * 2 if self.have_ability?("è¶…æš´èµ°") and self.state?(36)
     end
     n = [[Integer(n), 1].max, 999].min
     return n
   end
   #--------------------------------------------------------------------------
-  # œ Ší—p‚³‚Ìæ“¾
+  # â— å™¨ç”¨ã•ã®å–å¾—
   #--------------------------------------------------------------------------
   def dex
     n = [[base_dex + @dex_plus, 1].max, 999].min
     for i in @states
       n *= $data_states[i].dex_rate / 100.0
     end
-    # í“¬’†•â³
+    # æˆ¦é—˜ä¸­è£œæ­£
     if $game_temp.in_battle
-      # ƒCƒ“ƒZƒ“ƒX•â³
+      # ã‚¤ãƒ³ã‚»ãƒ³ã‚¹è£œæ­£
       n = n * $incense.inc_adjusted_value(self, 3) / 100
     end
     n = [[Integer(n), 1].max, 999].min
     return n
   end
   #--------------------------------------------------------------------------
-  # œ ‘f‘‚³‚Ìæ“¾
+  # â— ç´ æ—©ã•ã®å–å¾—
   #--------------------------------------------------------------------------
   def agi
     n = [[base_agi + @agi_plus, 1].max, 999].min
     for i in @states
       n *= $data_states[i].agi_rate / 100.0
     end
-    # í“¬’†•â³
+    # æˆ¦é—˜ä¸­è£œæ­£
     if $game_temp.in_battle
-      # ƒCƒ“ƒZƒ“ƒX•â³
+      # ã‚¤ãƒ³ã‚»ãƒ³ã‚¹è£œæ­£
       n = n * $incense.inc_adjusted_value(self, 4) / 100
-      # yŒú’…z‚¿‚Í’…ˆß‚É‘f‘‚³‚ğ‚OD‚T”{
-      n = (n * 0.5).truncate if self.have_ability?("Œú’…") and not self.nude?
+      # ã€åšç€ã€‘æŒã¡ã¯ç€è¡£æ™‚ã«ç´ æ—©ã•ã‚’ï¼ï¼ï¼•å€
+      n = (n * 0.5).truncate if self.have_ability?("åšç€") and not self.nude?
     end
     n = [[Integer(n), 1].max, 999].min
     return n
   end
   #--------------------------------------------------------------------------
-  # œ –‚—Í‚Ìæ“¾
+  # â— é­”åŠ›ã®å–å¾—
   #--------------------------------------------------------------------------
   def int
     n = [[base_int + @int_plus, 1].max, 999].min
     for i in @states
       n *= $data_states[i].int_rate / 100.0
     end
-    # í“¬’†•â³
+    # æˆ¦é—˜ä¸­è£œæ­£
     if $game_temp.in_battle
-      # ƒCƒ“ƒZƒ“ƒX•â³
+      # ã‚¤ãƒ³ã‚»ãƒ³ã‚¹è£œæ­£
       n = n * $incense.inc_adjusted_value(self, 5) / 100
-      # y’´–\‘–z‚¿‚Í–\‘–‚É¸_—Í‚ğ‚OD‚T”{
-      n = n / 2 if self.have_ability?("’´–\‘–") and self.state?(36)
+      # ã€è¶…æš´èµ°ã€‘æŒã¡ã¯æš´èµ°æ™‚ã«ç²¾ç¥åŠ›ã‚’ï¼ï¼ï¼•å€
+      n = n / 2 if self.have_ability?("è¶…æš´èµ°") and self.state?(36)
     end
     n = [[Integer(n), 1].max, 999].min
     return n
   end
   #--------------------------------------------------------------------------
-  # œ MaxHP ‚Ìİ’è
-  #     maxhp : V‚µ‚¢ MaxHP
+  # â— MaxHP ã®è¨­å®š
+  #     maxhp : æ–°ã—ã„ MaxHP
   #--------------------------------------------------------------------------
   def maxhp=(maxhp)
     @maxhp_plus += maxhp - self.maxhp
@@ -244,8 +245,8 @@ class Game_Battler
     @hp = [@hp, self.maxhp].min
   end
   #--------------------------------------------------------------------------
-  # œ MaxSP ‚Ìİ’è
-  #     maxsp : V‚µ‚¢ MaxSP
+  # â— MaxSP ã®è¨­å®š
+  #     maxsp : æ–°ã—ã„ MaxSP
   #--------------------------------------------------------------------------
   def maxsp=(maxsp)
     @maxsp_plus += maxsp - self.maxsp
@@ -253,51 +254,51 @@ class Game_Battler
     @sp = [@sp, self.maxsp].min
   end
   #--------------------------------------------------------------------------
-  # š HPƒp[ƒZƒ“ƒe[ƒW‚Ìæ“¾
+  # â˜… HPãƒ‘ãƒ¼ã‚»ãƒ³ãƒ†ãƒ¼ã‚¸ã®å–å¾—
   #--------------------------------------------------------------------------
   def hpp
     return (self.hp * 100 / self.maxhp).round
   end
   #--------------------------------------------------------------------------
-  # š SPƒp[ƒZƒ“ƒe[ƒW‚Ìæ“¾
+  # â˜… SPãƒ‘ãƒ¼ã‚»ãƒ³ãƒ†ãƒ¼ã‚¸ã®å–å¾—
   #--------------------------------------------------------------------------
   def spp
     return (self.sp * 100 / self.maxsp).round
   end
   #--------------------------------------------------------------------------
-  # œ ˜r—Í‚Ìİ’è
-  #     str : V‚µ‚¢˜r—Í
+  # â— è…•åŠ›ã®è¨­å®š
+  #     str : æ–°ã—ã„è…•åŠ›
   #--------------------------------------------------------------------------
   def str=(str)
     @str_plus += str - self.str
     @str_plus = [[@str_plus, -999].max, 999].min
   end
   #--------------------------------------------------------------------------
-  # œ Ší—p‚³‚Ìİ’è
-  #     dex : V‚µ‚¢Ší—p‚³
+  # â— å™¨ç”¨ã•ã®è¨­å®š
+  #     dex : æ–°ã—ã„å™¨ç”¨ã•
   #--------------------------------------------------------------------------
   def dex=(dex)
     @dex_plus += dex - self.dex
     @dex_plus = [[@dex_plus, -999].max, 999].min
   end
   #--------------------------------------------------------------------------
-  # œ ‘f‘‚³‚Ìİ’è
-  #     agi : V‚µ‚¢‘f‘‚³
+  # â— ç´ æ—©ã•ã®è¨­å®š
+  #     agi : æ–°ã—ã„ç´ æ—©ã•
   #--------------------------------------------------------------------------
   def agi=(agi)
     @agi_plus += agi - self.agi
     @agi_plus = [[@agi_plus, -999].max, 999].min
   end
   #--------------------------------------------------------------------------
-  # œ –‚—Í‚Ìİ’è
-  #     int : V‚µ‚¢–‚—Í
+  # â— é­”åŠ›ã®è¨­å®š
+  #     int : æ–°ã—ã„é­”åŠ›
   #--------------------------------------------------------------------------
   def int=(int)
     @int_plus += int - self.int
     @int_plus = [[@int_plus, -999].max, 999].min
   end
   #--------------------------------------------------------------------------
-  # œ –½’†—¦‚Ìæ“¾
+  # â— å‘½ä¸­ç‡ã®å–å¾—
   #--------------------------------------------------------------------------
   def hit
     n = 100
@@ -307,43 +308,43 @@ class Game_Battler
     return Integer(n)
   end
   #--------------------------------------------------------------------------
-  # œ UŒ‚—Í‚Ìæ“¾
+  # â— æ”»æ’ƒåŠ›ã®å–å¾—
   #--------------------------------------------------------------------------
   def atk
     n = base_atk
-    n += 10 if self.have_ability?("’ˆ¤")
-    n += 10 if self.have_ability?("‘åØ‚Èl")
+    n += 10 if self.have_ability?("å¯µæ„›")
+    n += 10 if self.have_ability?("å¤§åˆ‡ãªäºº")
     for i in @states
       n *= $data_states[i].atk_rate / 100.0
     end
-    # í“¬’†•â³
+    # æˆ¦é—˜ä¸­è£œæ­£
     if $game_temp.in_battle
-      # ƒCƒ“ƒZƒ“ƒX•â³
+      # ã‚¤ãƒ³ã‚»ãƒ³ã‚¹è£œæ­£
       n = n * $incense.inc_adjusted_value(self, 0) / 100
     end
     return Integer(n)
   end
   #--------------------------------------------------------------------------
-  # œ •¨—–hŒä‚Ìæ“¾
+  # â— ç‰©ç†é˜²å¾¡ã®å–å¾—
   #--------------------------------------------------------------------------
   def pdef
     n = base_pdef
     for i in @states
       n *= $data_states[i].pdef_rate / 100.0
     end
-    # í“¬’†•â³
+    # æˆ¦é—˜ä¸­è£œæ­£
     if $game_temp.in_battle
-      # ƒCƒ“ƒZƒ“ƒX•â³
+      # ã‚¤ãƒ³ã‚»ãƒ³ã‚¹è£œæ­£
       n = n * $incense.inc_adjusted_value(self, 1) / 100
-      # y’´–\‘–z‚¿‚Í–\‘–‚É”E‘Ï—Í‚ğ‚OD‚T”{
-      n = n / 2 if self.have_ability?("’´–\‘–") and self.state?(36)
+      # ã€è¶…æš´èµ°ã€‘æŒã¡ã¯æš´èµ°æ™‚ã«å¿è€åŠ›ã‚’ï¼ï¼ï¼•å€
+      n = n / 2 if self.have_ability?("è¶…æš´èµ°") and self.state?(36)
     end
-    # yŒú’…z‚¿‚Í’…ˆß‚É”E‘Ï—Í‚ğ‚PD‚T”{
-    n = (n * 1.5).truncate if self.have_ability?("Œú’…") and not self.nude?
+    # ã€åšç€ã€‘æŒã¡ã¯ç€è¡£æ™‚ã«å¿è€åŠ›ã‚’ï¼‘ï¼ï¼•å€
+    n = (n * 1.5).truncate if self.have_ability?("åšç€") and not self.nude?
     return Integer(n)
   end
   #--------------------------------------------------------------------------
-  # œ –‚–@–hŒä‚Ìæ“¾
+  # â— é­”æ³•é˜²å¾¡ã®å–å¾—
   #--------------------------------------------------------------------------
   def mdef
     n = base_mdef
@@ -353,7 +354,7 @@ class Game_Battler
     return Integer(n)
   end
   #--------------------------------------------------------------------------
-  # œ ‰ñ”ğC³‚Ìæ“¾
+  # â— å›é¿ä¿®æ­£ã®å–å¾—
   #--------------------------------------------------------------------------
   def eva
     n = base_eva
@@ -363,15 +364,15 @@ class Game_Battler
     return n
   end
   #--------------------------------------------------------------------------
-  # œ HP ‚Ì•ÏX
-  #     hp : V‚µ‚¢ HP
+  # â— HP ã®å¤‰æ›´
+  #     hp : æ–°ã—ã„ HP
   #--------------------------------------------------------------------------
   def hp=(hp)
     @hp = [[hp, maxhp].min, 0].max
   end
   #--------------------------------------------------------------------------
-  # œ SP ‚Ì•ÏX
-  #     sp : V‚µ‚¢ SP
+  # â— SP ã®å¤‰æ›´
+  #     sp : æ–°ã—ã„ SP
   #--------------------------------------------------------------------------
   def sp=(sp)
     @sp = [[sp, maxsp].min, 0].max
@@ -382,7 +383,7 @@ class Game_Battler
     end
   end
   #--------------------------------------------------------------------------
-  # œ ŠŠ“x ‚Ì•ÏX
+  # â— æ½¤æ»‘åº¦ ã®å¤‰æ›´
   #--------------------------------------------------------------------------
   def lub_male=(lub_male)
     @lub_male = [[lub_male, 100].min, 0].max
@@ -394,7 +395,7 @@ class Game_Battler
     @lub_anal = [[lub_anal, 100].min, 0].max
   end
   #--------------------------------------------------------------------------
-  # œ ‘S‰ñ•œ
+  # â— å…¨å›å¾©
   #--------------------------------------------------------------------------
   def recover_all
     @hp = maxhp
@@ -408,38 +409,38 @@ class Game_Battler
   end
   
   #--------------------------------------------------------------------------
-  # œ ƒJƒŒƒ“ƒgƒAƒNƒVƒ‡ƒ“‚Ìæ“¾
+  # â— ã‚«ãƒ¬ãƒ³ãƒˆã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã®å–å¾—
   #--------------------------------------------------------------------------
   def current_action
     return @current_action
   end
   #--------------------------------------------------------------------------
-  # œ ƒAƒNƒVƒ‡ƒ“ƒXƒs[ƒh‚ÌŒˆ’è
+  # â— ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ãƒ”ãƒ¼ãƒ‰ã®æ±ºå®š
   #--------------------------------------------------------------------------
   def make_action_speed
     plus = 0
 #    @current_action.speed = agi + rand(10 + agi / 4)
-    # šs“®‡‚Éƒ‰ƒ“ƒ_ƒ€—v‘f–³‚­AGI‚ÅŠm’è
+    # â˜…è¡Œå‹•é †ã«ãƒ©ãƒ³ãƒ€ãƒ è¦ç´ ç„¡ãAGIã§ç¢ºå®š
     @current_action.speed = agi
-    #ƒfƒBƒŒƒC‚ğó‚¯‚Ä‚¢‚é‚Æs“®‘¬“x-999‚É
+    #ãƒ‡ã‚£ãƒ¬ã‚¤ã‚’å—ã‘ã¦ã„ã‚‹ã¨è¡Œå‹•é€Ÿåº¦-999ã«
     if self.state?(13)
       @current_action.speed -= 999
     end
-    #–ƒáƒ‚µ‚Ä‚¢‚é‚Æs“®‘¬“x‚ª1/10‚É
+    #éº»ç—ºã—ã¦ã„ã‚‹ã¨è¡Œå‹•é€Ÿåº¦ãŒ1/10ã«
     if self.state?(39)
       @current_action.speed /= 10
     end
-    # œŒ»İg—p’†‚ÌƒXƒLƒ‹‘®«‚ÅC³‚ğ‰Á‚¦‚é
+    # â—ç¾åœ¨ä½¿ç”¨ä¸­ã®ã‚¹ã‚­ãƒ«å±æ€§ã§ä¿®æ­£ã‚’åŠ ãˆã‚‹
     if self.current_action.kind == 1
-      #æ§s“®‘®«
+      #å…ˆåˆ¶è¡Œå‹•å±æ€§
       if $data_skills[self.current_action.skill_id].element_set.include?(29)
         plus += 9999
       end
-      #Å’xs“®‘®«
+      #æœ€é…è¡Œå‹•å±æ€§
       if $data_skills[self.current_action.skill_id].element_set.include?(214)
         plus -= 9999
       end
-      #Œûˆú‘®«ƒXƒLƒ‹‚ÍáŠ±”­“®‚ª‘‚¢i–vj
+      #å£æ·«å±æ€§ã‚¹ã‚­ãƒ«ã¯è‹¥å¹²ç™ºå‹•ãŒæ—©ã„ï¼ˆæ²¡ï¼‰
       if $data_skills[self.current_action.skill_id].element_set.include?(10)
 #        plus += 20
       end
@@ -447,73 +448,73 @@ class Game_Battler
     end
   end
   #--------------------------------------------------------------------------
-  # š â’¸”»’è
+  # â˜… çµ¶é ‚åˆ¤å®š
   #--------------------------------------------------------------------------
   def ecstasy?
     return ((@hp == 0 and not @immortal) or @sp_down_flag)
   end
   #--------------------------------------------------------------------------
-  # œ í“¬•s”\”»’è
+  # â— æˆ¦é—˜ä¸èƒ½åˆ¤å®š
   #--------------------------------------------------------------------------
   def dead?
     return (@sp == 0 and not @immortal and not @sp_down_flag)
   end
   #--------------------------------------------------------------------------
-  # œ ‘¶İ”»’è
+  # â— å­˜åœ¨åˆ¤å®š
   #--------------------------------------------------------------------------
   def exist?
     return (not @hidden and (@sp > 0 or @immortal or @sp_down_flag))
   end
   #--------------------------------------------------------------------------
-  # œ HP 0 ”»’è
+  # â— HP 0 åˆ¤å®š
   #--------------------------------------------------------------------------
   def hp0?
     return (not @hidden and @hp == 0)
   end
   #--------------------------------------------------------------------------
-  # œ ƒRƒ}ƒ“ƒh“ü—Í‰Â”\”»’è
+  # â— ã‚³ãƒãƒ³ãƒ‰å…¥åŠ›å¯èƒ½åˆ¤å®š
   #--------------------------------------------------------------------------
   def inputable?
     return (not @hidden and restriction <= 1)
   end
   #--------------------------------------------------------------------------
-  # œ s“®‰Â”\”»’è
+  # â— è¡Œå‹•å¯èƒ½åˆ¤å®š
   #--------------------------------------------------------------------------
   def movable?
     return (not @hidden and restriction < 4)
   end
   #--------------------------------------------------------------------------
-  # œ –hŒä’†”»’è
+  # â— é˜²å¾¡ä¸­åˆ¤å®š
   #--------------------------------------------------------------------------
   def guarding?
     return (@current_action.kind == 0 and @current_action.basic == 1)
   end
   #--------------------------------------------------------------------------
-  # œ ‹x~’†”»’è
+  # â— ä¼‘æ­¢ä¸­åˆ¤å®š
   #--------------------------------------------------------------------------
   def resting?
     return (@current_action.kind == 0 and @current_action.basic == 3)
   end
   #--------------------------------------------------------------------------
-  # š ƒNƒ‰ƒCƒVƒXˆ—(–¢‰Ò“®)
+  # â˜… ã‚¯ãƒ©ã‚¤ã‚·ã‚¹å‡¦ç†(æœªç¨¼å‹•)
   #--------------------------------------------------------------------------
   def crisis
     return
   end
   #--------------------------------------------------------------------------
-  # š ƒNƒ‰ƒCƒVƒX”»’è
+  # â˜… ã‚¯ãƒ©ã‚¤ã‚·ã‚¹åˆ¤å®š
   #--------------------------------------------------------------------------
   def crisis?
     return self.states.include?(6)
   end
   #--------------------------------------------------------------------------
-  # š ”¼—‡”»’è
+  # â˜… åŠè£¸åˆ¤å®š
   #--------------------------------------------------------------------------
   def half_nude?
     return self.states.include?(4)
   end
   #--------------------------------------------------------------------------
-  # š ”¼—‡ + ‘}“ü‹–‰Â”»’è
+  # â˜… åŠè£¸ + æŒ¿å…¥è¨±å¯åˆ¤å®š
   #--------------------------------------------------------------------------
   def insertable_half_nude?
     result = false
@@ -527,7 +528,7 @@ class Game_Battler
     return result
   end
   #--------------------------------------------------------------------------
-  # š ”¼—‡ + ‘}“ü•s‰Â”»’è
+  # â˜… åŠè£¸ + æŒ¿å…¥ä¸å¯åˆ¤å®š
   #--------------------------------------------------------------------------
   def uninsertable_half_nude?
     result = false
@@ -541,70 +542,70 @@ class Game_Battler
     return result
   end
   #--------------------------------------------------------------------------
-  # š ‘S—‡”»’è
+  # â˜… å…¨è£¸åˆ¤å®š
   #--------------------------------------------------------------------------
   def full_nude?
     return self.states.include?(5)
   end
   #--------------------------------------------------------------------------
-  # š —‡”»’è
+  # â˜… è£¸åˆ¤å®š
   #--------------------------------------------------------------------------
   def nude?
     return (self.half_nude? or full_nude?)
   end
   #--------------------------------------------------------------------------
-  # š ‘}“ü‰Â”\—‡”»’è
+  # â˜… æŒ¿å…¥å¯èƒ½è£¸åˆ¤å®š
   #--------------------------------------------------------------------------
   def insertable_nude?
     return (self.insertable_half_nude? or full_nude?)
   end
   #--------------------------------------------------------------------------
-  # š ‘}“ü”»’è
+  # â˜… æŒ¿å…¥åˆ¤å®š
   #--------------------------------------------------------------------------
-  # Š‘}“ü”»’èi‰‘¤j
+  # â™€æŒ¿å…¥åˆ¤å®šï¼ˆâ™‚å´ï¼‰
   def penis_insert?
-    # ƒyƒjƒX‚ª‘Šè‚ÌuƒAƒ\ƒRv‚ÅuŠ‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.penis.parts == "ƒAƒ\ƒR" and self.hold.penis.type == "Š‘}“ü")
+    # ãƒšãƒ‹ã‚¹ãŒç›¸æ‰‹ã®ã€Œã‚¢ã‚½ã‚³ã€ã§ã€Œâ™€æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.penis.parts == "ã‚¢ã‚½ã‚³" and self.hold.penis.type == "â™€æŒ¿å…¥")
   end
-  # Š‘}“ü”»’èiK”ö‘¤j
+  # â™€æŒ¿å…¥åˆ¤å®šï¼ˆå°»å°¾å´ï¼‰
   def tail_insert?
-    # K”ö‚ª‘Šè‚ÌuƒAƒ\ƒRv‚ÅuŠ‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.tail.parts == "ƒAƒ\ƒR" and self.hold.tail.type == "Š‘}“ü")
+    # å°»å°¾ãŒç›¸æ‰‹ã®ã€Œã‚¢ã‚½ã‚³ã€ã§ã€Œâ™€æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.tail.parts == "ã‚¢ã‚½ã‚³" and self.hold.tail.type == "â™€æŒ¿å…¥")
   end
-  # Š‘}“ü”»’èiGè‘¤j
+  # â™€æŒ¿å…¥åˆ¤å®šï¼ˆè§¦æ‰‹å´ï¼‰
   def tentacle_insert?
-    # Gè‚ª‘Šè‚ÌuƒAƒ\ƒRv‚ÅuŠ‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.tentacle.parts == "ƒAƒ\ƒR" and self.hold.tentacle.type == "Š‘}“ü")
+    # è§¦æ‰‹ãŒç›¸æ‰‹ã®ã€Œã‚¢ã‚½ã‚³ã€ã§ã€Œâ™€æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.tentacle.parts == "ã‚¢ã‚½ã‚³" and self.hold.tentacle.type == "â™€æŒ¿å…¥")
   end
-  # Š‘}“ü”»’èiƒfƒBƒ‹ƒh‘¤j
+  # â™€æŒ¿å…¥åˆ¤å®šï¼ˆãƒ‡ã‚£ãƒ«ãƒ‰å´ï¼‰
   def dildo_insert?
-    # ƒfƒBƒ‹ƒh‚ª‘Šè‚ÌuƒAƒ\ƒRv‚ÅuŠ‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.dildo.parts == "ƒAƒ\ƒR" and self.hold.dildo.type == "ƒfƒBƒ‹ƒhŠ‘}“ü")
+    # ãƒ‡ã‚£ãƒ«ãƒ‰ãŒç›¸æ‰‹ã®ã€Œã‚¢ã‚½ã‚³ã€ã§ã€Œâ™€æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.dildo.parts == "ã‚¢ã‚½ã‚³" and self.hold.dildo.type == "ãƒ‡ã‚£ãƒ«ãƒ‰â™€æŒ¿å…¥")
   end
-  # Š‘}“ü”»’èiŠ‘¤j
-  # ƒCƒ“ƒT[ƒg‰æ‚ª‘¶İ‚·‚éê‡A‚±‚ê‚ªtrue‚¾‚Æ‚¢‚¤‚±‚Æ‚ğğŒ‚É‚·‚éB
+  # â™€æŒ¿å…¥åˆ¤å®šï¼ˆâ™€å´ï¼‰
+  # ã‚¤ãƒ³ã‚µãƒ¼ãƒˆç”»ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€ã“ã‚ŒãŒtrueã ã¨ã„ã†ã“ã¨ã‚’æ¡ä»¶ã«ã™ã‚‹ã€‚
   def vagina_insert?
-    # ƒAƒ\ƒR‚ª‘Šè‚ÌuƒyƒjƒXvuK”övuGèvuƒfƒBƒ‹ƒhv‚Ì‚¢‚¸‚ê‚©‚ÅA
-    #uŠ‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.vagina.parts == "ƒyƒjƒX" and self.hold.vagina.type == "Š‘}“ü")
-    #return (self.hold.vagina.parts == "K”ö" and self.hold.vagina.type == "Š‘}“ü")
-    #return (self.hold.vagina.parts == "Gè" and self.hold.vagina.type == "Š‘}“ü")
-    #return (self.hold.vagina.parts == "ƒfƒBƒ‹ƒh" and self.hold.vagina.type == "Š‘}“ü")
+    # ã‚¢ã‚½ã‚³ãŒç›¸æ‰‹ã®ã€Œãƒšãƒ‹ã‚¹ã€ã€Œå°»å°¾ã€ã€Œè§¦æ‰‹ã€ã€Œãƒ‡ã‚£ãƒ«ãƒ‰ã€ã®ã„ãšã‚Œã‹ã§ã€
+    #ã€Œâ™€æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.vagina.parts == "ãƒšãƒ‹ã‚¹" and self.hold.vagina.type == "â™€æŒ¿å…¥")
+    #return (self.hold.vagina.parts == "å°»å°¾" and self.hold.vagina.type == "â™€æŒ¿å…¥")
+    #return (self.hold.vagina.parts == "è§¦æ‰‹" and self.hold.vagina.type == "â™€æŒ¿å…¥")
+    #return (self.hold.vagina.parts == "ãƒ‡ã‚£ãƒ«ãƒ‰" and self.hold.vagina.type == "â™€æŒ¿å…¥")
   end
   
-  # ƒfƒBƒ‹ƒhŠ‘}“ü”»’èiŠ‘¤j
+  # ãƒ‡ã‚£ãƒ«ãƒ‰â™€æŒ¿å…¥åˆ¤å®šï¼ˆâ™€å´ï¼‰
   def dildo_vagina_insert?
-    return (self.hold.vagina.parts == "ƒfƒBƒ‹ƒh" and self.hold.vagina.type == "ƒfƒBƒ‹ƒhŠ‘}“ü")
+    return (self.hold.vagina.parts == "ãƒ‡ã‚£ãƒ«ãƒ‰" and self.hold.vagina.type == "ãƒ‡ã‚£ãƒ«ãƒ‰â™€æŒ¿å…¥")
   end
   
-  # Š‘}“ü”»’èiŠ‘¤“Áêj
+  # â™€æŒ¿å…¥åˆ¤å®šï¼ˆâ™€å´ç‰¹æ®Šï¼‰
   def vagina_insert_special?
-    return true if (self.hold.vagina.parts == "K”ö" and self.hold.vagina.type == "Š‘}“ü")
-    return true if (self.hold.vagina.parts == "Gè" and self.hold.vagina.type == "Š‘}“ü")
-    return true if (self.hold.vagina.parts == "ƒfƒBƒ‹ƒh" and self.hold.vagina.type == "ƒfƒBƒ‹ƒhŠ‘}“ü")
+    return true if (self.hold.vagina.parts == "å°»å°¾" and self.hold.vagina.type == "â™€æŒ¿å…¥")
+    return true if (self.hold.vagina.parts == "è§¦æ‰‹" and self.hold.vagina.type == "â™€æŒ¿å…¥")
+    return true if (self.hold.vagina.parts == "ãƒ‡ã‚£ãƒ«ãƒ‰" and self.hold.vagina.type == "ãƒ‡ã‚£ãƒ«ãƒ‰â™€æŒ¿å…¥")
     return false
   end
-  # ‘‡Š‘}“ü”»’è
+  # ç·åˆâ™€æŒ¿å…¥åˆ¤å®š
   def insert?
     return true if self.penis_insert?
     return true if self.vagina_insert?
@@ -615,50 +616,50 @@ class Game_Battler
     return false
   end
   #--------------------------------------------------------------------------
-  # š Œûˆú”»’è
+  # â˜… å£æ·«åˆ¤å®š
   #--------------------------------------------------------------------------
-  # Œûˆú”»’èi‰‘¤j
+  # å£æ·«åˆ¤å®šï¼ˆâ™‚å´ï¼‰
   def penis_oralsex?
-    # ƒyƒjƒX‚ª‘Šè‚ÌuŒûv‚ÅuŒû‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.penis.parts == "Œû" and self.hold.penis.type == "Œû‘}“ü")
+    # ãƒšãƒ‹ã‚¹ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œå£æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.penis.parts == "å£" and self.hold.penis.type == "å£æŒ¿å…¥")
   end
-  # Œûˆú”»’èiK”ö‘¤j
+  # å£æ·«åˆ¤å®šï¼ˆå°»å°¾å´ï¼‰
   def tail_oralsex?
-    # K”ö‚ª‘Šè‚ÌuŒûv‚ÅuŒû‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.tail.parts == "Œû" and self.hold.tail.type == "Œû‘}“ü")
+    # å°»å°¾ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œå£æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.tail.parts == "å£" and self.hold.tail.type == "å£æŒ¿å…¥")
   end
-  # Œûˆú”»’èiGè‘¤j
+  # å£æ·«åˆ¤å®šï¼ˆè§¦æ‰‹å´ï¼‰
   def tentacle_oralsex?
-    # Gè‚ª‘Šè‚ÌuŒûv‚ÅuŒû‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.tentacle.parts == "Œû" and self.hold.tentacle.type == "Œû‘}“ü")
+    # è§¦æ‰‹ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œå£æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.tentacle.parts == "å£" and self.hold.tentacle.type == "å£æŒ¿å…¥")
   end
-  # ƒfƒBƒ‹ƒhŒûˆú”»’èiƒfƒBƒ‹ƒh‘¤j
+  # ãƒ‡ã‚£ãƒ«ãƒ‰å£æ·«åˆ¤å®šï¼ˆãƒ‡ã‚£ãƒ«ãƒ‰å´ï¼‰
   def dildo_oralsex?
-    # ƒfƒBƒ‹ƒh‚ª‘Šè‚ÌuŒûv‚ÅuŒû‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.dildo.parts == "Œû" and self.hold.dildo.type == "ƒfƒBƒ‹ƒhŒû‘}“ü")
+    # ãƒ‡ã‚£ãƒ«ãƒ‰ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œå£æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.dildo.parts == "å£" and self.hold.dildo.type == "ãƒ‡ã‚£ãƒ«ãƒ‰å£æŒ¿å…¥")
   end
-  # Œûˆú”»’èiŒû‘¤j
-  # ƒCƒ“ƒT[ƒg‰æ‚ª‘¶İ‚·‚éê‡A‚±‚ê‚ªtrue‚¾‚Æ‚¢‚¤‚±‚Æ‚ğğŒ‚É‚·‚éB
+  # å£æ·«åˆ¤å®šï¼ˆå£å´ï¼‰
+  # ã‚¤ãƒ³ã‚µãƒ¼ãƒˆç”»ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€ã“ã‚ŒãŒtrueã ã¨ã„ã†ã“ã¨ã‚’æ¡ä»¶ã«ã™ã‚‹ã€‚
   def mouth_oralsex?
-    # Œû‚ª‘Šè‚ÌuƒyƒjƒXvuK”övuGèvuƒfƒBƒ‹ƒhv‚Ì‚¢‚¸‚ê‚©‚ÅA
-    #uŒû‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return true if (self.hold.mouth.parts == "ƒyƒjƒX" and self.hold.mouth.type == "Œû‘}“ü")
+    # å£ãŒç›¸æ‰‹ã®ã€Œãƒšãƒ‹ã‚¹ã€ã€Œå°»å°¾ã€ã€Œè§¦æ‰‹ã€ã€Œãƒ‡ã‚£ãƒ«ãƒ‰ã€ã®ã„ãšã‚Œã‹ã§ã€
+    #ã€Œå£æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return true if (self.hold.mouth.parts == "ãƒšãƒ‹ã‚¹" and self.hold.mouth.type == "å£æŒ¿å…¥")
     return false
   end
-  # ƒfƒBƒ‹ƒhŒûˆú”»’èiŒû‘¤j
+  # ãƒ‡ã‚£ãƒ«ãƒ‰å£æ·«åˆ¤å®šï¼ˆå£å´ï¼‰
   def dildo_mouth_oralsex?
-    # ƒfƒBƒ‹ƒh‚ª‘Šè‚ÌuŒûv‚ÅuŒû‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.mouth.parts == "ƒfƒBƒ‹ƒh" and self.hold.mouth.type == "ƒfƒBƒ‹ƒhŒû‘}“ü")
+    # ãƒ‡ã‚£ãƒ«ãƒ‰ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œå£æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.mouth.parts == "ãƒ‡ã‚£ãƒ«ãƒ‰" and self.hold.mouth.type == "ãƒ‡ã‚£ãƒ«ãƒ‰å£æŒ¿å…¥")
   end
-  # Œûˆú”»’èiŒû‘¤“Áêj
-  # ƒCƒ“ƒT[ƒg‰æ‚ª‘¶İ‚·‚éê‡A‚±‚ê‚ªtrue‚¾‚Æ‚¢‚¤‚±‚Æ‚ğğŒ‚É‚·‚éB
+  # å£æ·«åˆ¤å®šï¼ˆå£å´ç‰¹æ®Šï¼‰
+  # ã‚¤ãƒ³ã‚µãƒ¼ãƒˆç”»ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€ã“ã‚ŒãŒtrueã ã¨ã„ã†ã“ã¨ã‚’æ¡ä»¶ã«ã™ã‚‹ã€‚
   def mouth_oralsex_special?
-    return true if (self.hold.mouth.parts == "K”ö" and self.hold.mouth.type == "Œû‘}“ü")
-    return true if (self.hold.mouth.parts == "Gè" and self.hold.mouth.type == "Œû‘}“ü")
-    return true if (self.hold.mouth.parts == "ƒfƒBƒ‹ƒh" and self.hold.mouth.type == "ƒfƒBƒ‹ƒhŒû‘}“ü")
+    return true if (self.hold.mouth.parts == "å°»å°¾" and self.hold.mouth.type == "å£æŒ¿å…¥")
+    return true if (self.hold.mouth.parts == "è§¦æ‰‹" and self.hold.mouth.type == "å£æŒ¿å…¥")
+    return true if (self.hold.mouth.parts == "ãƒ‡ã‚£ãƒ«ãƒ‰" and self.hold.mouth.type == "ãƒ‡ã‚£ãƒ«ãƒ‰å£æŒ¿å…¥")
     return false
   end
-  # ‘‡Œûˆú”»’è
+  # ç·åˆå£æ·«åˆ¤å®š
   def oralsex?
     return true if self.penis_oralsex?
     return true if self.mouth_oralsex?
@@ -669,49 +670,49 @@ class Game_Battler
     return false
   end
   #--------------------------------------------------------------------------
-  # š ãèŠ­”»’è
+  # â˜… è‚›å§¦åˆ¤å®š
   #--------------------------------------------------------------------------
-  # ãèŠ­”»’èi‰‘¤j
+  # è‚›å§¦åˆ¤å®šï¼ˆâ™‚å´ï¼‰
   def penis_analsex?
-    # ƒyƒjƒX‚ª‘Šè‚ÌuƒAƒiƒ‹v‚ÅuK‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.penis.parts == "ƒAƒiƒ‹" and self.hold.penis.type == "K‘}“ü")
+    # ãƒšãƒ‹ã‚¹ãŒç›¸æ‰‹ã®ã€Œã‚¢ãƒŠãƒ«ã€ã§ã€Œå°»æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.penis.parts == "ã‚¢ãƒŠãƒ«" and self.hold.penis.type == "å°»æŒ¿å…¥")
   end
-  # ãèŠ­”»’èiK”ö‘¤j
+  # è‚›å§¦åˆ¤å®šï¼ˆå°»å°¾å´ï¼‰
   def tail_analsex?
-    # K”ö‚ª‘Šè‚ÌuƒAƒiƒ‹v‚ÅuK‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.tail.parts == "ƒAƒiƒ‹" and self.hold.tail.type == "K‘}“ü")
+    # å°»å°¾ãŒç›¸æ‰‹ã®ã€Œã‚¢ãƒŠãƒ«ã€ã§ã€Œå°»æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.tail.parts == "ã‚¢ãƒŠãƒ«" and self.hold.tail.type == "å°»æŒ¿å…¥")
   end
-  # ãèŠ­”»’èiGè‘¤j
+  # è‚›å§¦åˆ¤å®šï¼ˆè§¦æ‰‹å´ï¼‰
   def tentacle_analsex?
-    # Gè‚ª‘Šè‚ÌuƒAƒiƒ‹v‚ÅuK‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.tentacle.parts == "ƒAƒiƒ‹" and self.hold.tentacle.type == "K‘}“ü")
+    # è§¦æ‰‹ãŒç›¸æ‰‹ã®ã€Œã‚¢ãƒŠãƒ«ã€ã§ã€Œå°»æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.tentacle.parts == "ã‚¢ãƒŠãƒ«" and self.hold.tentacle.type == "å°»æŒ¿å…¥")
   end
-  # ƒfƒBƒ‹ƒhãèŠ­”»’èiƒfƒBƒ‹ƒh‘¤j
+  # ãƒ‡ã‚£ãƒ«ãƒ‰è‚›å§¦åˆ¤å®šï¼ˆãƒ‡ã‚£ãƒ«ãƒ‰å´ï¼‰
   def dildo_analsex?
-    # ƒfƒBƒ‹ƒh‚ª‘Šè‚ÌuƒAƒiƒ‹v‚ÅuK‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.dildo.parts == "ƒAƒiƒ‹" and self.hold.dildo.type == "ƒfƒBƒ‹ƒhK‘}“ü")
+    # ãƒ‡ã‚£ãƒ«ãƒ‰ãŒç›¸æ‰‹ã®ã€Œã‚¢ãƒŠãƒ«ã€ã§ã€Œå°»æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.dildo.parts == "ã‚¢ãƒŠãƒ«" and self.hold.dildo.type == "ãƒ‡ã‚£ãƒ«ãƒ‰å°»æŒ¿å…¥")
   end
-  # ãèŠ­”»’èiK‘¤j
-  # ƒCƒ“ƒT[ƒg‰æ‚ª‘¶İ‚·‚éê‡A‚±‚ê‚ªtrue‚¾‚Æ‚¢‚¤‚±‚Æ‚ğğŒ‚É‚·‚éB
+  # è‚›å§¦åˆ¤å®šï¼ˆå°»å´ï¼‰
+  # ã‚¤ãƒ³ã‚µãƒ¼ãƒˆç”»ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€ã“ã‚ŒãŒtrueã ã¨ã„ã†ã“ã¨ã‚’æ¡ä»¶ã«ã™ã‚‹ã€‚
   def anal_analsex?
-    # ƒAƒiƒ‹‚ª‘Šè‚ÌuƒyƒjƒXvuK”övuGèvuƒfƒBƒ‹ƒhv‚Ì‚¢‚¸‚ê‚©‚ÅA
-    #uK‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.anal.parts == "ƒyƒjƒX" and self.hold.anal.type == "K‘}“ü")
+    # ã‚¢ãƒŠãƒ«ãŒç›¸æ‰‹ã®ã€Œãƒšãƒ‹ã‚¹ã€ã€Œå°»å°¾ã€ã€Œè§¦æ‰‹ã€ã€Œãƒ‡ã‚£ãƒ«ãƒ‰ã€ã®ã„ãšã‚Œã‹ã§ã€
+    #ã€Œå°»æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.anal.parts == "ãƒšãƒ‹ã‚¹" and self.hold.anal.type == "å°»æŒ¿å…¥")
   end
-  # ƒfƒBƒ‹ƒhãèŠ­”»’èiK‘¤j
+  # ãƒ‡ã‚£ãƒ«ãƒ‰è‚›å§¦åˆ¤å®šï¼ˆå°»å´ï¼‰
   def dildo_anal_analsex?
-    # ƒAƒiƒ‹‚ª‘Šè‚ÌuƒfƒBƒ‹ƒhv‚ÅuK‘}“üv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.anal.parts == "ƒfƒBƒ‹ƒh" and self.hold.anal.type == "ƒfƒBƒ‹ƒhK‘}“ü")
+    # ã‚¢ãƒŠãƒ«ãŒç›¸æ‰‹ã®ã€Œãƒ‡ã‚£ãƒ«ãƒ‰ã€ã§ã€Œå°»æŒ¿å…¥ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.anal.parts == "ãƒ‡ã‚£ãƒ«ãƒ‰" and self.hold.anal.type == "ãƒ‡ã‚£ãƒ«ãƒ‰å°»æŒ¿å…¥")
   end
-  # ãèŠ­”»’èiK‘¤j
-  # ƒCƒ“ƒT[ƒg‰æ‚ª‘¶İ‚·‚éê‡A‚±‚ê‚ªtrue‚¾‚Æ‚¢‚¤‚±‚Æ‚ğğŒ‚É‚·‚éB
+  # è‚›å§¦åˆ¤å®šï¼ˆå°»å´ï¼‰
+  # ã‚¤ãƒ³ã‚µãƒ¼ãƒˆç”»ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€ã“ã‚ŒãŒtrueã ã¨ã„ã†ã“ã¨ã‚’æ¡ä»¶ã«ã™ã‚‹ã€‚
   def anal_analsex?
-    return true if (self.hold.anal.parts == "K”ö" and self.hold.anal.type == "K‘}“ü")
-    return true if (self.hold.anal.parts == "Gè" and self.hold.anal.type == "GèK‘}“ü")
-    return true if (self.hold.anal.parts == "ƒfƒBƒ‹ƒh" and self.hold.anal.type == "ƒfƒBƒ‹ƒhK‘}“ü")
+    return true if (self.hold.anal.parts == "å°»å°¾" and self.hold.anal.type == "å°»æŒ¿å…¥")
+    return true if (self.hold.anal.parts == "è§¦æ‰‹" and self.hold.anal.type == "è§¦æ‰‹å°»æŒ¿å…¥")
+    return true if (self.hold.anal.parts == "ãƒ‡ã‚£ãƒ«ãƒ‰" and self.hold.anal.type == "ãƒ‡ã‚£ãƒ«ãƒ‰å°»æŒ¿å…¥")
     return false
   end
-  # ‘‡ãèŠ­”»’è
+  # ç·åˆè‚›å§¦åˆ¤å®š
   def analsex?
     return true if self.penis_analsex?
     return true if self.tail_analsex?
@@ -721,67 +722,67 @@ class Game_Battler
     return false
   end
   #--------------------------------------------------------------------------
-  # š ‹Ræ”»’è
+  # â˜… é¨ä¹—åˆ¤å®š
   #--------------------------------------------------------------------------
-  # ‹Ræ”»’èiU‚ß‘¤j
+  # é¨ä¹—åˆ¤å®šï¼ˆæ”»ã‚å´ï¼‰
   def vagina_riding?
-    # ƒAƒ\ƒR‚ª‘Šè‚ÌuŒûv‚ÅuŠç–Ê‹Ræv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.vagina.parts == "Œû" and self.hold.vagina.type == "Šç–Ê‹Ræ")
+    # ã‚¢ã‚½ã‚³ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œé¡”é¢é¨ä¹—ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.vagina.parts == "å£" and self.hold.vagina.type == "é¡”é¢é¨ä¹—")
   end
-  # ‹Ræ”»’èió‚¯‘¤j
+  # é¨ä¹—åˆ¤å®šï¼ˆå—ã‘å´ï¼‰
   def mouth_riding?
-    # Œû‚ª‘Šè‚ÌuƒAƒ\ƒRv‚ÅuŠç–Ê‹Ræv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.mouth.parts == "ƒAƒ\ƒR" and self.hold.mouth.type == "Šç–Ê‹Ræ")
+    # å£ãŒç›¸æ‰‹ã®ã€Œã‚¢ã‚½ã‚³ã€ã§ã€Œé¡”é¢é¨ä¹—ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.mouth.parts == "ã‚¢ã‚½ã‚³" and self.hold.mouth.type == "é¡”é¢é¨ä¹—")
   end
-  # ‘‡‹Ræ”»’è
+  # ç·åˆé¨ä¹—åˆ¤å®š
   def riding?
     return true if self.vagina_riding?
     return true if self.mouth_riding?
     return false
   end
   #--------------------------------------------------------------------------
-  # š K‹Ræ”»’è
+  # â˜… å°»é¨ä¹—åˆ¤å®š
   #--------------------------------------------------------------------------
-  # K‹Ræ”»’èiU‚ß‘¤j
+  # å°»é¨ä¹—åˆ¤å®šï¼ˆæ”»ã‚å´ï¼‰
   def anal_hipriding?
-    # ƒAƒiƒ‹‚ª‘Šè‚ÌuŒûv‚ÅuK‹Ræv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.anal.parts == "Œû" and self.hold.anal.type == "K‹Ræ")
+    # ã‚¢ãƒŠãƒ«ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œå°»é¨ä¹—ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.anal.parts == "å£" and self.hold.anal.type == "å°»é¨ä¹—")
   end
-  # ‹Ræ”»’èió‚¯‘¤j
+  # é¨ä¹—åˆ¤å®šï¼ˆå—ã‘å´ï¼‰
   def mouth_hipriding?
-    # Œû‚ª‘Šè‚ÌuƒAƒiƒ‹v‚ÅuK‹Ræv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.mouth.parts == "ƒAƒiƒ‹" and self.hold.mouth.type == "K‹Ræ")
+    # å£ãŒç›¸æ‰‹ã®ã€Œã‚¢ãƒŠãƒ«ã€ã§ã€Œå°»é¨ä¹—ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.mouth.parts == "ã‚¢ãƒŠãƒ«" and self.hold.mouth.type == "å°»é¨ä¹—")
   end
-  # ‘‡‹Ræ”»’è
+  # ç·åˆé¨ä¹—åˆ¤å®š
   def hipriding?
     return true if self.anal_hipriding?
     return true if self.mouth_hipriding?
     return false
   end
   #--------------------------------------------------------------------------
-  # š ƒNƒ“ƒj”»’è
+  # â˜… ã‚¯ãƒ³ãƒ‹åˆ¤å®š
   #--------------------------------------------------------------------------
-  # ƒNƒ“ƒj”»’èiU‚ß‘¤j
+  # ã‚¯ãƒ³ãƒ‹åˆ¤å®šï¼ˆæ”»ã‚å´ï¼‰
   def mouth_draw?
-    # Œû‚ª‘Šè‚ÌuƒAƒ\ƒRv‚ÅuƒNƒ“ƒjv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.mouth.parts == "ƒAƒ\ƒR" and self.hold.mouth.type == "ƒNƒ“ƒj")
+    # å£ãŒç›¸æ‰‹ã®ã€Œã‚¢ã‚½ã‚³ã€ã§ã€Œã‚¯ãƒ³ãƒ‹ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.mouth.parts == "ã‚¢ã‚½ã‚³" and self.hold.mouth.type == "ã‚¯ãƒ³ãƒ‹")
   end
-  # ƒNƒ“ƒj”»’èió‚¯‘¤j
+  # ã‚¯ãƒ³ãƒ‹åˆ¤å®šï¼ˆå—ã‘å´ï¼‰
   def vagina_draw?
-    # ƒAƒ\ƒR‚ª‘Šè‚ÌuŒûv‚ÅuƒNƒ“ƒjv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.vagina.parts == "Œû" and self.hold.vagina.type == "ƒNƒ“ƒj")
+    # ã‚¢ã‚½ã‚³ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œã‚¯ãƒ³ãƒ‹ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.vagina.parts == "å£" and self.hold.vagina.type == "ã‚¯ãƒ³ãƒ‹")
   end
-  # ƒNƒ“ƒj”»’èiU‚ß‘¤j
+  # ã‚¯ãƒ³ãƒ‹åˆ¤å®šï¼ˆæ”»ã‚å´ï¼‰
   def tentacle_draw?
-    # Œû‚ª‘Šè‚ÌuƒAƒ\ƒRv‚ÅuƒNƒ“ƒjv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.tentacle.parts == "ƒAƒ\ƒR" and self.hold.tentacle.type == "GèƒNƒ“ƒj")
+    # å£ãŒç›¸æ‰‹ã®ã€Œã‚¢ã‚½ã‚³ã€ã§ã€Œã‚¯ãƒ³ãƒ‹ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.tentacle.parts == "ã‚¢ã‚½ã‚³" and self.hold.tentacle.type == "è§¦æ‰‹ã‚¯ãƒ³ãƒ‹")
   end
-  # ƒNƒ“ƒj”»’èió‚¯‘¤j
+  # ã‚¯ãƒ³ãƒ‹åˆ¤å®šï¼ˆå—ã‘å´ï¼‰
   def tentacle_vagina_draw?
-    # ƒAƒ\ƒR‚ª‘Šè‚ÌuŒûv‚ÅuƒNƒ“ƒjv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.vagina.parts == "Gè" and self.hold.vagina.type == "GèƒNƒ“ƒj")
+    # ã‚¢ã‚½ã‚³ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œã‚¯ãƒ³ãƒ‹ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.vagina.parts == "è§¦æ‰‹" and self.hold.vagina.type == "è§¦æ‰‹ã‚¯ãƒ³ãƒ‹")
   end
-  # ‘‡ƒNƒ“ƒj”»’è
+  # ç·åˆã‚¯ãƒ³ãƒ‹åˆ¤å®š
   def draw?
     return true if self.mouth_draw?
     return true if self.vagina_draw?
@@ -790,144 +791,144 @@ class Game_Battler
     return false
   end
   #--------------------------------------------------------------------------
-  # š ƒfƒB[ƒvƒLƒbƒX”»’è
+  # â˜… ãƒ‡ã‚£ãƒ¼ãƒ—ã‚­ãƒƒã‚¹åˆ¤å®š
   #--------------------------------------------------------------------------
-  # ƒfƒB[ƒvƒLƒbƒX”»’è(ó‚¯U‚ß‚Å“¯‚¶•”ˆÊƒz[ƒ‹ƒh)
+  # ãƒ‡ã‚£ãƒ¼ãƒ—ã‚­ãƒƒã‚¹åˆ¤å®š(å—ã‘æ”»ã‚ã§åŒã˜éƒ¨ä½ãƒ›ãƒ¼ãƒ«ãƒ‰)
   def deepkiss?
-    # Œû‚ª‘Šè‚ÌuŒûv‚ÅuƒLƒbƒXv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.mouth.parts == "Œû" and self.hold.mouth.type == "ƒLƒbƒX")
+    # å£ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œã‚­ãƒƒã‚¹ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.mouth.parts == "å£" and self.hold.mouth.type == "ã‚­ãƒƒã‚¹")
   end
   #--------------------------------------------------------------------------
-  # š ŠL‡‚í‚¹”»’è
+  # â˜… è²åˆã‚ã›åˆ¤å®š
   #--------------------------------------------------------------------------
-  # ŠL‡‚í‚¹”»’è(ó‚¯U‚ß‚Å“¯‚¶•”ˆÊƒz[ƒ‹ƒh)
+  # è²åˆã‚ã›åˆ¤å®š(å—ã‘æ”»ã‚ã§åŒã˜éƒ¨ä½ãƒ›ãƒ¼ãƒ«ãƒ‰)
   def shellmatch?
-    # ƒAƒ\ƒR‚ª‘Šè‚ÌuƒAƒ\ƒRv‚ÅuŠL‡‚í‚¹v‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.vagina.parts == "ƒAƒ\ƒR" and self.hold.vagina.type == "ŠL‡‚í‚¹")
+    # ã‚¢ã‚½ã‚³ãŒç›¸æ‰‹ã®ã€Œã‚¢ã‚½ã‚³ã€ã§ã€Œè²åˆã‚ã›ã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.vagina.parts == "ã‚¢ã‚½ã‚³" and self.hold.vagina.type == "è²åˆã‚ã›")
   end
   #--------------------------------------------------------------------------
-  # š ƒpƒCƒYƒŠ”»’è
+  # â˜… ãƒ‘ã‚¤ã‚ºãƒªåˆ¤å®š
   #--------------------------------------------------------------------------
-  # ƒpƒCƒYƒŠ”»’èiU‚ß‘¤j
+  # ãƒ‘ã‚¤ã‚ºãƒªåˆ¤å®šï¼ˆæ”»ã‚å´ï¼‰
   def tops_paizuri?
-    # ã”¼g‚ª‘Šè‚ÌuƒyƒjƒXv‚ÅuƒpƒCƒYƒŠv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚êAƒCƒjƒVƒAƒ`ƒu‚ª‚PˆÈã‚È‚ç‚Îtrue
-    return (self.hold.tops.parts == "ƒyƒjƒX" and self.hold.tops.type == "ƒpƒCƒYƒŠ" and self.hold.tops.initiative > 0)
+    # ä¸ŠåŠèº«ãŒç›¸æ‰‹ã®ã€Œãƒšãƒ‹ã‚¹ã€ã§ã€Œãƒ‘ã‚¤ã‚ºãƒªã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã€ã‚¤ãƒ‹ã‚·ã‚¢ãƒãƒ–ãŒï¼‘ä»¥ä¸Šãªã‚‰ã°true
+    return (self.hold.tops.parts == "ãƒšãƒ‹ã‚¹" and self.hold.tops.type == "ãƒ‘ã‚¤ã‚ºãƒª" and self.hold.tops.initiative > 0)
   end
-  # ƒpƒCƒYƒŠ”»’èió‚¯‘¤j
+  # ãƒ‘ã‚¤ã‚ºãƒªåˆ¤å®šï¼ˆå—ã‘å´ï¼‰
   def penis_paizuri?
-    # ã”¼g‚ª‘Šè‚Ìuã”¼gv‚ÅuƒpƒCƒYƒŠv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚êAƒCƒjƒVƒAƒ`ƒu‚ª‚O‚È‚ç‚Îtrue
-    return (self.hold.penis.parts == "ã”¼g" and self.hold.penis.type == "ƒpƒCƒYƒŠ" and self.hold.penis.initiative == 0)
+    # ä¸ŠåŠèº«ãŒç›¸æ‰‹ã®ã€Œä¸ŠåŠèº«ã€ã§ã€Œãƒ‘ã‚¤ã‚ºãƒªã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã€ã‚¤ãƒ‹ã‚·ã‚¢ãƒãƒ–ãŒï¼ãªã‚‰ã°true
+    return (self.hold.penis.parts == "ä¸ŠåŠèº«" and self.hold.penis.type == "ãƒ‘ã‚¤ã‚ºãƒª" and self.hold.penis.initiative == 0)
   end
-  # ‘‡ƒpƒCƒYƒŠ”»’è
+  # ç·åˆãƒ‘ã‚¤ã‚ºãƒªåˆ¤å®š
   def paizuri?
     return true if self.tops_paizuri?
     return true if self.penis_paizuri?
     return false
   end
   #--------------------------------------------------------------------------
-  # š ‚Ï‚Ó‚Ï‚Ó”»’è
+  # â˜… ã±ãµã±ãµåˆ¤å®š
   #--------------------------------------------------------------------------
-  # ‚Ï‚Ó‚Ï‚Ó”»’èiU‚ß‘¤j
+  # ã±ãµã±ãµåˆ¤å®šï¼ˆæ”»ã‚å´ï¼‰
   def tops_pahupahu?
-    # ã”¼g‚ª‘Šè‚ÌuŒûv‚Åu‚Ï‚Ó‚Ï‚Óv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚êAƒCƒjƒVƒAƒ`ƒu‚ª‚PˆÈã‚È‚ç‚Îtrue
-    return (self.hold.tops.parts == "Œû" and self.hold.tops.type == "‚Ï‚Ó‚Ï‚Ó" and self.hold.tops.initiative > 0)
+    # ä¸ŠåŠèº«ãŒç›¸æ‰‹ã®ã€Œå£ã€ã§ã€Œã±ãµã±ãµã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã€ã‚¤ãƒ‹ã‚·ã‚¢ãƒãƒ–ãŒï¼‘ä»¥ä¸Šãªã‚‰ã°true
+    return (self.hold.tops.parts == "å£" and self.hold.tops.type == "ã±ãµã±ãµ" and self.hold.tops.initiative > 0)
   end
-  # ‚Ï‚Ó‚Ï‚Ó”»’èió‚¯‘¤j
+  # ã±ãµã±ãµåˆ¤å®šï¼ˆå—ã‘å´ï¼‰
   def mouth_pahupahu?
-    # ã”¼g‚ª‘Šè‚Ìuã”¼gv‚ÅuƒpƒCƒYƒŠv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚êAƒCƒjƒVƒAƒ`ƒu‚ª‚O‚È‚ç‚Îtrue
-    return (self.hold.mouth.parts == "ã”¼g" and self.hold.mouth.type == "‚Ï‚Ó‚Ï‚Ó" and self.hold.mouth.initiative == 0)
+    # ä¸ŠåŠèº«ãŒç›¸æ‰‹ã®ã€Œä¸ŠåŠèº«ã€ã§ã€Œãƒ‘ã‚¤ã‚ºãƒªã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã€ã‚¤ãƒ‹ã‚·ã‚¢ãƒãƒ–ãŒï¼ãªã‚‰ã°true
+    return (self.hold.mouth.parts == "ä¸ŠåŠèº«" and self.hold.mouth.type == "ã±ãµã±ãµ" and self.hold.mouth.initiative == 0)
   end
-  # ‘‡‚Ï‚Ó‚Ï‚Ó”»’è
+  # ç·åˆã±ãµã±ãµåˆ¤å®š
   def pahupahu?
     return true if self.tops_pahupahu?
     return true if self.mouth_pahupahu?
     return false
   end
   #--------------------------------------------------------------------------
-  # š S‘©”»’è
+  # â˜… æ‹˜æŸåˆ¤å®š
   #--------------------------------------------------------------------------
-  # S‘©”»’èiU‚ß‘¤j
+  # æ‹˜æŸåˆ¤å®šï¼ˆæ”»ã‚å´ï¼‰
   def tops_binder?
-    # ã”¼g‚ª‘Šè‚Ìuã”¼gv‚ÅuS‘©v‚É‚æ‚èƒz[ƒ‹ƒh‚³‚êAƒCƒjƒVƒAƒ`ƒu‚ª‚PˆÈã‚È‚ç‚Îtrue
-    return (self.hold.tops.parts == "ã”¼g" and self.hold.tops.type == "S‘©" and self.hold.tops.initiative > 0)
+    # ä¸ŠåŠèº«ãŒç›¸æ‰‹ã®ã€Œä¸ŠåŠèº«ã€ã§ã€Œæ‹˜æŸã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã€ã‚¤ãƒ‹ã‚·ã‚¢ãƒãƒ–ãŒï¼‘ä»¥ä¸Šãªã‚‰ã°true
+    return (self.hold.tops.parts == "ä¸ŠåŠèº«" and self.hold.tops.type == "æ‹˜æŸ" and self.hold.tops.initiative > 0)
   end
-  # S‘©”»’èió‚¯‘¤j
+  # æ‹˜æŸåˆ¤å®šï¼ˆå—ã‘å´ï¼‰
   def tops_binding?
-    # ã”¼g‚ª‘Šè‚Ìuã”¼gv‚ÅuS‘©v‚É‚æ‚èƒz[ƒ‹ƒh‚³‚êAƒCƒjƒVƒAƒ`ƒu‚ª‚O‚È‚ç‚Îtrue
-    return (self.hold.tops.parts == "ã”¼g" and self.hold.tops.type == "S‘©" and self.hold.tops.initiative == 0)
+    # ä¸ŠåŠèº«ãŒç›¸æ‰‹ã®ã€Œä¸ŠåŠèº«ã€ã§ã€Œæ‹˜æŸã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã€ã‚¤ãƒ‹ã‚·ã‚¢ãƒãƒ–ãŒï¼ãªã‚‰ã°true
+    return (self.hold.tops.parts == "ä¸ŠåŠèº«" and self.hold.tops.type == "æ‹˜æŸ" and self.hold.tops.initiative == 0)
   end
-  # ‘‡S‘©”»’è
+  # ç·åˆæ‹˜æŸåˆ¤å®š
   def bind?
     return true if self.tops_binder?
     return true if self.tops_binding?
     return false
   end
   #--------------------------------------------------------------------------
-  # š GèS‘©”»’è
+  # â˜… è§¦æ‰‹æ‹˜æŸåˆ¤å®š
   #--------------------------------------------------------------------------
-  # S‘©”»’èiGèU‚ß‘¤j
+  # æ‹˜æŸåˆ¤å®šï¼ˆè§¦æ‰‹æ”»ã‚å´ï¼‰
   def tentacle_binder?
-    # Gè‚ª‘Šè‚Ìuã”¼gv‚ÅuS‘©v‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return true if (self.hold.tentacle.parts == "ã”¼g" and self.hold.tentacle.type == "GèS‘©")
-    return true if (self.hold.tentacle.parts == "ã”¼g" and self.hold.tentacle.type == "’ÓS‘©")
+    # è§¦æ‰‹ãŒç›¸æ‰‹ã®ã€Œä¸ŠåŠèº«ã€ã§ã€Œæ‹˜æŸã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return true if (self.hold.tentacle.parts == "ä¸ŠåŠèº«" and self.hold.tentacle.type == "è§¦æ‰‹æ‹˜æŸ")
+    return true if (self.hold.tentacle.parts == "ä¸ŠåŠèº«" and self.hold.tentacle.type == "è”¦æ‹˜æŸ")
     return false
   end
-  # S‘©”»’èiGèó‚¯‘¤j
+  # æ‹˜æŸåˆ¤å®šï¼ˆè§¦æ‰‹å—ã‘å´ï¼‰
   def tentacle_binding?
-    # Gè‚ª‘Šè‚ÌuGèv‚ÅuS‘©v‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return true if (self.hold.tops.parts == "Gè" and self.hold.tops.type == "GèS‘©")
-    return true if (self.hold.tops.parts == "Gè" and self.hold.tops.type == "’ÓS‘©")
+    # è§¦æ‰‹ãŒç›¸æ‰‹ã®ã€Œè§¦æ‰‹ã€ã§ã€Œæ‹˜æŸã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return true if (self.hold.tops.parts == "è§¦æ‰‹" and self.hold.tops.type == "è§¦æ‰‹æ‹˜æŸ")
+    return true if (self.hold.tops.parts == "è§¦æ‰‹" and self.hold.tops.type == "è”¦æ‹˜æŸ")
     return false
   end
-  # ‘‡S‘©”»’è
+  # ç·åˆæ‹˜æŸåˆ¤å®š
   def tentacle_bind?
     return true if self.tentacle_binder?
     return true if self.tentacle_binding?
     return false
   end
   #--------------------------------------------------------------------------
-  # š Gè‹zˆø”»’è
+  # â˜… è§¦æ‰‹å¸å¼•åˆ¤å®š
   #--------------------------------------------------------------------------
-  # ‹zˆø”»’èiGè‘¤j
+  # å¸å¼•åˆ¤å®šï¼ˆè§¦æ‰‹å´ï¼‰
   def tentacle_absorbing?
-    # Gè‚ª‘Šè‚ÌuGèv‚ÅuS‘©v‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.tentacle.parts == "ƒyƒjƒX" and self.hold.tentacle.type == "Gè‹zˆø")
+    # è§¦æ‰‹ãŒç›¸æ‰‹ã®ã€Œè§¦æ‰‹ã€ã§ã€Œæ‹˜æŸã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.tentacle.parts == "ãƒšãƒ‹ã‚¹" and self.hold.tentacle.type == "è§¦æ‰‹å¸å¼•")
   end
-  # ‹zˆø”»’èi‰‘¤j
+  # å¸å¼•åˆ¤å®šï¼ˆâ™‚å´ï¼‰
   def tentacle_penis_absorbing?
-    # Gè‚ª‘Šè‚ÌuGèv‚ÅuS‘©v‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.penis.parts == "Gè" and self.hold.penis.type == "Gè‹zˆø")
+    # è§¦æ‰‹ãŒç›¸æ‰‹ã®ã€Œè§¦æ‰‹ã€ã§ã€Œæ‹˜æŸã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.penis.parts == "è§¦æ‰‹" and self.hold.penis.type == "è§¦æ‰‹å¸å¼•")
   end
-  # ‘‡‹zˆø”»’è
+  # ç·åˆå¸å¼•åˆ¤å®š
   def tentacle_absorb?
     return true if self.tentacle_absorbing?
     return true if self.tentacle_penis_absorbing?
     return false
   end
   #--------------------------------------------------------------------------
-  # š ŠJ’ ”»’è
+  # â˜… é–‹å¸³åˆ¤å®š
   #--------------------------------------------------------------------------
-  # ŠJ’ ”»’èiU‚ß‘¤j
+  # é–‹å¸³åˆ¤å®šï¼ˆæ”»ã‚å´ï¼‰
   def tops_openbinder?
-    # ã”¼g‚ª‘Šè‚Ìuã”¼gv‚ÅuŠJ‹rv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚êAƒCƒjƒVƒAƒ`ƒu‚ª‚PˆÈã‚È‚ç‚Îtrue
-    return (self.hold.tops.parts == "ã”¼g" and self.hold.tops.type == "ŠJ‹r" and self.hold.tops.initiative > 0)
+    # ä¸ŠåŠèº«ãŒç›¸æ‰‹ã®ã€Œä¸ŠåŠèº«ã€ã§ã€Œé–‹è„šã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã€ã‚¤ãƒ‹ã‚·ã‚¢ãƒãƒ–ãŒï¼‘ä»¥ä¸Šãªã‚‰ã°true
+    return (self.hold.tops.parts == "ä¸ŠåŠèº«" and self.hold.tops.type == "é–‹è„š" and self.hold.tops.initiative > 0)
   end
-  # S‘©”»’èió‚¯‘¤j
+  # æ‹˜æŸåˆ¤å®šï¼ˆå—ã‘å´ï¼‰
   def tops_openbinding?
-    # ã”¼g‚ª‘Šè‚Ìuã”¼gv‚ÅuŠJ‹rv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚êAƒCƒjƒVƒAƒ`ƒu‚ª‚O‚È‚ç‚Îtrue
-    return (self.hold.tops.parts == "ã”¼g" and self.hold.tops.type == "ŠJ‹r" and self.hold.tops.initiative == 0)
+    # ä¸ŠåŠèº«ãŒç›¸æ‰‹ã®ã€Œä¸ŠåŠèº«ã€ã§ã€Œé–‹è„šã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã€ã‚¤ãƒ‹ã‚·ã‚¢ãƒãƒ–ãŒï¼ãªã‚‰ã°true
+    return (self.hold.tops.parts == "ä¸ŠåŠèº«" and self.hold.tops.type == "é–‹è„š" and self.hold.tops.initiative == 0)
   end
-  # S‘©”»’èiGè‘¤j
+  # æ‹˜æŸåˆ¤å®šï¼ˆè§¦æ‰‹å´ï¼‰
   def tentacle_openbinder?
-    # Gè‚ª‘Šè‚Ìuã”¼gv‚ÅuŠJ‹rv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.tentacle.parts == "ã”¼g" and self.hold.tentacle.type == "ŠJ‹r")
+    # è§¦æ‰‹ãŒç›¸æ‰‹ã®ã€Œä¸ŠåŠèº«ã€ã§ã€Œé–‹è„šã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.tentacle.parts == "ä¸ŠåŠèº«" and self.hold.tentacle.type == "é–‹è„š")
   end
-  # S‘©”»’èiGè‘¤j
+  # æ‹˜æŸåˆ¤å®šï¼ˆè§¦æ‰‹å´ï¼‰
   def tentacle_openbinding?
-    # Gè‚ª‘Šè‚ÌuGèv‚ÅuŠJ‹rv‚É‚æ‚èƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚ê‚Îtrue
-    return (self.hold.tops.parts == "Gè" and self.hold.tentacle.type == "ŠJ‹r")
+    # è§¦æ‰‹ãŒç›¸æ‰‹ã®ã€Œè§¦æ‰‹ã€ã§ã€Œé–‹è„šã€ã«ã‚ˆã‚Šãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚Œã°true
+    return (self.hold.tops.parts == "è§¦æ‰‹" and self.hold.tentacle.type == "é–‹è„š")
   end
-  # ‘‡S‘©”»’è
+  # ç·åˆæ‹˜æŸåˆ¤å®š
   def openbind?
     return true if self.tops_openbinder?
     return true if self.tops_openbinding?
@@ -936,7 +937,7 @@ class Game_Battler
     return false
   end
   #--------------------------------------------------------------------------
-  # š –{‹C‘}“ü‚ªs‚í‚ê‚Ä‚¢‚é‚©‚ÌŠm”F
+  # â˜… æœ¬æ°—æŒ¿å…¥ãŒè¡Œã‚ã‚Œã¦ã„ã‚‹ã‹ã®ç¢ºèª
   #--------------------------------------------------------------------------
   def earnest_insert?
     return true if self.earnest and self.vagina_insert?
@@ -946,22 +947,22 @@ class Game_Battler
     return false
   end
   #--------------------------------------------------------------------------
-  # š –{‹C‘}“ü‚ÌŠm”FiƒOƒ‰ƒtƒBƒbƒN•ÏX—pj
+  # â˜… æœ¬æ°—æŒ¿å…¥ã®ç¢ºèªï¼ˆã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯å¤‰æ›´ç”¨ï¼‰
   #--------------------------------------------------------------------------
   def earnest_vagina_insert?
     return true if self.earnest and self.vagina_insert?
     return false
   end
   #--------------------------------------------------------------------------
-  # š ‘f¿”»’è
-  #    ability : Šm”F‚·‚é‘f¿i‚h‚cA•¶š—ñ‚Ç‚¿‚ç‚Å‚à‚n‚jj
+  # â˜… ç´ è³ªåˆ¤å®š
+  #    ability : ç¢ºèªã™ã‚‹ç´ è³ªï¼ˆï¼©ï¼¤ã€æ–‡å­—åˆ—ã©ã¡ã‚‰ã§ã‚‚ï¼¯ï¼«ï¼‰
   #--------------------------------------------------------------------------
   def have_ability?(ability, type = "ALL")
-    # K“¾‚µ‚Ä‚¢‚é‚à‚Ì‚¾‚¯Šm”F‚·‚é
+    # ç¿’å¾—ã—ã¦ã„ã‚‹ã‚‚ã®ã ã‘ç¢ºèªã™ã‚‹
     n = ability
-    # ˆø”‚ª•¶š—ñ‚Ìê‡AID‚É•ÏŠ·‚·‚éB
+    # å¼•æ•°ãŒæ–‡å­—åˆ—ã®å ´åˆã€IDã«å¤‰æ›ã™ã‚‹ã€‚
     n = $data_ability.search(0, ability) if ability.is_a?(String)
-    # ‘SŠm”F‚ªON‚ÅƒAƒNƒ^[‚Ìê‡A‘S•”‚©‚çŠm”F‚·‚éiƒfƒtƒHƒ‹ƒgj
+    # å…¨ç¢ºèªãŒONã§ã‚¢ã‚¯ã‚¿ãƒ¼ã®å ´åˆã€å…¨éƒ¨ã‹ã‚‰ç¢ºèªã™ã‚‹ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼‰
     if type == "ALL" and self.is_a?(Game_Actor)
       return self.all_ability.include?(n)
     else
@@ -969,22 +970,22 @@ class Game_Battler
     end
   end
   #--------------------------------------------------------------------------
-  # š ‘f¿K“¾
-  #    ability : K“¾‚·‚é‘f¿i‚h‚cA•¶š—ñ‚Ç‚¿‚ç‚Å‚à‚n‚jj
+  # â˜… ç´ è³ªç¿’å¾—
+  #    ability : ç¿’å¾—ã™ã‚‹ç´ è³ªï¼ˆï¼©ï¼¤ã€æ–‡å­—åˆ—ã©ã¡ã‚‰ã§ã‚‚ï¼¯ï¼«ï¼‰
   #--------------------------------------------------------------------------
   def gain_ability(ability)
     n = ability
-    # ˆø”‚ª•¶š—ñ‚Ìê‡AID‚É•ÏŠ·‚·‚éB
+    # å¼•æ•°ãŒæ–‡å­—åˆ—ã®å ´åˆã€IDã«å¤‰æ›ã™ã‚‹ã€‚
     n = $data_ability.search(0, ability) if ability.is_a?(String)
     
     case n
-    # ‚—g‚ğK“¾‚·‚é‚Í’¾’…‚ğÁ‹
-    when $data_ability.search(0, "‚—g")
-      remove_ability("’¾’…")
+    # é«˜æšã‚’ç¿’å¾—ã™ã‚‹æ™‚ã¯æ²ˆç€ã‚’æ¶ˆå»
+    when $data_ability.search(0, "é«˜æš")
+      remove_ability("æ²ˆç€")
       
-    # ’¾’…‚ğK“¾‚·‚é‚Í‚—g‚ğÁ‹
-    when $data_ability.search(0, "’¾’…")
-      remove_ability("‚—g")
+    # æ²ˆç€ã‚’ç¿’å¾—ã™ã‚‹æ™‚ã¯é«˜æšã‚’æ¶ˆå»
+    when $data_ability.search(0, "æ²ˆç€")
+      remove_ability("é«˜æš")
     end
     
     unless have_ability?(n, "ORIGINAL")
@@ -993,12 +994,12 @@ class Game_Battler
     end
   end
   #--------------------------------------------------------------------------
-  # š ‘f¿Á‹
-  #    ability : Á‹‚·‚é‘f¿i‚h‚cA•¶š—ñ‚Ç‚¿‚ç‚Å‚à‚n‚jj
+  # â˜… ç´ è³ªæ¶ˆå»
+  #    ability : æ¶ˆå»ã™ã‚‹ç´ è³ªï¼ˆï¼©ï¼¤ã€æ–‡å­—åˆ—ã©ã¡ã‚‰ã§ã‚‚ï¼¯ï¼«ï¼‰
   #--------------------------------------------------------------------------
   def remove_ability(ability)
     n = ability
-    # ˆø”‚ª•¶š—ñ‚Ìê‡AID‚É•ÏŠ·‚·‚éB
+    # å¼•æ•°ãŒæ–‡å­—åˆ—ã®å ´åˆã€IDã«å¤‰æ›ã™ã‚‹ã€‚
     n = $data_ability.search(0, ability) if ability.is_a?(String)
 
     if have_ability?(n, "ORIGINAL")
@@ -1007,7 +1008,7 @@ class Game_Battler
     end
   end
   #--------------------------------------------------------------------------
-  # š ƒz[ƒ‹ƒhİ’èˆ—
+  # â˜… ãƒ›ãƒ¼ãƒ«ãƒ‰è¨­å®šå‡¦ç†
   #--------------------------------------------------------------------------
   def hold
     @hold = Game_BattlerHold.new if @hold == nil
@@ -1027,11 +1028,11 @@ class Game_Battler
     self.hold.tentacle.set(nil, nil, nil, nil)
   end
   #--------------------------------------------------------------------------
-  # š ƒNƒ‰ƒCƒVƒXˆ—
+  # â˜… ã‚¯ãƒ©ã‚¤ã‚·ã‚¹å‡¦ç†
   #--------------------------------------------------------------------------
   
   #--------------------------------------------------------------------------
-  # š ’…ˆßˆ—
+  # â˜… ç€è¡£å‡¦ç†
   #--------------------------------------------------------------------------
   def dress
     user = $game_temp.battle_active_battler
@@ -1040,67 +1041,67 @@ class Game_Battler
     end
   end
   #--------------------------------------------------------------------------
-  # š ’Eˆßˆ—
+  # â˜… è„±è¡£å‡¦ç†
   #--------------------------------------------------------------------------
   def undress
     user = $game_temp.battle_active_battler
-    #”¼’E‚¬‚ÉğŒ•ªŠò‚ª‘¶İ‚·‚é–²–‚‚Íƒtƒ‰ƒO‚ğ‚P‚É‚·‚é
+    #åŠè„±ãã«æ¡ä»¶åˆ†å²ãŒå­˜åœ¨ã™ã‚‹å¤¢é­”ã¯ãƒ•ãƒ©ã‚°ã‚’ï¼‘ã«ã™ã‚‹
     undress_flag = 0
-    #–²–‚‚É‚æ‚Á‚ÄA’Eˆß•û–@‚ğŒÂ•Ê‚Éİ’è‚·‚é
+    #å¤¢é­”ã«ã‚ˆã£ã¦ã€è„±è¡£æ–¹æ³•ã‚’å€‹åˆ¥ã«è¨­å®šã™ã‚‹
     case $data_SDB[self.class_id].name
-    #ƒiƒCƒgƒƒA‚Ìê‡uƒAƒNƒ^[‚©‚ç’EˆßvuƒAƒNƒ^[‚ª‹»•±v‚Å”¼’E‚¬‚É‚È‚é
-    #©•ª‚©‚ç’E‚¢‚¾ê‡‚â’Êí‚Í“Á‚É•Ï‰»‚µ‚È‚¢
-    when "ƒiƒCƒgƒƒA"
+    #ãƒŠã‚¤ãƒˆãƒ¡ã‚¢ã®å ´åˆã€Œã‚¢ã‚¯ã‚¿ãƒ¼ã‹ã‚‰è„±è¡£ã€ã€Œã‚¢ã‚¯ã‚¿ãƒ¼ãŒèˆˆå¥®ã€ã§åŠè„±ãã«ãªã‚‹
+    #è‡ªåˆ†ã‹ã‚‰è„±ã„ã å ´åˆã‚„é€šå¸¸æ™‚ã¯ç‰¹ã«å¤‰åŒ–ã—ãªã„
+    when "ãƒŠã‚¤ãƒˆãƒ¡ã‚¢"
       unless user.is_a?(Game_Actor) and user.excited?
-        #ğŒ‚ğ–‚½‚³‚È‚¢ê‡‚Íƒtƒ‰ƒO‚ğ‚P‚É‚·‚é
+        #æ¡ä»¶ã‚’æº€ãŸã•ãªã„å ´åˆã¯ãƒ•ãƒ©ã‚°ã‚’ï¼‘ã«ã™ã‚‹
         undress_flag = 1
       end
     end
-    # ”¼—‡ó‘ÔH
+    # åŠè£¸çŠ¶æ…‹ï¼Ÿ
     if half_nude?
-      # ‘S—‡ó‘Ô‚É‚·‚é
+      # å…¨è£¸çŠ¶æ…‹ã«ã™ã‚‹
       self.add_state(5)
-    # ’…ˆßó‘ÔH
+    # ç€è¡£çŠ¶æ…‹ï¼Ÿ
     elsif undress_flag == 0
       bmp_name = []
       bmp_name[0] = @battler_name + "_L"
       bmp_name[1] = @battler_name + "_M"
       if RPG::Cache.battler_exist?(bmp_name[0]) or
          RPG::Cache.battler_exist?(bmp_name[1])
-        # ”¼—‡ó‘Ô‚É‚·‚é
+        # åŠè£¸çŠ¶æ…‹ã«ã™ã‚‹
         self.add_state(4)
       else
-        # ‘S—‡ó‘Ô‚É‚·‚é
+        # å…¨è£¸çŠ¶æ…‹ã«ã™ã‚‹
         self.add_state(5)
       end
     else
-      # ‘S—‡ó‘Ô‚É‚·‚é
+      # å…¨è£¸çŠ¶æ…‹ã«ã™ã‚‹
       self.add_state(5)
     end
 #    self.white_flash_long = true
 #    Audio.se_play("Audio/SE/one28", 80, 100)
-    # ’EˆßƒAƒjƒ[ƒVƒ‡ƒ“‚ğ‚Â‚¯‚é
+    # è„±è¡£ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ã¤ã‘ã‚‹
     @animation_id = 104
     @animation_hit = true
     
   end
 
   #--------------------------------------------------------------------------
-  # š ‘}“üˆ—
+  # â˜… æŒ¿å…¥å‡¦ç†
   #--------------------------------------------------------------------------
   
 
   #--------------------------------------------------------------------------
-  # š ‘}“ü‰ğœˆ—
+  # â˜… æŒ¿å…¥è§£é™¤å‡¦ç†
   #--------------------------------------------------------------------------
 
   #--------------------------------------------------------------------------
-  # š DŠ´“xã¸ˆ—
+  # â˜… å¥½æ„Ÿåº¦ä¸Šæ˜‡å‡¦ç†
   #--------------------------------------------------------------------------
   def like(plus=0)
-    #‘ÎÛ‚ªƒGƒlƒ~[‚Å‚È‚¢(DŠ´“x‚ª‘¶İ‚µ‚È‚¢)ê‡‚Í–ß‚·
+    #å¯¾è±¡ãŒã‚¨ãƒãƒŸãƒ¼ã§ãªã„(å¥½æ„Ÿåº¦ãŒå­˜åœ¨ã—ãªã„)å ´åˆã¯æˆ»ã™
     return if self.is_a?(Game_Actor)
-    #DŠ´“xã¸‘O‚Æã¸Œã‚ğ”ä‚×‚é
+    #å¥½æ„Ÿåº¦ä¸Šæ˜‡å‰ã¨ä¸Šæ˜‡å¾Œã‚’æ¯”ã¹ã‚‹
     point1 = self.friendly
     point2 = self.friendly + plus
     if point2 > point1
@@ -1109,41 +1110,41 @@ class Game_Battler
     end
   end
   #--------------------------------------------------------------------------
-  # š DŠ´“xƒAƒjƒw¦
+  # â˜… å¥½æ„Ÿåº¦ã‚¢ãƒ‹ãƒ¡æŒ‡ç¤º
   #--------------------------------------------------------------------------
   def friendly_animation_order(point = self.friendly)
     case point
-    #DŠ´“x‚ª‚V‚O‰z‚¦‚Ìê‡
+    #å¥½æ„Ÿåº¦ãŒï¼—ï¼è¶Šãˆã®å ´åˆ
     when 71..255
       @animation_id = 42
       @animation_hit = true
-    #DŠ´“x‚ª‚R‚O`‚V‚O‚ÌŠÔ‚Ìê‡
+    #å¥½æ„Ÿåº¦ãŒï¼“ï¼ï½ï¼—ï¼ã®é–“ã®å ´åˆ
     when 30..70
       @animation_id = 41
       @animation_hit = true
-    #DŠ´“x‚ª‚Q‚XˆÈ‰º‚Ìê‡(ƒ}ƒCƒiƒX‚àŠÜ‚Ş)
+    #å¥½æ„Ÿåº¦ãŒï¼’ï¼™ä»¥ä¸‹ã®å ´åˆ(ãƒã‚¤ãƒŠã‚¹ã‚‚å«ã‚€)
     else
       @animation_id = 40
       @animation_hit = true
     end
   end
   #--------------------------------------------------------------------------
-  # š ¸‰tˆ—
-  #   point   0:‚Ô‚Á‚©‚¯ 1:’†o‚µ
+  # â˜… ç²¾æ¶²å‡¦ç†
+  #   point   0:ã¶ã£ã‹ã‘ 1:ä¸­å‡ºã—
   #--------------------------------------------------------------------------
   def sperm(point)
     case point
-    when 0 # ‚Ô‚Á‚©‚¯
+    when 0 # ã¶ã£ã‹ã‘
       self.add_state(9)
-     when 1 # ’†o‚µ
-      # ‚Ô‚Á‚©‚¯‚³‚ê‚Ä‚¢‚éê‡‚Í‚Ô‚Á‚©‚¯‹L†‚à‚Â‚¯‚é
+     when 1 # ä¸­å‡ºã—
+      # ã¶ã£ã‹ã‘ã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ã¶ã£ã‹ã‘è¨˜å·ã‚‚ã¤ã‘ã‚‹
       self.add_state(10)
     end
     
   end    
 
   #--------------------------------------------------------------------------
-  # š ƒNƒ‰ƒCƒVƒXŠçğŒ”»’è
+  # â˜… ã‚¯ãƒ©ã‚¤ã‚·ã‚¹é¡”æ¡ä»¶åˆ¤å®š
   #--------------------------------------------------------------------------
   def crisis_graphic?
     if self.state?(6) or self.state?(11) or self.state?(2) or self.state?(3)
@@ -1154,20 +1155,20 @@ class Game_Battler
     return false
   end
   #--------------------------------------------------------------------------
-  # š â’¸‰ñ”
+  # â˜… çµ¶é ‚å›æ•°
   #--------------------------------------------------------------------------
   def ecstasy_count
     @ecstasy_count = [] if @ecstasy_count == nil
     return @ecstasy_count
   end
   #--------------------------------------------------------------------------
-  # œ ƒ}[ƒLƒ“ƒOó‘ÔH
+  # â— ãƒãƒ¼ã‚­ãƒ³ã‚°çŠ¶æ…‹ï¼Ÿ
   #--------------------------------------------------------------------------
   def marking?
     return (self.marking_battler != nil and self.state?(99))
   end
   #--------------------------------------------------------------------------
-  # œ s“®Ï‚İó‘ÔH
+  # â— è¡Œå‹•æ¸ˆã¿çŠ¶æ…‹ï¼Ÿ
   #--------------------------------------------------------------------------
   def actioned?
     if $game_temp.in_battle
@@ -1177,7 +1178,7 @@ class Game_Battler
     end
   end
   #--------------------------------------------------------------------------
-  # œ ó‘ÔˆÙí‚Ì”
+  # â— çŠ¶æ…‹ç•°å¸¸ã®æ•°
   #--------------------------------------------------------------------------
   def bad_state_number
     count = 0
@@ -1187,14 +1188,14 @@ class Game_Battler
     return count
   end
   #--------------------------------------------------------------------------
-  # œ ƒoƒbƒhƒ`ƒFƒCƒ“‚Å‚«‚é‚©H
+  # â— ãƒãƒƒãƒ‰ãƒã‚§ã‚¤ãƒ³ã§ãã‚‹ã‹ï¼Ÿ
   #--------------------------------------------------------------------------
   def bad_chain?
-    # ‚QŒÂˆÈã‚Åƒoƒbƒhƒ`ƒFƒCƒ“’B¬
+    # ï¼’å€‹ä»¥ä¸Šã§ãƒãƒƒãƒ‰ãƒã‚§ã‚¤ãƒ³é”æˆ
     return bad_state_number >= 2
   end
   #--------------------------------------------------------------------------
-  # œ ‘«‚ªg‚¦‚é‚©H
+  # â— è¶³ãŒä½¿ãˆã‚‹ã‹ï¼Ÿ
   #--------------------------------------------------------------------------
   def can_use_leg?
     result = true
@@ -1202,66 +1203,66 @@ class Game_Battler
     return result
   end
   #--------------------------------------------------------------------------
-  # œ ‚±‚Ì‘Šè‚Ì‹¹‚Éè‚ª“Í‚­‚©H
+  # â— ã“ã®ç›¸æ‰‹ã®èƒ¸ã«æ‰‹ãŒå±Šãã‹ï¼Ÿ
   #--------------------------------------------------------------------------
   def can_reach_bust?(target)
     #--------------------------------------------------------------------------
-    # ‘Ì¨“I‚É•s‰Â
+    # ä½“å‹¢çš„ã«ä¸å¯
     #--------------------------------------------------------------------------
-    # Œû‘}“üEŒûˆúŒn‚Í—¼Ò•s‰Â
-    return false if self.hold.mouth.parts == "ƒyƒjƒX" and self.hold.mouth.battler == target
-    return false if self.hold.penis.parts == "Œû" and self.hold.penis.battler == target
-    return false if self.hold.mouth.parts == "ƒfƒBƒ‹ƒh" and self.hold.mouth.battler == target
-    return false if self.hold.dildo.parts == "Œû" and self.hold.dildo.battler == target
-    return false if self.hold.mouth.parts == "ƒAƒ\ƒR" and self.hold.mouth.battler == target
-    return false if self.hold.vagina.parts == "Œû" and self.hold.vagina.battler == target
+    # å£æŒ¿å…¥ãƒ»å£æ·«ç³»ã¯ä¸¡è€…ä¸å¯
+    return false if self.hold.mouth.parts == "ãƒšãƒ‹ã‚¹" and self.hold.mouth.battler == target
+    return false if self.hold.penis.parts == "å£" and self.hold.penis.battler == target
+    return false if self.hold.mouth.parts == "ãƒ‡ã‚£ãƒ«ãƒ‰" and self.hold.mouth.battler == target
+    return false if self.hold.dildo.parts == "å£" and self.hold.dildo.battler == target
+    return false if self.hold.mouth.parts == "ã‚¢ã‚½ã‚³" and self.hold.mouth.battler == target
+    return false if self.hold.vagina.parts == "å£" and self.hold.vagina.battler == target
     #--------------------------------------------------------------------------
     return true
   end
   #--------------------------------------------------------------------------
-  # œ ‚±‚Ì‘Šè‚Ì”é•”‚Éè‚ª“Í‚­‚©H
+  # â— ã“ã®ç›¸æ‰‹ã®ç§˜éƒ¨ã«æ‰‹ãŒå±Šãã‹ï¼Ÿ
   #--------------------------------------------------------------------------
   def can_reach_secret?(target)
     #--------------------------------------------------------------------------
-    # ‘Šè‚Ì”é•”‚ªƒz[ƒ‹ƒhó‘Ô‚É‚È‚Á‚Ä‚¢‚éê‡‚Í•s‰Â
+    # ç›¸æ‰‹ã®ç§˜éƒ¨ãŒãƒ›ãƒ¼ãƒ«ãƒ‰çŠ¶æ…‹ã«ãªã£ã¦ã„ã‚‹å ´åˆã¯ä¸å¯
     #--------------------------------------------------------------------------
     return false if target.hold.penis.battler != nil
     return false if target.hold.dildo.battler != nil
     return false if target.hold.vagina.battler != nil
-=begin ƒVƒbƒNƒXƒiƒCƒ“‘Ì¨‚È‚ç‰Â”\‚È‚Ì‚ÅƒRƒƒ“ƒgƒAƒEƒg
+=begin ã‚·ãƒƒã‚¯ã‚¹ãƒŠã‚¤ãƒ³ä½“å‹¢ãªã‚‰å¯èƒ½ãªã®ã§ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ
     #--------------------------------------------------------------------------
-    # ‘Ì¨“I‚É•s‰Â
+    # ä½“å‹¢çš„ã«ä¸å¯
     #--------------------------------------------------------------------------
-    # ©•ª‚Ì”é•”‚ª‘Šè‚ÌŒû‚Åƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚é
-    return false if self.hold.penis.parts == "Œû" and self.hold.penis.battler == target
-    return false if self.hold.dildo.parts == "Œû" and self.hold.dildo.battler == target
-    return false if self.hold.vagina.parts == "Œû" and self.hold.vagina.battler == target
+    # è‡ªåˆ†ã®ç§˜éƒ¨ãŒç›¸æ‰‹ã®å£ã§ãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚‹
+    return false if self.hold.penis.parts == "å£" and self.hold.penis.battler == target
+    return false if self.hold.dildo.parts == "å£" and self.hold.dildo.battler == target
+    return false if self.hold.vagina.parts == "å£" and self.hold.vagina.battler == target
     #--------------------------------------------------------------------------
 =end
     return true
   end
   #--------------------------------------------------------------------------
-  # œ ‚±‚Ì‘Šè‚ÌK‚Éè‚ª“Í‚­‚©H
+  # â— ã“ã®ç›¸æ‰‹ã®å°»ã«æ‰‹ãŒå±Šãã‹ï¼Ÿ
   #--------------------------------------------------------------------------
   def can_reach_hip?(target)
     #--------------------------------------------------------------------------
-    # ‘Šè‚ÌK‚ªƒz[ƒ‹ƒhó‘Ô‚É‚È‚Á‚Ä‚¢‚éê‡‚Í•s‰Â
+    # ç›¸æ‰‹ã®å°»ãŒãƒ›ãƒ¼ãƒ«ãƒ‰çŠ¶æ…‹ã«ãªã£ã¦ã„ã‚‹å ´åˆã¯ä¸å¯
     #--------------------------------------------------------------------------
     return false if target.hold.anal.battler != nil
-=begin ƒVƒbƒNƒXƒiƒCƒ“‘Ì¨‚È‚ç‰Â”\‚È‚Ì‚ÅƒRƒƒ“ƒgƒAƒEƒg
+=begin ã‚·ãƒƒã‚¯ã‚¹ãƒŠã‚¤ãƒ³ä½“å‹¢ãªã‚‰å¯èƒ½ãªã®ã§ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ
     #--------------------------------------------------------------------------
-    # ‘Ì¨“I‚É•s‰Â
+    # ä½“å‹¢çš„ã«ä¸å¯
     #--------------------------------------------------------------------------
-    # ©•ª‚Ì”é•”‚ª‘Šè‚ÌŒû‚Åƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚é
-    return false if self.hold.penis.parts == "Œû" and self.hold.penis.battler == target
-    return false if self.hold.dildo.parts == "Œû" and self.hold.dildo.battler == target
-    return false if self.hold.vagina.parts == "Œû" and self.hold.vagina.battler == target
+    # è‡ªåˆ†ã®ç§˜éƒ¨ãŒç›¸æ‰‹ã®å£ã§ãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚‹
+    return false if self.hold.penis.parts == "å£" and self.hold.penis.battler == target
+    return false if self.hold.dildo.parts == "å£" and self.hold.dildo.battler == target
+    return false if self.hold.vagina.parts == "å£" and self.hold.vagina.battler == target
     #--------------------------------------------------------------------------
 =end
     return true
   end
   #--------------------------------------------------------------------------
-  # œ ‚à‚ª‚¢‚Ä—Ç‚¢‚©H
+  # â— ã‚‚ãŒã„ã¦è‰¯ã„ã‹ï¼Ÿ
   #--------------------------------------------------------------------------
   def can_struggle?
     result = false
@@ -1282,63 +1283,63 @@ class Game_Battler
     return result
   end
   #--------------------------------------------------------------------------
-  # œ ‘ÎÛ‚Ì¸‰t‚ª©•ª‚É‚©‚©‚é‚©H
+  # â— å¯¾è±¡ã®ç²¾æ¶²ãŒè‡ªåˆ†ã«ã‹ã‹ã‚‹ã‹ï¼Ÿ
   #--------------------------------------------------------------------------
   def sperm_me?(target = $game_actors[101])
     result = true
-    # ‘ÎÛ‚ª—‡‚É‚È‚Á‚Ä‚¢‚È‚¢ê‡A‹U‚ğ•Ô‚·
+    # å¯¾è±¡ãŒè£¸ã«ãªã£ã¦ã„ãªã„å ´åˆã€å½ã‚’è¿”ã™
     unless target.nude?
       result = false
     end
-    # ‘ÎÛ‚ÌƒyƒjƒX‚ª©•ªˆÈŠO‚Ì’N‚©‚Éƒz[ƒ‹ƒh‚³‚ê‚Ä‚¢‚éê‡A‹U‚ğ•Ô‚·
+    # å¯¾è±¡ã®ãƒšãƒ‹ã‚¹ãŒè‡ªåˆ†ä»¥å¤–ã®èª°ã‹ã«ãƒ›ãƒ¼ãƒ«ãƒ‰ã•ã‚Œã¦ã„ã‚‹å ´åˆã€å½ã‚’è¿”ã™
     if target.hold.penis.battler != nil and target.hold.penis.battler != self
       result = false
     end
     return result
   end
   #--------------------------------------------------------------------------
-  # œ Šç‚ªÇ‚ª‚ê‚Ä‚¢‚é‚©H
+  # â— é¡”ãŒå¡ãŒã‚Œã¦ã„ã‚‹ã‹ï¼Ÿ
   #--------------------------------------------------------------------------
   def face_blind?
     result = false
-    result = true if self.mouth_riding? # ©•ª‚ªŠç–Ê‹Ræ‚ğó‚¯‚Ä‚¢‚é
-    result = true if self.mouth_hipriding? # ©•ª‚ªKŠç–Ê‹Ræ‚ğó‚¯‚Ä‚¢‚é
-    result = true if self.mouth_pahupahu? # ©•ª‚ª‚Ï‚Ó‚Ï‚Ó‚ğó‚¯‚Ä‚¢‚é
+    result = true if self.mouth_riding? # è‡ªåˆ†ãŒé¡”é¢é¨ä¹—ã‚’å—ã‘ã¦ã„ã‚‹
+    result = true if self.mouth_hipriding? # è‡ªåˆ†ãŒå°»é¡”é¢é¨ä¹—ã‚’å—ã‘ã¦ã„ã‚‹
+    result = true if self.mouth_pahupahu? # è‡ªåˆ†ãŒã±ãµã±ãµã‚’å—ã‘ã¦ã„ã‚‹
     return result
   end
   #----------------------------------------------------------------
-  # œ “K³ƒ^[ƒQƒbƒg‚ÌŠm”F
+  # â— é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®ç¢ºèª
   #----------------------------------------------------------------
   def proper_target?(target, skill_id = nil)
-    #ƒAƒCƒeƒ€g—p‚Ìê‡‚Íƒ^[ƒQƒbƒgŠm”F‚ğƒXƒ‹[‚·‚é
+    #ã‚¢ã‚¤ãƒ†ãƒ ä½¿ç”¨ã®å ´åˆã¯ã‚¿ãƒ¼ã‚²ãƒƒãƒˆç¢ºèªã‚’ã‚¹ãƒ«ãƒ¼ã™ã‚‹
     if self.current_action.kind == 2
       return true
     end
     #----------------------------------------------------------------
-    # ƒXƒLƒ‹‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡
+    # ã‚¹ã‚­ãƒ«ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆ
     if skill_id != nil 
-      # g—pƒXƒLƒ‹‚ÌŠm”F
+      # ä½¿ç”¨ã‚¹ã‚­ãƒ«ã®ç¢ºèª
       skill = $data_skills[skill_id]
       #----------------------------------------------------------------
-      # ˆÈ‰º‚ÌƒXƒLƒ‹‚Í“K³ƒ^[ƒQƒbƒg‚ğ–³‹‚·‚é
+      # ä»¥ä¸‹ã®ã‚¹ã‚­ãƒ«ã¯é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’ç„¡è¦–ã™ã‚‹
       #----------------------------------------------------------------
-      # “G‚Pl‚ğ‘ÎÛ‚Æ‚·‚éƒXƒLƒ‹‚Ì‚¤‚¿
+      # æ•µï¼‘äººã‚’å¯¾è±¡ã¨ã™ã‚‹ã‚¹ã‚­ãƒ«ã®ã†ã¡
       if skill.scope == 1
-        # ƒTƒ|[ƒgƒXƒLƒ‹
+        # ã‚µãƒãƒ¼ãƒˆã‚¹ã‚­ãƒ«
 #        return true if skill.element_set.include?(4)
-        # –‚–@ƒXƒLƒ‹
+        # é­”æ³•ã‚¹ã‚­ãƒ«
 #        return true if skill.element_set.include?(5)
       else
-        # “G‚Pl‚¾‚¯‚ğ‘ÎÛ‚Æ‚µ‚È‚¢ê‡‚ÍˆÈ‰º‚·‚×‚Ä–³‹
+        # æ•µï¼‘äººã ã‘ã‚’å¯¾è±¡ã¨ã—ãªã„å ´åˆã¯ä»¥ä¸‹ã™ã¹ã¦ç„¡è¦–
         return true
       end
     end
     #----------------------------------------------------------------
-    # “K³ƒ^[ƒQƒbƒg—p‚Ì‰Šú‰»
+    # é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆç”¨ã®åˆæœŸåŒ–
     proper_battlers = []
     target_group = $game_party.battle_actors + $game_troop.enemies
-    # ƒz[ƒ‹ƒh’†Š‚Âƒz[ƒ‹ƒh’†ƒXƒLƒ‹‚Ìê‡A
-    # ƒz[ƒ‹ƒh‘Šè‚ğ“K³ƒ^[ƒQƒbƒg‚É“ü‚ê‚é
+    # ãƒ›ãƒ¼ãƒ«ãƒ‰ä¸­ä¸”ã¤ãƒ›ãƒ¼ãƒ«ãƒ‰ä¸­ã‚¹ã‚­ãƒ«ã®å ´åˆã€
+    # ãƒ›ãƒ¼ãƒ«ãƒ‰ç›¸æ‰‹ã‚’é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã«å…¥ã‚Œã‚‹
     if self.holding? and skill.element_set.include?(132)
       proper_battlers.push(self.hold.mouth.battler)
       proper_battlers.push(self.hold.anal.battler)
@@ -1349,26 +1350,26 @@ class Game_Battler
       proper_battlers.push(self.hold.dildo.battler)
       proper_battlers.push(self.hold.tentacle.battler)
       proper_battlers.compact!
-    # ‚»‚êˆÈŠO‚Ìê‡A‘Sˆõ‚ğ“K³ƒ^[ƒQƒbƒg‚É“ü‚ê‚é
+    # ãã‚Œä»¥å¤–ã®å ´åˆã€å…¨å“¡ã‚’é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã«å…¥ã‚Œã‚‹
     else
       for target_one in target_group
         proper_battlers.push(target_one) if target_one.exist?
       end
     end
 =begin
-    # ã”¼gS‘©iƒGƒ“ƒuƒŒƒCƒX“™j‚ğó‚¯‚Ä‚¢‚éA‚µ‚Ä‚éê‡‚Í
-    # ‚»‚Ì‘Šè‚Ì‚İ‚ğ“K³ƒ^[ƒQƒbƒg‚É‚·‚é
-    # ¦GèS‘©‚Ìê‡AGè‘¤‚Í‚±‚Ì§ŒÀ‚ğó‚¯‚È‚¢
-    if self.hold.tops.type == "S‘©"
+    # ä¸ŠåŠèº«æ‹˜æŸï¼ˆã‚¨ãƒ³ãƒ–ãƒ¬ã‚¤ã‚¹ç­‰ï¼‰ã‚’å—ã‘ã¦ã„ã‚‹ã€ã—ã¦ã‚‹å ´åˆã¯
+    # ãã®ç›¸æ‰‹ã®ã¿ã‚’é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã«ã™ã‚‹
+    # â€»è§¦æ‰‹æ‹˜æŸã®å ´åˆã€è§¦æ‰‹å´ã¯ã“ã®åˆ¶é™ã‚’å—ã‘ãªã„
+    if self.hold.tops.type == "æ‹˜æŸ"
       proper_battlers = [self.hold.tops.battler]
     end
 =end
     #----------------------------------------------------------------
-    # “K³ƒ^[ƒQƒbƒg“à‚Ì’§”­’†‚Ì‘Šè‚Ì‘¶İ‚ğŠm”F‚·‚é
+    # é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆå†…ã®æŒ‘ç™ºä¸­ã®ç›¸æ‰‹ã®å­˜åœ¨ã‚’ç¢ºèªã™ã‚‹
     incite_battlers = []
     for proper_one in proper_battlers
       if proper_one.incite_success? 
-        # ©•ª‚©‚çŒ©‚Ä“G‚Ìƒoƒgƒ‰[‚ª’§”­’†‚Ìê‡‚Í’§”­’†”z—ñ‚É“ü‚ê‚é
+        # è‡ªåˆ†ã‹ã‚‰è¦‹ã¦æ•µã®ãƒãƒˆãƒ©ãƒ¼ãŒæŒ‘ç™ºä¸­ã®å ´åˆã¯æŒ‘ç™ºä¸­é…åˆ—ã«å…¥ã‚Œã‚‹
         if (self.is_a?(Game_Actor) and proper_one.is_a?(Game_Enemy)) or 
          (self.is_a?(Game_Enemy) and proper_one.is_a?(Game_Actor))
           incite_battlers.push(proper_one)
@@ -1376,35 +1377,35 @@ class Game_Battler
       end
     end
     #--------------------------------------------------------------------
-    # “K³ƒ^[ƒQƒbƒg“à‚ÉŒ»İ‘I‚ñ‚Å‚¢‚é‘ÎÛ‚ª‚¢‚éê‡Aƒ}[ƒLƒ“ƒOŒn‚ÌŠm”F
+    # é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆå†…ã«ç¾åœ¨é¸ã‚“ã§ã„ã‚‹å¯¾è±¡ãŒã„ã‚‹å ´åˆã€ãƒãƒ¼ã‚­ãƒ³ã‚°ç³»ã®ç¢ºèª
     #--------------------------------------------------------------------
-    # Œ‹‰Ê‚ğ^‚É‰Šú‰»
+    # çµæœã‚’çœŸã«åˆæœŸåŒ–
     result = true
     if proper_battlers.include?(target)
       #----------------------------------------------------------------
-      # ¦ãˆÊ‚Ù‚Ç—Dæ“x‚ªã‚ª‚é
+      # â€»ä¸Šä½ã»ã©å„ªå…ˆåº¦ãŒä¸ŠãŒã‚‹
       #----------------------------------------------------------------
-      # ‚±‚Ìƒoƒgƒ‰[‚ªƒGƒlƒ~[Š‚Ây–Ï·z‚¿‚Ìê‡AålŒöˆÈŠO‚¾‚ÆƒGƒ‰[
-      if self.have_ability?("–Ï·") and self.is_a?(Game_Enemy) and
+      # ã“ã®ãƒãƒˆãƒ©ãƒ¼ãŒã‚¨ãƒãƒŸãƒ¼ä¸”ã¤ã€å¦„åŸ·ã€‘æŒã¡ã®å ´åˆã€ä¸»äººå…¬ä»¥å¤–ã ã¨ã‚¨ãƒ©ãƒ¼
+      if self.have_ability?("å¦„åŸ·") and self.is_a?(Game_Enemy) and
        target != $game_actors[101] and proper_battlers.include?($game_actors[101])
         result = false
       #----------------------------------------------------------------
-      # ålŒö‚ª–³–h”õó‘Ô‚Ìê‡AålŒöˆÈŠO‚¾‚ÆƒGƒ‰[
+      # ä¸»äººå…¬ãŒç„¡é˜²å‚™çŠ¶æ…‹ã®å ´åˆã€ä¸»äººå…¬ä»¥å¤–ã ã¨ã‚¨ãƒ©ãƒ¼
       elsif $game_actors[101].state?(95) and
        target != $game_actors[101] and proper_battlers.include?($game_actors[101])
         result = false
       #----------------------------------------------------------------
-      # “K³ƒ^[ƒQƒbƒg“à‚É’§”­’†‚Ì‘Šè‚ª‚¨‚èA
-      # ‚»‚Ì‘Šè‚ğ‘_‚Á‚Ä‚¢‚È‚¢ê‡ƒGƒ‰[
+      # é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆå†…ã«æŒ‘ç™ºä¸­ã®ç›¸æ‰‹ãŒãŠã‚Šã€
+      # ãã®ç›¸æ‰‹ã‚’ç‹™ã£ã¦ã„ãªã„å ´åˆã‚¨ãƒ©ãƒ¼
       elsif not incite_battlers.include?(target) and
        incite_battlers.size > 0
         result = false
-        # ’§”­‘Šè‚ğ‘_‚Á‚Ä‚¢‚È‚¢ê‡A—Uˆø¬Œ÷ƒtƒ‰ƒO‚ğ—§‚Ä‚é
-        # i¦‘ÎÛ‚ÌƒXƒ€[ƒY‚ÈŒˆ’è‚Æ˜A“®j
+        # æŒ‘ç™ºç›¸æ‰‹ã‚’ç‹™ã£ã¦ã„ãªã„å ´åˆã€èª˜å¼•æˆåŠŸãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
+        # ï¼ˆâ€»å¯¾è±¡ã®ã‚¹ãƒ ãƒ¼ã‚ºãªæ±ºå®šã¨é€£å‹•ï¼‰
         $game_temp.incite_flag = true
       #----------------------------------------------------------------
-      # “K³ƒ^[ƒQƒbƒg“à‚Éƒ}[ƒLƒ“ƒO‚µ‚Ä‚¢‚é‘Šè‚ª‚¨‚èA
-      # ‚»‚Ì‘Šè‚ğ‘_‚Á‚Ä‚¢‚È‚¢ê‡ƒGƒ‰[
+      # é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆå†…ã«ãƒãƒ¼ã‚­ãƒ³ã‚°ã—ã¦ã„ã‚‹ç›¸æ‰‹ãŒãŠã‚Šã€
+      # ãã®ç›¸æ‰‹ã‚’ç‹™ã£ã¦ã„ãªã„å ´åˆã‚¨ãƒ©ãƒ¼
       elsif proper_battlers.include?(self.marking_battler) and
        self.marking? and self.marking_battler != target
         result = false
@@ -1419,23 +1420,23 @@ class Game_Battler
 =end
       end
     #----------------------------------------------------------------
-    # “K³ƒ^[ƒQƒbƒg“à‚ÉŒ»İ‘I‚ñ‚Å‚¢‚é‘ÎÛ‚ª‚¢‚È‚¢ê‡AƒGƒ‰[
+    # é©æ­£ã‚¿ãƒ¼ã‚²ãƒƒãƒˆå†…ã«ç¾åœ¨é¸ã‚“ã§ã„ã‚‹å¯¾è±¡ãŒã„ãªã„å ´åˆã€ã‚¨ãƒ©ãƒ¼
     #----------------------------------------------------------------
     else
       result = false
     end
-    # Œ‹‰Ê‚ğ•Ô‚·
+    # çµæœã‚’è¿”ã™
     return result
   end
   
   #----------------------------------------------------------------
-  # œ ’§”­¬Œ÷H
+  # â— æŒ‘ç™ºæˆåŠŸï¼Ÿ
   #----------------------------------------------------------------
   def incite_success?
     return ((self.state?(96) or self.state?(104)) and self.bad_state_number <= 0)
   end
   #----------------------------------------------------------------
-  # œ ƒfƒtƒHƒ‹ƒg‚ÌŒÄ‚Ñ•ûiˆêlÌj
+  # â— ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‘¼ã³æ–¹ï¼ˆä¸€äººç§°ï¼‰
   #----------------------------------------------------------------
   def defaultname_self
     text = ""
@@ -1444,12 +1445,12 @@ class Game_Battler
     else
       text = $data_SDB[self.class_id].default_name_self
     end
-    text.gsub!("–²–‚–¼","#{self.name}")
-    text.gsub!("–²–‚’Zk–¼","#{$msg.short_name(self)}")
+    text.gsub!("å¤¢é­”å","#{self.name}")
+    text.gsub!("å¤¢é­”çŸ­ç¸®å","#{$msg.short_name(self)}")
     return text
   end
   #----------------------------------------------------------------
-  # œ ƒfƒtƒHƒ‹ƒg‚ÌŒÄ‚Ñ•ûi“ñlÌj
+  # â— ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‘¼ã³æ–¹ï¼ˆäºŒäººç§°ï¼‰
   #----------------------------------------------------------------
   def defaultname_hero
     text = ""
@@ -1458,39 +1459,37 @@ class Game_Battler
     else
       text = $data_SDB[self.class_id].default_name_hero
     end
-    text.gsub!("ålŒö–¼","#{$game_actors[101].name}")
-    text.gsub!("ålŒö’Zk–¼","#{$msg.short_name($game_actors[101])}")
+    text.gsub!("ä¸»äººå…¬å","#{$game_actors[101].name}")
+    text.gsub!("ä¸»äººå…¬çŸ­ç¸®å","#{$msg.short_name($game_actors[101])}")
     return text
   end
   #----------------------------------------------------------------
-  # œ ŒÄ‚Ñ•ûiˆêlÌj
+  # â— å‘¼ã³æ–¹ï¼ˆä¸€äººç§°ï¼‰
   #----------------------------------------------------------------
   def nickname_self
     text = self.defaultname_self
     text = @nickname_self if @nickname_self != nil
-    text.gsub!("–²–‚–¼","#{self.name}")
-    text.gsub!("–²–‚’Zk–¼","#{$msg.short_name(self)}")
+    text.gsub!("å¤¢é­”å","#{self.name}")
+    text.gsub!("å¤¢é­”çŸ­ç¸®å","#{$msg.short_name(self)}")
     return text
   end
   #----------------------------------------------------------------
-  # œ ŒÄ‚Ñ•ûiƒjlÌj
+  # â— å‘¼ã³æ–¹ï¼ˆãƒ‹äººç§°ï¼‰
   #----------------------------------------------------------------
   def nickname_master
     text = self.defaultname_hero
     text = @nickname_master if @nickname_master != nil
-    text.gsub!("ålŒö–¼","#{$game_actors[101].name}")
-    text.gsub!("ålŒö’Zk–¼","#{$msg.short_name($game_actors[101])}")
+    text.gsub!("ä¸»äººå…¬å","#{$game_actors[101].name}")
+    text.gsub!("ä¸»äººå…¬çŸ­ç¸®å","#{$msg.short_name($game_actors[101])}")
     return text
   end
   #----------------------------------------------------------------
-  # œ defining UK names - temporary definition w/ rescue
+  # â— defining UK names - REAL definition
   #----------------------------------------------------------------
   def UK_name
-    text = self.defaultname_self
     if self.is_a?(Game_Enemy)
-      text = $data_enemies[@enemy_id].UK_name rescue text = error
-      else text = "not an enemy"
+      return $data_enemies[@enemy_id].UK_name
     end
-    return text
+    return @name
   end
 end
